@@ -43,29 +43,29 @@ _Hier die Produktvision und den Projektzweck in 2–3 Sätzen beschreiben._
 | Ereignis | Wann | Dauer | Moderation
 
 | Standup (Daily / Weekly)
-| [z. B. täglich 09:30]
-| [z. B. 15 min]
-| [Rolle / Person]
+| Dienstags und Freitags 21 Uhr
+| 15min
+| Abdul
 
 | Sprint Planning
-| [z. B. montags, Sprintstart]
-| [z. B. 2 h]
-| [Rolle / Person]
+| jede Woche Sonntag 11:ßß Uhr
+| 1,5h
+| Abdul
 
 | Sprint Review
-| [z. B. freitags, Sprintende]
-| [z. B. 1 h]
-| [Rolle / Person]
+| Sonntag 10 Uhr
+| 30min
+| Abdul
 
 | Retrospektive
-| [z. B. freitags, nach Review]
-| [z. B. 1 h]
+| Sonntags nach Review
+| 30min
 | [Rolle / Person]
 
 | Backlog Refinement
-| [z. B. mittwochs, wöchentlich]
-| [z. B. 1 h]
-| [Rolle / Person]
+| Alle 2 Wochen Sonntags nach Sprintplaning
+| 1h
+| Abdul
 |===
 
 == Kommunikation
@@ -78,7 +78,7 @@ _Hier die Produktvision und den Projektzweck in 2–3 Sätzen beschreiben._
 | [z. B. Discord – #projektname]
 
 | Entscheidungsprotokoll
-| [z. B. Wiki oder per AsciiDoc in Ordner <Ordnername>]
+| AsciiDoc im Ordner Team
 
 | Erwartete Reaktionszeit
 | [z. B. innerhalb von 4 Stunden während Kernzeit]
