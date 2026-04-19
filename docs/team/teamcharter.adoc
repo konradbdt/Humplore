@@ -48,7 +48,7 @@ _Hier die Produktvision und den Projektzweck in 2–3 Sätzen beschreiben._
 | Abdul
 
 | Sprint Planning
-| jede Woche Sonntag 11:ßß Uhr
+| jede Woche Sonntag 11:00 Uhr
 | 1,5h
 | Abdul
 
