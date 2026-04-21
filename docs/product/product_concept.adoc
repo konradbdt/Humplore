@@ -1,11 +1,10 @@
 = Produktkonzept: humplore
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
-include::../_includes/default-attributes.inc.adoc[]
-// Platzhalter für weitere Dokumenten-Attribute
 
 
-_Humplore ist eine Plattform für echtes Wissen aus erster Hand. Statt nach Personen zu suchen, entdecken Nutzer Themen wie „Blindheit“, „Rettungssanitäter“ oder „Ex-Häftling“ – und finden echte Menschen, die ihre Erfahrungen dazu teilen.
+
+Humplore ist eine Plattform für echtes Wissen aus erster Hand. Statt nach Personen zu suchen, entdecken Nutzer Themen wie „Blindheit“, „Rettungssanitäter“ oder „Ex-Häftling“ – und finden echte Menschen, die ihre Erfahrungen dazu teilen.
 
 Im Gegensatz zu klassischen Plattformen geht es nicht um Selbstdarstellung oder Trends, sondern um authentische Einblicke in reale Lebenswelten. Creator stehen für ein Thema und liefern fokussierten, informativen Content.
 
