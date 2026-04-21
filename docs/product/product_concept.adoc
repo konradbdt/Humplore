@@ -5,11 +5,13 @@ include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
 
-_Dieses Dokument beschreibt das Produkt auf konzeptioneller Ebene — was gebaut wird, warum, für wen, und unter welchen Rahmenbedingungen. Es richtet sich an alle Projektbeteiligten:
-Stakeholder, Product Owner, Designer und Entwickler:innen._
+_Humplore ist eine Plattform für echtes Wissen aus erster Hand. Statt nach Personen zu suchen, entdecken Nutzer Themen wie „Blindheit“, „Rettungssanitäter“ oder „Ex-Häftling“ – und finden echte Menschen, die ihre Erfahrungen dazu teilen.
 
-_Das Dokument ist so aufgebaut, dass es relativ stabil bleibt. Detaillierte UX-Artefakte wie Personas, Nutzerkontext,
-Interaktionsflüsse und Design-Entscheidungen sind im UX-Konzept beschrieben._
+Im Gegensatz zu klassischen Plattformen geht es nicht um Selbstdarstellung oder Trends, sondern um authentische Einblicke in reale Lebenswelten. Creator stehen für ein Thema und liefern fokussierten, informativen Content.
+
+Humplore verwandelt Social Media in eine lebendige, menschliche Wissensquelle – persönlich, glaubwürdig und relevant.
+
+Während andere Plattformen klar definierte Rollen haben – Pinterest für Inspiration, Facebook für soziale Kontakte, TikTok und Instagram für Unterhaltung und Dopamin, Reddit und Quora für Communities und offene Fragen – positioniert sich Humplore als Plattform für echte Perspektiven: ein Ort, an dem Menschen Berufe, Krankheiten, Umstände und Schicksale aus erster Hand verstehen können.
 
 ---
 
