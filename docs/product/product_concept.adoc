@@ -44,8 +44,7 @@ NOTE: Das Visions-Statement kann im Team mit der „Elevator Pitch"-Methode oder
 
 === Zielbild
 
-_Optional: Beschreibe in 2–4 Sätzen, wie die Welt mit diesem Produkt aussieht. Was hat sich für die Nutzer:innen verändert?_
-//[Hier das Zielbild beschreiben]
+Mit Humplore sieht die Welt so aus, dass Menschen gezielt echte Lebensrealitäten verstehen können. Nutzer erhalten direkten Zugang zu Erfahrungen aus erster Hand und entwickeln dadurch mehr Empathie und ein tieferes Verständnis für unterschiedliche Lebenswege. Vorurteile und Stigmatisierung werden reduziert, weil unbekannte Themen sichtbar und nachvollziehbar werden. Social Media wird dadurch von reiner Unterhaltung zu einem Werkzeug für Bildung und Perspektivwechsel.
 
 
 == Produktpositionierung
