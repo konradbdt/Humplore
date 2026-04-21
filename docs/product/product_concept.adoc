@@ -16,14 +16,9 @@ Während andere Plattformen klar definierte Rollen haben wie Pinterest für Insp
 
 == Motivation
 
-_Warum wird dieses Produkt gebaut? Welches Problem existiert heute, und warum ist es relevant?
-Dieser Abschnitt beschreibt den Ausgangszustand und den Handlungsbedarf — ohne bereits eine
-Lösung zu nennen. 3–5 Sätze genügen._
+Humplore wird gebaut, um den Menschen die Möglichkeit zu geben, in die Welt anderer einzutauchen und die Perspektiven verschiedener Lebensrealitäten zu verstehen. Es geht darum, echte Einblicke statt inszenierter Inhalte zu schaffen.
 
-[Hier die Ausgangssituation und den Handlungsbedarf beschreiben. Beispiel:
-„Studierende an der Hochschule haben heute keinen zentralen Überblick über verfügbare
-Lernräume. Die Suche nach freien Plätzen kostet täglich wertvolle Zeit und führt zu Frust.
-Eine einfache, mobil nutzbare Lösung fehlt bisher."]
+Die Plattform löst das Problem, dass soziale Medien oft oberflächliche Darstellungen fördern und wichtige Lebensbereiche unsichtbar bleiben. Humplore will Themen wie Stigmatisierung, Vorurteile, soziale Ausgrenzung und mangelndes Verständnis für Berufe, Krankheiten oder schwierige Lebensumstände abbauen. Dadurch entsteht mehr Empathie, Aufklärung und ein realistischeres Bild der Welt durch echte Erfahrungen.
 
 == Produktvision
 
