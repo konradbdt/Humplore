@@ -22,9 +22,9 @@ Die Plattform löst das Problem, dass soziale Medien oft oberflächliche Darstel
 
 == Produktvision
 
-_Die Produktvision beschreibt in einem oder wenigen Sätzen den angestrebten Zielzustand.
-Sie ist inspirierend, prägnant und stabil — sie sollte sich über die gesamte Projektlaufzeit
-nicht wesentlich verändern._
+Unsere Produktvision ist es, eine Plattform zu bauen, deren USP sowohl für User als auch für Creator klar und intuitiv erkennbar ist. Inhalte sollen in Form von Videos und Blogs stattfinden, ergänzt durch Fragerunden auf einer Pinnwand. Dabei legen wir Wert auf eine flüssig funktionierende, einfache und nahtlose Nutzererfahrung.
+
+Ziel für die ersten 12 Monate = 1 MILLION User-Marke zu erreichen.
 
 === Visions-Statement
 
