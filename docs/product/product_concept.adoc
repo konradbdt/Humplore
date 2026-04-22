@@ -90,17 +90,17 @@ typische Aufgaben — sind im link:ux_concept.adoc[UX-Konzept] dokumentiert.
 |===
 | Alternative | Beschreibung | Warum unser Produkt besser passt
 
-| [z. B. E-Mail-Anfrage an Sekretariat]
-| [Wie lösen Nutzer:innen das Problem heute?]
-| [Worin liegt unser Vorteil?]
+| Reddit
+| Community Plattform. Sehr schnelllebig. Beispiel: "Ich habe Depressionen, stellt mir eure Fragen". Viel Anonym, nicht erkennbar ob echt oder Fake. Es geht hier auch viel um Meinung und Diskussion
+| Humplore ist themen- und personenbasiert. Inhalte kommen gezielt von Menschen, die tatsächlich Erfahrung mit einem Thema haben und dafür stehen. Statt einzelner Kommentare bekommst du strukturierte, wiederkehrende Einblicke aus erster Hand.
 
-| [z. B. Aushang an schwarzem Brett]
-| [Beschreibung]
-| [Unterschied]
+| Quora
+| Plattform, die sich auf Fragen & Antworten spezialisiert hat. Ähnliche Kernfuntion wie: Gutefrage.Net
+| Auf humplore könnte man Fragen gezielter an die Creator selbst stellen. Mann könnte Sie direkt Anschreiben oder an die Pinnwand eine Frage hinterlassen.
 
-| [Weitere Alternative]
-| [Beschreibung]
-| [Unterschied]
+| LinkedIn
+| LinkedIn zeigt Berufe aus einer Karriere- und Selbstdarstellungsperspektive. Lebensläufe, Erfolge, Netzwerken, „wie komme ich weiter“. Inhalte sind oft optimiert für Außenwirkung und Professionalität.
+| Humplore zeigt Berufe aus der echten Alltagsperspektive. Wie fühlt sich der Job an? Was sind die Schattenseiten? Wie sieht ein typischer Tag wirklich aus? Hier geht es nicht um Karriereaufbau, sondern um ehrliche Einblicke und Verständnis.
 |===
 
 
