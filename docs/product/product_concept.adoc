@@ -123,7 +123,7 @@ erklärt, warum bestimmte Entscheidungen getroffen wurden.
 | Reichweite, einfache Content-Erstellung, klare Themenstruktur
 | Hoch
 
-| Schülder und Studierende
+| Schüler und Studierende
 | Nutzen Plattform für Lernen, Recherche und Berufsorientierung
 | Strukturierte Inhalte, Suchfunktion nach Themen, verlässliche Infos (Qualifizierte Creator)
 | Hoch
@@ -142,7 +142,14 @@ erklärt, warum bestimmte Entscheidungen getroffen wurden.
 | Interesse an Einblicke in Berufe 
 | Authentische Darstellung von Berufen, neue Mitarbeiter Scouten sollte leicht gemacht sein
 | Hoch
+
+| Mitarbeiter/In
+| Unterstützung des StartUps in der Entwicklung, Marketing, Wachstum und Instandhaltung 
+| Einstellen von motivierten Mitarbeitern, die die Mission verstehen 
+| Hoch
 |===
+
+
 
 == Hauptfunktionen
 
