@@ -113,25 +113,35 @@ erklärt, warum bestimmte Entscheidungen getroffen wurden.
 |===
 | Stakeholder | Rolle / Interesse | Erwartungen an das Produkt | Einfluss
 
-| [z. B. Hochschulverwaltung]
-| [Betreiber der Infrastruktur; will Raumauslastung optimieren]
-| [Auslastungsberichte, DSGVO-Konformität]
+| User
+| Hauptnutzer/In wollen echte Einblicke und Verständnis gewinnen
+| Einfache Nutzung, relevante Inhalte, echte Perspektiven
 | Hoch
 
-| [z. B. Studierende]
-| [Hauptnutzer:innen; wollen schnell freie Plätze finden]
-| [Einfache Bedienung, mobiler Zugang]
-| Mittel
+| Creator
+| Liefern Inhalte. Teilen Wissen und persönliche Erfahrungen
+| Reichweite, einfache Content-Erstellung, klare Themenstruktur
+| Hoch
 
-| [z. B. Lehrende]
-| [Nutzen Räume für Lehrveranstaltungen; wollen Konflikte vermeiden]
-| [Sichtbarkeit ihrer Buchungen]
-| Mittel
+| Schülder und Studierende
+| Nutzen Plattform für Lernen, Recherche und Berufsorientierung
+| Strukturierte Inhalte, Suchfunktion nach Themen, verlässliche Infos (Qualifizierte Creator)
+| Hoch
 
-| [Weiterer Stakeholder]
-| [Beschreibung]
-| [Erwartungen]
-| [Hoch / Mittel / Niedrig]
+| Unis & Schulen & Ausbildungsstätte
+| Nutzen Inhalte für Unterricht und Praxisbeispiele
+| leicht auffindbare Inhalte, Seriösität
+| Hoch
+
+| Investoren
+| Finanzierung und Wachstum des StartUps 
+| Monitarisierung, Einstellen von Mitarbeitern oder direkte Eingliederung in ein bestehendes Team, Marketing
+| Hoch
+
+| Unternehmen
+| Interesse an Einblicke in Berufe 
+| Authentische Darstellung von Berufen, neue Mitarbeiter Scouten sollte leicht gemacht sein
+| Hoch
 |===
 
 == Hauptfunktionen
