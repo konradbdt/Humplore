@@ -2,40 +2,24 @@
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 
-
-
-Humplore ist eine Plattform für echtes Wissen aus erster Hand. Statt nach Personen zu suchen, entdecken Nutzer Themen wie „Blindheit“, „Rettungssanitäter“ oder „Ex-Häftling“ und finden echte Menschen, die ihre Erfahrungen dazu teilen.
-
-Im Gegensatz zu klassischen Plattformen geht es nicht um Selbstdarstellung oder Trends, sondern um authentische Einblicke in reale Lebenswelten. Creator stehen für ein Thema und liefern fokussierten, informativen Content.
-
-Humplore verwandelt Social Media in eine lebendige, menschliche Wissensquelle. Persönlich, glaubwürdig und relevant.
-
-Während andere Plattformen klar definierte Rollen haben wie Pinterest für Inspiration, Facebook für soziale Kontakte, TikTok und Instagram für Unterhaltung und Dopamin, Reddit und Quora für Communities und offene Fragen, positioniert sich Humplore als Plattform für echte Perspektiven: ein Ort, an dem Menschen Berufe, Krankheiten, Umstände und Schicksale aus erster Hand verstehen können.
-
 ---
 
 == Motivation
 
-Humplore wird gebaut, um den Menschen die Möglichkeit zu geben, in die Welt anderer einzutauchen und die Perspektiven verschiedener Lebensrealitäten zu verstehen. Es geht darum, echte Einblicke statt inszenierter Inhalte zu schaffen.
-
-Die Plattform löst das Problem, dass soziale Medien oft oberflächliche Darstellungen fördern und wichtige Lebensbereiche unsichtbar bleiben. Humplore will Themen wie Stigmatisierung, Vorurteile, soziale Ausgrenzung und mangelndes Verständnis für Berufe, Krankheiten oder schwierige Lebensumstände abbauen. Dadurch entsteht mehr Empathie, Aufklärung und ein realistischeres Bild der Welt durch echte Erfahrungen.
+Wenn man sich heutzutage über ein Thema informieren will und nach Erfahrungen anderer mit dem Thema sucht, dann findet man auf SocialMedia nur teilweise sinnvolle Beiträge zwischen einem Haufen irrelevanter Informationen. Es gibt keine wirkliche Struktur und keinen Filter für die Art der Beiträge. Man sucht also zwischen Tänzen, Rezepten oder Motivationssprüchen nach echten Erfahrungen! Dabei muss man sich oft aber auch am Thumbnail oder den Hashtags orientieren, was einen ziemlich verwirren und verunsichern kann!
 
 == Produktvision
-
-Unsere Produktvision ist es, eine Plattform zu bauen, deren USP sowohl für User als auch für Creator klar und intuitiv erkennbar ist. Inhalte sollen in Form von Videos und Blogs stattfinden, ergänzt durch Fragerunden auf einer Pinnwand. Dabei legen wir Wert auf eine flüssig funktionierende, einfache und nahtlose Nutzererfahrung.
-
-Ziel für die ersten 12 Monate = 1 MILLION User-Marke zu erreichen.
 
 === Visions-Statement
 
 ____
-Für [Zielgruppe],
-die [Problem oder Bedarf],
-ist [Produktname]
-ein [Produktkategorie],
-das [zentraler Nutzen].
-Im Gegensatz zu [Alternative]
-bietet unser Produkt [entscheidender Unterschied].
+Für SoicalMedia Nutzer,
+die nach echten Erfahrungen suchen,
+ist Humplore
+eine Plattform,
+die echte Erfahrung strukturiert und leicht auffind- und filterbar darstellt.
+Im Gegensatz zu Reddit
+bietet unser Produkt einen Fokus auf inhaltlich hochwertige Beiträge und echte Erfahrungen.
 ____
 
 //Beispiel: Für Studierende der HTWD, die zu wenig Zeit in der Mittagspause zum Essen haben, ist Flying Burger ein Lieferdienst für Burger, der per Drohne liefert. Anders als landgestützte Lieferdienste kann unser Produkt durchs Fenster direkt in den Hörsaal liefern.
@@ -56,10 +40,11 @@ _Wer sind die Zielgruppen, und wie positioniert sich das Produkt im Vergleich zu
 |===
 | Zielgruppe | Beschreibung
 
-| Student/In, Schüler/In
-|Studierende/Schüler können auf Humplore gezielt Inhalte für Projekte oder Hausarbeiten zu Themen wie Krankheiten, Berufen oder Psychologie finden. Gleichzeitig erweitern sie ihren Horizont, indem sie direkte Einblicke in Berufe erhalten von Menschen, die diese tatsächlich ausüben oder studieren.
+| Studenten
+|Studenten die sich nach Möglichkeiten nach dem Studium umsehen wollen und nicht wissen was auf sie zukommmt.
 
 | Lehrer/In, Dozent/In
+| Lehrende schaffen es oft nicht Themen Alltagsnah und spannend zu gestalten und greifen oft zu abstrakten Beispielen!
 | Ein Lehrer/In o. Dozent/In würde Humplore nutzen, um Unterricht durch reale Einblicke aus dem echten Leben zu ergänzen. Statt nur theoretischer Inhalte kann er Schüler:innen zeigen, wie Berufe, Krankheiten oder Lebensumstände tatsächlich erlebt werden. Die Plattform eignet sich für praxisnahe Beispiele, Diskussionen im Unterricht und zur Unterstützung der Berufsorientierung. Außerdem können Schüler:innen eigenständig recherchieren und sich über Themen aus erster Hand informieren.
 
 | Neugiere User
@@ -72,12 +57,12 @@ _Wer sind die Zielgruppen, und wie positioniert sich das Produkt im Vergleich zu
 |Ein Mitarbeitender würde Humplore nutzen, um Einblicke in andere Abteilungen, Berufe und Arbeitsweisen zu erhalten und so seinen eigenen Horizont zu erweitern. Die Plattform ermöglicht es, von den Erfahrungen anderer zu lernen und ein besseres Verständnis für unterschiedliche Rollen im Unternehmen oder Arbeitsmarkt zu entwickeln. 
 
 
+| Schüler
+| Schüler wissen oft nicht was dem Abschluss ansteht und werden auf Messen auch nur zum Studium nicht aber zum Studienleben informiert.
 
-|Otto Normalverbraucher 
-|User, die auf diversen Plattformen wie TikTok oder Reddit sind, könnten mit Inhanlt über spezifische Perspektiven auch Ihre Zeit vertreiben. Allerdings nicht so stark ausgeprägt wie vorhanden. 
+|Kranke
+|Menschen mit Krankheiten oder Einschränkungen suchen oft nach Gleichgesinnten um ihr Leid zu teilen und sich Tipps für gewisse Umstände von anderen zu holen
 
-|Erklärung suchende
-|Die andere Lebenswelten besser verstehen und Vorurteile abbauen möchten
 
 |===
 
@@ -91,16 +76,13 @@ typische Aufgaben — sind im link:ux_concept.adoc[UX-Konzept] dokumentiert.
 | Alternative | Beschreibung | Warum unser Produkt besser passt
 
 | Reddit
-| Community Plattform. Sehr schnelllebig. Beispiel: "Ich habe Depressionen, stellt mir eure Fragen". Viel Anonym, nicht erkennbar ob echt oder Fake. Es geht hier auch viel um Meinung und Diskussion
-| Humplore ist themen- und personenbasiert. Inhalte kommen gezielt von Menschen, die tatsächlich Erfahrung mit einem Thema haben und dafür stehen. Statt einzelner Kommentare bekommst du strukturierte, wiederkehrende Einblicke aus erster Hand.
+| Ist eine Plattform mit vielen Diskussionen und Fragerunden zu allen möglichen Themen.
+| Humplore versichert authentische Beiträge. Ein Thema bringt gleich mehrere Beiträge mit und nicht nur eine Diskussion oder einen einzelnen Beitrag einer PErson zu einem Thema
 
-| Quora
-| Plattform, die sich auf Fragen & Antworten spezialisiert hat. Ähnliche Kernfuntion wie: Gutefrage.Net
-| Auf humplore könnte man Fragen gezielter an die Creator selbst stellen. Mann könnte Sie direkt Anschreiben oder an die Pinnwand eine Frage hinterlassen.
+| Instagram
+| Eine Plattform, auf der Leute zu allen möglichen Themen Beiträge posten können
+| Humplore fokusiert sich mehr auf Erfahrungen zu einem bestimmten Thema. Keine rein unterhaltene Beiträge sondern immer auch gleichzeitig informierende Beiträge
 
-| LinkedIn
-| LinkedIn zeigt Berufe aus einer Karriere- und Selbstdarstellungsperspektive. Lebensläufe, Erfolge, Netzwerken, „wie komme ich weiter“. Inhalte sind oft optimiert für Außenwirkung und Professionalität.
-| Humplore zeigt Berufe aus der echten Alltagsperspektive. Wie fühlt sich der Job an? Was sind die Schattenseiten? Wie sieht ein typischer Tag wirklich aus? Hier geht es nicht um Karriereaufbau, sondern um ehrliche Einblicke und Verständnis.
 |===
 
 
@@ -113,6 +95,30 @@ erklärt, warum bestimmte Entscheidungen getroffen wurden.
 |===
 | Stakeholder | Rolle / Interesse | Erwartungen an das Produkt | Einfluss
 
+| Explorer
+| Hauptnutzer; wollen verstehen wie andere Leben/Denken
+| Authentische Inhalte/Profile, einfache Nutzung
+| Hoch
+
+| Betreiber
+| Entwickeln und Vertreiben das Produkt
+| Einfache Wartung/Skalierung, leichte Analyse
+| Mittel
+
+| Storyteller
+| Menschen, die ihre echten Erfahrungen teilen
+| Leicht Sachen zu posten, anonymität, Sicherheit
+| Mittel
+
+| Gesetzgeber
+| gibt Gesetze vor
+| Einhaltung der DGVO
+| [Hoch / Mittel / Niedrig]
+
+| Influenzer
+| helfen beim Wachtum
+| einfaches Konzept, gutes Design
+| Mittel
 | User
 | Hauptnutzer/In wollen echte Einblicke und Verständnis gewinnen
 | Einfache Nutzung, relevante Inhalte, echte Perspektiven
@@ -161,6 +167,41 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 |===
 | Nutzerbedarf | Hauptfunktion | Priorität
 
+| Nutzer:innen wollen gezielt nach echten Erfahrungen zu bestimmten Themen suchen
+| Themenbasierte Suche & intelligente Filter (z. B. nach Lebenssituation, Beruf, Krankheit, Alter)
+| Hoch
+
+| Nutzer:innen wollen schnell mehrere Perspektiven zu einem Thema sehen
+| Erfahrungs-Feeds pro Thema
+| Hoch
+
+| Storyteller möchten ihre Erfahrungen einfach und sicher teilen.
+| Erfahrungs-Posting mit Struktur (Leitfragen, Kategorien, optional anonym)
+| Mittel
+
+| Nutzer:innen wollen die Qualität und Relevanz von Beiträgen einschätzen
+| Bewertungs- und Vertrauenssystem (z. B. hilfreich, authentisch, nachvollziehbar)
+| Niedrig
+
+| Nutzer:innen wollen Inhalte speichern und später wiederfinden
+| Favoriten & Sammlungen
+| Hoch
+
+| Nutzer:innen wollen personalisierte Inhalte erhalten
+| Personalisierter Feed basierend auf Interessen
+| Hoch
+
+| Betreiber möchten Inhalte moderieren und Qualität sichern
+| Moderations- und Reporting-System
+| Hoch
+
+| Betreiber möchten Nutzung und Wachstum analysieren
+| Analyse-Dashboard (z. B. beliebte Themen, Engagement)
+| Mittel
+
+| Nutzer:innen wollen gezielt Rückfragen zu Erfahrungen stellen können
+| Fragefunktion an Creator (z. B. direkte Fragen unter Beiträgen oder als Q&A-Format, optional anonym)
+| Hoch
 | Nutzer wollen gezielt nach echten Erfahrungen zu sensiblen Themen suchen (z. B. Krankheiten, Berufe)
 | Suchfunktion mit Themenbasierten Wörter
 | Hoch

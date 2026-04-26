@@ -20,11 +20,31 @@ auf Annahmen allein._
 
 _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur benannt. Hier werden sie als Personas ausgearbeitet._
 
-=== Persona 1: [Name]
+=== Persona 1: Franz Meier
 
 [cols="1,3"]
 |===
 | *Rolle*
+| Student im 5. Semester Informatik
+
+| *Alter*
+| 23
+
+| *Zitat*
+| _„Ich bin jetzt schon im 5. Semester und bald durch. Ich fühle mich trotzdem noch recht unsicher und kann mir mittlerweile nicht vorstellen, wie es ist später wirklich mehr Verantwortung zu übernehmen!"_
+
+| *Ziele*
+| Will sich langsam schon nach einem Unternehmen umsehen und eventuell einen Werkstudentenjob raussuchen!
+
+| *Frustrationen*
+| Unsicherheit. Ist das auch das richtige?
+
+| *Verhalten & Kontext*
+| Häufig im Studium. Sehr viel am Handy, weniger Laptop. Viel IPad! Sehr versiert
+
+| *Bezug zum Produkt*
+| Findet leicht Erfahrungen von Leuten in der Situation wo er hin will und kann fragen stellen!
+|===
 | Marlene, Brustkrebs, Stadium 2
 
 | *Alter*
@@ -47,11 +67,81 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 
 
 
-=== Persona 2: [Name]
+=== Persona 2: Anton Zimmer
 
 [cols="1,3"]
 |===
 | *Rolle*
+| Arbeitnehmer als Steuerfachangestellter und hat seit kurzem Herpes
+
+| *Alter*
+| 27
+
+| *Zitat*
+| _„Bisher war mein Leben recht vorhersehbar und das gefällt mir so!"_
+
+| *Ziele*
+| Will eine Frau fürs Leben finden!
+
+| *Frustrationen*
+| Hat Angst durch seinen Herpes auf Ablehnung zu stoßen
+
+| *Verhalten & Kontext*
+| Viel am PC. Auf Arbeit wenig am Handy. Technisch recht versiert. 
+
+| *Bezug zum Produkt*
+| Findet leicht Erfahrungen andere mit Herpes sowie Tipp und Mutzuspruch
+|===
+
+=== Persona 3: Lena Heinz
+
+[cols="1,3"]
+|===
+| *Rolle*
+| Arbeitnehmer als Verköuferin
+
+| *Alter*
+| 32
+
+| *Zitat*
+| _„Ich bin zufrieden mit dem was ich mache, aber komme nicht so viel rum. Ich würde gerne mehr über die Welt erfahren."_
+
+| *Ziele*
+| Will mehr über andere Erfahren/Mehr über die Welt erfahren
+
+| *Frustrationen*
+| Verliert die Interesse, da relevante Beiträge zwischen irgendwelchen Tanzvideos und Kochtutorials zu finden sind
+
+| *Verhalten & Kontext*
+| Viel am PC. Handyu nd Tablet eher weniger
+
+| *Bezug zum Produkt*
+| Krieg einen Einblick ins Leben andere ohne anderartige Beiträge bzw ohne abgelenkt zu werden
+|===
+
+=== Persona 4: Lena Heinz
+
+[cols="1,3"]
+|===
+| *Rolle*
+| Model
+
+| *Alter*
+| 24
+| *Zitat*
+| _„Ich musste mich bis ich hier war hochkämpfen und habe auch viele Fehler gemacht. Es war ein steiniger Weg."_
+
+| *Ziele*
+| Möchte anderen Helfen, ihre Sicht auf die Dinge darlegen
+
+| *Frustrationen*
+| Geht schnell auf anderen SocialMedia Platfformen unter und lässt sich oft zu rein aesthetischen/unterhaltungs Beiträgen hinreißen
+
+| *Verhalten & Kontext*
+| Da recht jung technisch sehr versiert, was Handy und Tablet angeht. Grundfunktionen Laptop.
+
+| *Bezug zum Produkt*
+| Kann leicht über ihre Erfahrungen.
 | Thomas, macht im Moment sein Abitur in der 11. Klasse
 
 | *Alter*
@@ -99,6 +189,7 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 
 NOTE: Für jedes Projekt sind 2–4 Personas ausreichend. Mehr Personas verwässern
 den Fokus. Wenn eine Persona in keiner User Story vorkommt, wird sie gestrichen.
+
 
 == Nutzungskontext
 
