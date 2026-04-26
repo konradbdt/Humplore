@@ -45,6 +45,27 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 | *Bezug zum Produkt*
 | Findet leicht Erfahrungen von Leuten in der Situation wo er hin will und kann fragen stellen!
 |===
+| Marlene, Brustkrebs, Stadium 2
+
+| *Alter*
+| 51
+
+| *Zitat*
+| Ich kämpfe seit Jahren mit Brustkrebs und möchte euch einen ehrlichen Einblick in mein Leben, meinen Kampf und die täglichen Herausforderungen geben.
+
+| *Ziele*
+| Ich möchte Menschen motivieren zu kämpfen! Aufzeigen, dass Sie nicht alleine sind 
+
+| *Frustrationen*
+| Oberflächliche Social Media Inhalte. Es gibt keine Möglichkeiten Menschen mit der selben Art der Erkranung zu treffen, die auch über Ihre Erfahrung sprechen.
+
+| *Verhalten & Kontext*
+| Smartphone oder gelegentlich Tablet. Nutzt die Plattform, um eigene Beiträge zu posten und mehr über die Erfahrungen anderer mit derselben oder unterschiedlichen Krankheiten zu erfahren.
+
+| *Bezug zum Produkt*
+| Nutzt die Plattform, um eigene Beiträge zu posten und mehr über die Erfahrungen anderer mit derselben oder unterschiedlichen Krankheiten zu erfahren.
+
+
 
 === Persona 2: Anton Zimmer
 
@@ -121,6 +142,49 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 
 | *Bezug zum Produkt*
 | Kann leicht über ihre Erfahrungen.
+| Thomas, macht im Moment sein Abitur in der 11. Klasse
+
+| *Alter*
+| 15
+
+| *Zitat*
+| Ich habe noch keine passende Berufsorientierung. Ich brauche Unterstützung bei der Findung. Was will ich werden?
+
+| *Ziele*
+| Auf Humplore möchte ich Einblicke und Eindrücke in verschiedene Berufe bekommen, um herauszufinden, was zu mir passt und mir Spaß macht.
+
+| *Frustrationen*
+| Ich kann mich dazu nur im Internet belesen, aber das fühlt sich oft kalt und langweilig an. Auf LinkedIn werden zudem meist oberflächliche Inhalte veröffentlicht, die weder praxisnahe noch fundierte theoretische Beispiele liefern. 
+
+| *Verhalten & Kontext*
+| Hauptsächlich Smartphone Nutzung
+
+| *Bezug zum Produkt*
+| Thomas weiß nach dem Abitur nicht, welchen Weg er einschlagen soll. Er schwankt zwischen einer Ausbildung bei der Polizei oder Feuerwehr sowie einem Studium in Richtung Jura oder Medizin. Auf Humplore findet er passende Profile zu diesen Berufen
+
+[cols="1,3"]
+|===
+| *Rolle*
+| Selbstständiger Tatortreiniger 
+
+| *Alter*
+| 29
+
+| *Zitat*
+| Ich bin beruflich Tatortreiniger. Viele verbinden mit diesem Beruf etwas Negatives. Gerne möchte euch interessante Einblicke geben und zeigen welche spannenden Herausforderung ich täglich habe
+
+| *Ziele*
+| neue Mitarbeiter gewinnen. Menschen überzeugen diesen Beruf auszuführen aufgrund Wichtigkeit. Neue Azubis bekommen
+
+| *Frustrationen*
+| Der Beruf wird mit Negativen Gefühlen in verbindung gesetzt. Sehr stigmatisiert. Es ist sehr schwer, Menschen zu erreichen mit derart von Kontent. Da die meisten Dopamin Ausschüttung suchen. Mein Beruf bleibt fremd..
+
+| *Verhalten & Kontext*
+| Smartphone, Vlogs durch GoPro Aufnahmen
+
+| *Bezug zum Produkt*
+| Primär nutze ich Humplore um Den Tatortreiniger Beruf zu verbreiten. 2. Primäres Ziel ist es Mitarbeiter aus meiner Region zu begeistern und abzuwerben 
+
 |===
 
 NOTE: Für jedes Projekt sind 2–4 Personas ausreichend. Mehr Personas verwässern

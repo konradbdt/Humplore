@@ -45,6 +45,17 @@ _Wer sind die Zielgruppen, und wie positioniert sich das Produkt im Vergleich zu
 
 | Lehrer/In, Dozent/In
 | Lehrende schaffen es oft nicht Themen Alltagsnah und spannend zu gestalten und greifen oft zu abstrakten Beispielen!
+| Ein Lehrer/In o. Dozent/In würde Humplore nutzen, um Unterricht durch reale Einblicke aus dem echten Leben zu ergänzen. Statt nur theoretischer Inhalte kann er Schüler:innen zeigen, wie Berufe, Krankheiten oder Lebensumstände tatsächlich erlebt werden. Die Plattform eignet sich für praxisnahe Beispiele, Diskussionen im Unterricht und zur Unterstützung der Berufsorientierung. Außerdem können Schüler:innen eigenständig recherchieren und sich über Themen aus erster Hand informieren.
+
+| Neugiere User
+| Neugierige User würden Humplore besuchen, weil sie echte Einblicke in Lebensrealitäten bekommen, die sonst schwer zugänglich sind. Sie können gezielt Themen entdecken und Antworten aus erster Hand erhalten, statt nur theoretisches Wissen zu konsumieren. Die Plattform stillt ihren Drang, Neues zu verstehen, Perspektiven zu wechseln und hinter die Oberfläche von Berufen, Krankheiten oder Lebenswegen zu schauen.
+
+|Gleichgesinnte
+|Betroffene würden Humplore nutzen, um sich mit Menschen auszutauschen, die ähnliche Erfahrungen gemacht haben, und sich verstanden zu fühlen. Sie erhalten Einblicke aus erster Hand, die über reine Fakten hinausgehen und im Alltag wirklich weiterhelfen. Die Plattform bietet Orientierung, Unterstützung und das Gefühl, nicht allein mit ihrer Situation zu sein.
+
+|Arbeitstätige
+|Ein Mitarbeitender würde Humplore nutzen, um Einblicke in andere Abteilungen, Berufe und Arbeitsweisen zu erhalten und so seinen eigenen Horizont zu erweitern. Die Plattform ermöglicht es, von den Erfahrungen anderer zu lernen und ein besseres Verständnis für unterschiedliche Rollen im Unternehmen oder Arbeitsmarkt zu entwickeln. 
+
 
 | Schüler
 | Schüler wissen oft nicht was dem Abschluss ansteht und werden auf Messen auch nur zum Studium nicht aber zum Studienleben informiert.
@@ -108,7 +119,43 @@ erklärt, warum bestimmte Entscheidungen getroffen wurden.
 | helfen beim Wachtum
 | einfaches Konzept, gutes Design
 | Mittel
+| User
+| Hauptnutzer/In wollen echte Einblicke und Verständnis gewinnen
+| Einfache Nutzung, relevante Inhalte, echte Perspektiven
+| Hoch
+
+| Creator
+| Liefern Inhalte. Teilen Wissen und persönliche Erfahrungen
+| Reichweite, einfache Content-Erstellung, klare Themenstruktur
+| Hoch
+
+| Schüler und Studierende
+| Nutzen Plattform für Lernen, Recherche und Berufsorientierung
+| Strukturierte Inhalte, Suchfunktion nach Themen, verlässliche Infos (Qualifizierte Creator)
+| Hoch
+
+| Unis & Schulen & Ausbildungsstätte
+| Nutzen Inhalte für Unterricht und Praxisbeispiele
+| leicht auffindbare Inhalte, Seriösität
+| Hoch
+
+| Investoren
+| Finanzierung und Wachstum des StartUps 
+| Monitarisierung, Einstellen von Mitarbeitern oder direkte Eingliederung in ein bestehendes Team, Marketing
+| Hoch
+
+| Unternehmen
+| Interesse an Einblicke in Berufe 
+| Authentische Darstellung von Berufen, neue Mitarbeiter Scouten sollte leicht gemacht sein
+| Hoch
+
+| Mitarbeiter/In
+| Unterstützung des StartUps in der Entwicklung, Marketing, Wachstum und Instandhaltung 
+| Einstellen von motivierten Mitarbeitern, die die Mission verstehen 
+| Hoch
 |===
+
+
 
 == Hauptfunktionen
 
@@ -155,6 +202,53 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 | Nutzer:innen wollen gezielt Rückfragen zu Erfahrungen stellen können
 | Fragefunktion an Creator (z. B. direkte Fragen unter Beiträgen oder als Q&A-Format, optional anonym)
 | Hoch
+| Nutzer wollen gezielt nach echten Erfahrungen zu sensiblen Themen suchen (z. B. Krankheiten, Berufe)
+| Suchfunktion mit Themenbasierten Wörter
+| Hoch
+
+| Nutzer wollen Anonym bleiben (trauen sich nur wenn Sie Anonym sind)
+| Anonyme Profiloption, beim registrieren frewillig ob echtes Bild echter Name oder erfunden
+| Hoch
+
+| Creator wollen ihre persönliche Geschichte strukturiert und verständlich teilen/ 
+| Content- Unterkategorien, Beispiel: Thema HIV, Ich habe meiner Familie davon erzählt; Unterkategorie: Outing 
+| Hoch
+
+| Nutzer wollen Inhalte von Menschen sehen, die wirklich Erfahrung mit dem Thema haben 
+| Verifizierte Erfahrungsprofile 
+| Sehr Hoch 
+
+| Visuelle Inhalte
+| Vlog Formate und Storytelling, Videos hochladen
+| Hoch
+
+| Nutzer wollen Fragen zu einem Thema direkt an Betroffene stellen
+| Pinnwand/Fragebereich auf jedem Profil (Creator beantwortet Fragen direkt oder als Blog/Vlog)
+| Hoch
+
+| Nutzer wollen Creator für wertvollen Content unterstützen.
+| Spendeoption unter jedem Beitrag, Freikäuflicher Kontent 
+| Hoch
+
+| Nutzer wollen mit Inhalten interagieren.
+| Like und Kommentarfeld (Bei uns andere Befriffe)
+| Hoch
+
+| Nutzer wollen relevante Themen oder Personen langfristig verfolgen.
+| Folgen von Themen/Tags 
+| Mittel
+
+| Creator und User wollen sich sicher fühlen auf der Plattform
+| KI-Tool für Schimpfwörter, Mobbing u.s.w.? 
+| Hoch 
+
+| Rabbithole Funktion
+| Das schnelle vertiefen in viele verschiedene Themen, anklicken von Unterkategorien
+| Mittel
+
+
+
+
 |===
 
 NOTE: Die Reihenfolge entspricht einer ersten groben Priorisierung und wird im Rahmen
