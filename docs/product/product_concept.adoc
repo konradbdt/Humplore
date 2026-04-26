@@ -120,25 +120,41 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 |===
 | Nutzerbedarf | Hauptfunktion | Priorität
 
-| Studierende wollen schnell sehen, welche Räume gerade frei sind.
-| Echtzeit-Übersicht freier Lernräume
+| Nutzer:innen wollen gezielt nach echten Erfahrungen zu bestimmten Themen suchen
+| Themenbasierte Suche & intelligente Filter (z. B. nach Lebenssituation, Beruf, Krankheit, Alter)
 | Hoch
 
-| Nutzer:innen wollen einen Raum für einen bestimmten Zeitraum reservieren.
-| Raumbuchung mit Zeitfenster
+| Nutzer:innen wollen schnell mehrere Perspektiven zu einem Thema sehen
+| Erfahrungs-Feeds pro Thema
 | Hoch
 
-| Nutzer:innen wollen ihre aktiven Buchungen verwalten.
-| Buchungsübersicht & Stornierung
+| Storyteller möchten ihre Erfahrungen einfach und sicher teilen.
+| Erfahrungs-Posting mit Struktur (Leitfragen, Kategorien, optional anonym)
 | Mittel
 
-| Verwaltung will die Auslastung der Räume analysieren.
-| Auslastungsberichte für Administratoren
+| Nutzer:innen wollen die Qualität und Relevanz von Beiträgen einschätzen
+| Bewertungs- und Vertrauenssystem (z. B. hilfreich, authentisch, nachvollziehbar)
 | Niedrig
 
-| [Nutzerbedarf]
-| [Hauptfunktion]
-| [Hoch / Mittel / Niedrig]
+| Nutzer:innen wollen Inhalte speichern und später wiederfinden
+| Favoriten & Sammlungen
+| Hoch
+
+| Nutzer:innen wollen personalisierte Inhalte erhalten
+| Personalisierter Feed basierend auf Interessen
+| Hoch
+
+| Betreiber möchten Inhalte moderieren und Qualität sichern
+| Moderations- und Reporting-System
+| Hoch
+
+| Betreiber möchten Nutzung und Wachstum analysieren
+| Analyse-Dashboard (z. B. beliebte Themen, Engagement)
+| Mittel
+
+| Nutzer:innen wollen gezielt Rückfragen zu Erfahrungen stellen können
+| Fragefunktion an Creator (z. B. direkte Fragen unter Beiträgen oder als Q&A-Format, optional anonym)
+| Hoch
 |===
 
 NOTE: Die Reihenfolge entspricht einer ersten groben Priorisierung und wird im Rahmen
