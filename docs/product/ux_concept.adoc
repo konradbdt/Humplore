@@ -25,7 +25,7 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 [cols="1,3"]
 |===
 | *Rolle*
-| Brustkrebs, Stadium 2
+| Marlene, Brustkrebs, Stadium 2
 
 | *Alter*
 | 51
@@ -48,6 +48,7 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 
 
 === Persona 2: [Name]
+
 [cols="1,3"]
 |===
 | *Rolle*
