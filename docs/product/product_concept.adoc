@@ -177,9 +177,34 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 | Verifizierte Erfahrungsprofile 
 | Sehr Hoch 
 
-| [Nutzerbedarf]
-| [Hauptfunktion]
-| [Hoch / Mittel / Niedrig]
+| Visuelle Inhalte
+| Vlog Formate und Storytelling, Videos hochladen
+| Hoch
+
+| Nutzer wollen Fragen zu einem Thema direkt an Betroffene stellen
+| Pinnwand/Fragebereich auf jedem Profil (Creator beantwortet Fragen direkt oder als Blog/Vlog)
+| Hoch
+
+| Nutzer wollen Creator für wertvollen Content unterstützen.
+| Spendeoption unter jedem Beitrag, Freikäuflicher Kontent 
+| Hoch
+
+| Nutzer wollen mit Inhalten interagieren.
+| Like und Kommentarfeld (Bei uns andere Befriffe)
+| Hoch
+
+| Nutzer wollen relevante Themen oder Personen langfristig verfolgen.
+| Folgen von Themen/Tags 
+| Mittel
+
+| Creator und User wollen sich sicher fühlen auf der Plattform
+| KI-Tool für Schimpfwörter, Mobbing u.s.w.? 
+| Hoch 
+
+
+
+
+
 |===
 
 NOTE: Die Reihenfolge entspricht einer ersten groben Priorisierung und wird im Rahmen
