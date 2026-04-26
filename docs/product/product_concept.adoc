@@ -161,21 +161,21 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 |===
 | Nutzerbedarf | Hauptfunktion | Priorität
 
-| Studierende wollen schnell sehen, welche Räume gerade frei sind.
-| Echtzeit-Übersicht freier Lernräume
+| Nutzer wollen gezielt nach echten Erfahrungen zu sensiblen Themen suchen (z. B. Krankheiten, Berufe)
+| Suchfunktion mit Themenbasierten Wörter
 | Hoch
 
-| Nutzer:innen wollen einen Raum für einen bestimmten Zeitraum reservieren.
-| Raumbuchung mit Zeitfenster
+| Nutzer wollen Anonym bleiben (trauen sich nur wenn Sie Anonym sind)
+| Anonyme Profiloption, beim registrieren frewillig ob echtes Bild echter Name oder erfunden
 | Hoch
 
-| Nutzer:innen wollen ihre aktiven Buchungen verwalten.
-| Buchungsübersicht & Stornierung
-| Mittel
+| Creator wollen ihre persönliche Geschichte strukturiert und verständlich teilen/ 
+| Content- Unterkategorien, Beispiel: Thema HIV, Ich habe meiner Familie davon erzählt; Unterkategorie: Outing 
+| Hoch
 
-| Verwaltung will die Auslastung der Räume analysieren.
-| Auslastungsberichte für Administratoren
-| Niedrig
+| Nutzer wollen Inhalte von Menschen sehen, die wirklich Erfahrung mit dem Thema haben 
+| Verifizierte Erfahrungsprofile 
+| Sehr Hoch 
 
 | [Nutzerbedarf]
 | [Hauptfunktion]
