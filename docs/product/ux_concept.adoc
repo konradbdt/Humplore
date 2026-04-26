@@ -71,6 +71,30 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 
 | *Bezug zum Produkt*
 | Thomas weiß nach dem Abitur nicht, welchen Weg er einschlagen soll. Er schwankt zwischen einer Ausbildung bei der Polizei oder Feuerwehr sowie einem Studium in Richtung Jura oder Medizin. Auf Humplore findet er passende Profile zu diesen Berufen
+
+[cols="1,3"]
+|===
+| *Rolle*
+| Selbstständiger Tatortreiniger 
+
+| *Alter*
+| 29
+
+| *Zitat*
+| Ich bin beruflich Tatortreiniger. Viele verbinden mit diesem Beruf etwas Negatives. Gerne möchte euch interessante Einblicke geben und zeigen welche spannenden Herausforderung ich täglich habe
+
+| *Ziele*
+| neue Mitarbeiter gewinnen. Menschen überzeugen diesen Beruf auszuführen aufgrund Wichtigkeit. Neue Azubis bekommen
+
+| *Frustrationen*
+| Der Beruf wird mit Negativen Gefühlen in verbindung gesetzt. Sehr stigmatisiert. Es ist sehr schwer, Menschen zu erreichen mit derart von Kontent. Da die meisten Dopamin Ausschüttung suchen. Mein Beruf bleibt fremd..
+
+| *Verhalten & Kontext*
+| Smartphone, Vlogs durch GoPro Aufnahmen
+
+| *Bezug zum Produkt*
+| Primär nutze ich Humplore um Den Tatortreiniger Beruf zu verbreiten. 2. Primäres Ziel ist es Mitarbeiter aus meiner Region zu begeistern und abzuwerben 
+
 |===
 
 NOTE: Für jedes Projekt sind 2–4 Personas ausreichend. Mehr Personas verwässern
