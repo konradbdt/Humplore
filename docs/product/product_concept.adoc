@@ -201,6 +201,9 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 | KI-Tool für Schimpfwörter, Mobbing u.s.w.? 
 | Hoch 
 
+| Rabbithole Funktion
+| Das schnelle vertiefen in viele verschiedene Themen, anklicken von Unterkategorien
+| Mittel
 
 
 
