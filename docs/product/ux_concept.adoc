@@ -43,7 +43,7 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 | Häufig im Studium. Sehr viel am Handy, weniger Laptop. Viel IPad! Sehr versiert
 
 | *Bezug zum Produkt*
-| Findet leicht Erfahrungen von Leuten in gleicher Situation und kann fragen stellen!
+| Findet leicht Erfahrungen von Leuten in der Situation wo er hin will und kann fragen stellen!
 |===
 
 === Persona 2: Anton Zimmer
