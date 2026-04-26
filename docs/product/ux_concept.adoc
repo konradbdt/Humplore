@@ -45,6 +45,8 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 | *Bezug zum Produkt*
 | Nutzt die Plattform, um eigene Beiträge zu posten und mehr über die Erfahrungen anderer mit derselben oder unterschiedlichen Krankheiten zu erfahren.
 
+
+
 === Persona 2: [Name]
 [cols="1,3"]
 |===
