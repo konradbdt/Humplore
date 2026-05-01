@@ -294,9 +294,16 @@ technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederh
 | Moderation oder KI Bot der diese Kriterien feststellt und meldet. Kommentare an/aus Funktion
 
 | Qualität 
-| Verifizierte Menschen sorgen für echten Inhalt. Kein erfundenes Wissen, sondern echtes
-| kurze Qualifizierung beim Registrieren. Ohne Qualifizierung kein Creator Account.
+| Verifizierte Menschen sorgen für echten Inhalt. Kein erfundenes Wissen, sondern echtes.
+| Kurze Qualifizierung beim Registrieren. Ohne Qualifizierung kein Creator Account.
 
+| Monetarisierung
+| Die Plattform soll Creator mit Geld/Tokens belohnen. Werbung schalten.
+| 
+
+| Kommunikation
+| [Beschreibung]
+| [Messkriterium]
 |===
 
 === Einschränkungen
