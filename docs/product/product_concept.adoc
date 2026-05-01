@@ -274,7 +274,7 @@ technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederh
 | Qualitätsziel | Beschreibung | Messkriterium
 
 | Benutzbarkeit
-| Das Produkt ist ohne Einarbeitung nutzbar.
+| Die Plattform ist ohne Einarbeitung nutzbar.
 | Neue Nutzer:innen finden die Kernfunktion innerhalb von 2 Minuten ohne Hilfe.
 
 | Performance
@@ -282,12 +282,21 @@ technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederh
 | Seitenladezeit unter 2 Sekunden bei normaler Netzwerkverbindung.
 
 | Verfügbarkeit
-| Das Produkt ist während der Hochschulöffnungszeiten zuverlässig erreichbar.
-| Verfügbarkeit ≥ 99 % während Betriebszeiten.
+| Das Produkt ist sobald Internetverbindung besteht, auf jeglichen Kontinenten aufrufbar.
+| Aus Deutschland oder Russland, jeder sollte Zugriff drauf haben.
 
-| [Qualitätsziel]
-| [Beschreibung]
-| [Messkriterium]
+| Stabilität
+| Hohe Nutzerzahlen sollten nicht dazu führen, dass humplore abstürzt oder die Belastung nicht tragen kann. 
+| Beispiel: Bei einem Hype, Nutzerzahlen steigen von 5000 --> 100.000 Nutzer an einem Tag. humpore stürzt nicht ab.
+
+| Sicherheit
+| Creator sollen sich wohl fühlen bei Erstellung des Kontents. Keine Verurteilung, kein Mobbing, oder Beleidigungen
+| Moderation oder KI Bot der diese Kriterien feststellt und meldet. Kommentare an/aus Funktion
+
+| Qualität 
+| Verifizierte Menschen sorgen für echten Inhalt. Kein erfundenes Wissen, sondern echtes
+| kurze Qualifizierung beim Registrieren. Ohne Qualifizierung kein Creator Account.
+
 |===
 
 === Einschränkungen
