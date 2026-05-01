@@ -327,21 +327,37 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 |===
 | Einschränkung | Beschreibung | Kategorie
 
-| Betrieb auf Hochschulinfrastruktur
-| Das System muss auf den vorhandenen Servern der Hochschule betrieben werden können.
-| Technisch
-
 | DSGVO-Konformität
 | Personenbezogene Daten dürfen nur gemäß DSGVO verarbeitet und gespeichert werden.
 | Rechtlich
 
 | Projektlaufzeit
-| Das Produkt muss innerhalb eines Semesters (ca. 4 Monate) lieferbar sein.
+| Das Produkt muss innerhalb des Jahres 2026 lieferbar sein.
 | Zeitlich
 
-| [Einschränkung]
-| [Beschreibung]
-| [Technisch / Rechtlich / Organisatorisch / Zeitlich]
+| Verifizierung
+| Creator müssen verifiziert werden um den Inhalt Qualitativ und echt zu gestalten. 
+| Technisch
+
+| UX & UI Design
+| Das Objektive und die Struktur muss so entwickelt werden, dass der User abgeholt wird und den USP von humplore in kurzer Zeit versteht.
+| Technisch
+
+| Marketing
+| Ein guter Marketing Mitarbeiter, der die Vermarktung der Plattform steuert. Die Verbreitung von humplore. 
+| Marketing
+
+| Budget
+| In naher Zukunft werden Gelder notwendig sein für Mitarbeier, Marketing und Entwicklung. Investoren sind Wichtig, 
+| Business
+
+| Verifizierung
+| Creator müssen verifiziert werden um den Inhalt Qualitativ und echt zu gestalten. 
+| Technisch
+
+| Moderationsaufwand
+| Inhalte oder Kommentare von Usern müssen geprüft werden. 
+| Technisch
 |===
 
 
