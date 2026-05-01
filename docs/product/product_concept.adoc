@@ -290,20 +290,32 @@ technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederh
 | Beispiel: Bei einem Hype, Nutzerzahlen steigen von 5000 --> 100.000 Nutzer an einem Tag. humpore stürzt nicht ab.
 
 | Sicherheit
-| Creator sollen sich wohl fühlen bei Erstellung des Kontents. Keine Verurteilung, kein Mobbing, oder Beleidigungen
-| Moderation oder KI Bot der diese Kriterien feststellt und meldet. Kommentare an/aus Funktion
+| Creator sollen sich wohl fühlen bei Erstellung des Contents. Keine Verurteilung, kein Mobbing, oder Beleidigungen.
+| Moderation oder KI Bot der diese Kriterien feststellt und meldet. Kommentare an/aus Funktion.
 
 | Qualität 
 | Verifizierte Menschen sorgen für echten Inhalt. Kein erfundenes Wissen, sondern echtes.
 | Kurze Qualifizierung beim Registrieren. Ohne Qualifizierung kein Creator Account.
 
 | Monetarisierung
-| Die Plattform soll Creator mit Geld/Tokens belohnen. Werbung schalten.
-| 
+| Creator werden für hochwertigen Content belohnt vom User. Humplore selbst schaltet auch parallel Werbung.
+| Wie viele Creator haben bereits Geld verdient? Wir zählen.
 
 | Kommunikation
-| [Beschreibung]
-| [Messkriterium]
+| Austausch zwischen Nutzern und Creatorn möglich.
+| Fragerunden an die Pinnwand oder Direknachricht.
+
+| Themenfokus
+| Jeder Creator bleibt bei seinem Thema.
+| 8 von 10 Creator bleiben bei Ihrem Thema.
+
+| Vielfältigkeit
+| unterschiedliche Perspektive werden geteilt. 
+| Jede Kategorie sollte in der Zukunft abgedeckt sein. Zu anfang mindestens 3-4 Kategorien von 10.
+
+| Datenschutz
+| Die Verarbeitung von Daten sollte der DSGVO entsprechen. 
+| Keine Datenleks. Datenschutzabfrage. Die Anfrage unsere Datenschutzordung zu lesen und akzetieren sollte angefragt werden.
 |===
 
 === Einschränkungen
