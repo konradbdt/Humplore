@@ -273,21 +273,45 @@ technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederh
 |===
 | Qualitätsziel | Beschreibung | Messkriterium
 
+| Authentizität
+| Inhalte sollen echte persönliche Erfahrungen abbilden und nicht wie allgemeine Ratgebertexte wirken.
+| Mindestens 80 % der getesteten Nutzer:innen bewerten Beiträge als glaubwürdig und erfahrungsbasiert.
+
+| Auffindbarkeit
+| Nutzer:innen sollen relevante Erfahrungen schnell über Themen, Kategorien und Filter finden.
+| Ein gesuchtes Thema ist in höchstens 3 Klicks oder über die Suche erreichbar.
+
 | Benutzbarkeit
-| Das Produkt ist ohne Einarbeitung nutzbar.
-| Neue Nutzer:innen finden die Kernfunktion innerhalb von 2 Minuten ohne Hilfe.
+| Die Plattform soll auch ohne Erklärung verständlich und einfach bedienbar sein.
+| Neue Nutzer:innen finden innerhalb von 2 Minuten einen passenden Erfahrungsbeitrag.
+
+| Sicherheit
+| Nutzer:innen und Creator sollen sich vor Beleidigungen, Mobbing und unangemessenen Inhalten geschützt fühlen.
+| Gemeldete Inhalte werden durch Moderation geprüft und problematische Inhalte entfernt oder eingeschränkt.
+
+| Datenschutz
+| Persönliche Daten, sensible Erfahrungen und anonyme Profile müssen geschützt werden.
+| Nutzer:innen können selbst festlegen, welche persönlichen Informationen öffentlich sichtbar sind.
+
+| Barrierearme Nutzung
+| Die Plattform soll möglichst vielen Menschen zugänglich sein, auch auf mobilen Geräten.
+| Die wichtigsten Funktionen sind auf Smartphone, Tablet und Desktop nutzbar.
+
+| Inhaltliche Qualität
+| Beiträge sollen strukturiert, verständlich und thematisch passend sein.
+| Beiträge enthalten Thema, Erfahrungsbeschreibung und passende Kategorie.
 
 | Performance
-| Das Produkt reagiert schnell auf Nutzerinteraktionen.
-| Seitenladezeit unter 2 Sekunden bei normaler Netzwerkverbindung.
+| Die Plattform soll schnell reagieren und Inhalte ohne lange Wartezeiten anzeigen.
+| Seiten und Feeds laden bei normaler Internetverbindung innerhalb von 2 Sekunden.
 
-| Verfügbarkeit
-| Das Produkt ist während der Hochschulöffnungszeiten zuverlässig erreichbar.
-| Verfügbarkeit ≥ 99 % während Betriebszeiten.
+| Skalierbarkeit
+| Die Plattform soll auch bei steigenden Nutzerzahlen stabil bleiben.
+| Die Anwendung bleibt bei deutlich wachsender Nutzerzahl weiterhin nutzbar.
 
-| [Qualitätsziel]
-| [Beschreibung]
-| [Messkriterium]
+| Vertrauenswürdigkeit
+| Nutzer:innen sollen erkennen können, ob ein Creator echte Erfahrung mit einem Thema hat.
+| Creator-Profile können einen Verifizierungsstatus oder Erfahrungsnachweis anzeigen.
 |===
 
 === Einschränkungen
@@ -299,22 +323,45 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 |===
 | Einschränkung | Beschreibung | Kategorie
 
-| Betrieb auf Hochschulinfrastruktur
-| Das System muss auf den vorhandenen Servern der Hochschule betrieben werden können.
-| Technisch
-
-| DSGVO-Konformität
-| Personenbezogene Daten dürfen nur gemäß DSGVO verarbeitet und gespeichert werden.
+| DSGVO
+| Personenbezogene Daten dürfen nur rechtskonform verarbeitet, gespeichert und gelöscht werden.
 | Rechtlich
 
-| Projektlaufzeit
-| Das Produkt muss innerhalb eines Semesters (ca. 4 Monate) lieferbar sein.
-| Zeitlich
+| Schutz sensibler Inhalte
+| Themen wie Krankheit, Berufserfahrung, Diskriminierung oder persönliche Krisen müssen besonders vorsichtig behandelt werden.
+| Rechtlich / Ethisch
 
-| [Einschränkung]
-| [Beschreibung]
-| [Technisch / Rechtlich / Organisatorisch / Zeitlich]
-|===
+| Anonymität
+| Nutzer:innen und Creator müssen Inhalte auch ohne Klarnamen veröffentlichen oder konsumieren können.
+| Fachlich
+
+| Moderation
+| Inhalte, Kommentare und Fragen müssen moderierbar sein, um Missbrauch zu verhindern.
+| Organisatorisch / Technisch
+
+| Verifizierung von Creator-Profilen
+| Für besonders vertrauenswürdige Inhalte muss es eine Möglichkeit geben, Creator oder Erfahrungen zu prüfen.
+| Fachlich / Technisch
+
+| Mobile Nutzung
+| Die Plattform muss primär für mobile Endgeräte geeignet sein.
+| Technisch
+
+| Begrenzte Projektressourcen
+| Umfang und Funktionen müssen so gewählt werden, dass ein erstes nutzbares Produkt realistisch umgesetzt werden kann.
+| Organisatorisch
+
+| Keine medizinische oder rechtliche Beratung
+| Erfahrungsberichte dürfen nicht als professionelle Beratung dargestellt werden.
+| Rechtlich
+
+| Urheberrecht
+| Hochgeladene Texte, Bilder oder Videos dürfen keine Rechte Dritter verletzen.
+| Rechtlich
+
+| Technische Wartbarkeit
+| Die Lösung muss so entwickelt werden, dass sie später erweitert und gepflegt werden kann.
+| Technisch
 
 
 == Versionsverlauf
