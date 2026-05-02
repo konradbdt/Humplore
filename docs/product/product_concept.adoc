@@ -327,7 +327,7 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 |===
 | Einschränkung | Beschreibung | Kategorie
 
-| DSGVO-Konformität
+| DSGVO
 | Personenbezogene Daten dürfen nur gemäß DSGVO verarbeitet und gespeichert werden.
 | Rechtlich
 
@@ -358,6 +358,15 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 | Moderationsaufwand
 | Inhalte oder Kommentare von Usern müssen geprüft werden. 
 | Technisch
+
+| Genutzte Geräte 
+| Die Plattform muss mindestens Auf dem Handy IOs und Tablets nutzbar sein.
+| Technisch
+
+| Moderationsaufwand
+| Inhalte oder Kommentare von Usern müssen geprüft werden. 
+| Technisch
+
 |===
 
 
