@@ -122,6 +122,10 @@ Hilfsmittel:
 - Nutzung auf verschiedenen Betriebssystemen (iOS, Android, Windows, macOS)
 - Unterschiedliche Netzwerkqualitäten (WLAN, mobiles Internet)
 
+Physische Umgebung:
+- Nutzung unterwegs (z. B. ÖPNV), zu Hause oder in Pausen
+- Unterschiedliche Lichtverhältnisse und mögliche Ablenkungen
+
 | Datenschutz
 | DSGVO
 - Schutz sensibler persönlicher Daten (z. B. Krankheiten, Vergangenheit, Berufe)
@@ -129,10 +133,6 @@ Hilfsmittel:
 - Sichere Speicherung und Verschlüsselung von Daten
 - Einhaltung gesetzlicher Vorgaben (z. B. DSGVO)
 - Option, Inhalte oder das gesamte Profil jederzeit zu löschen
-
-Physische Umgebung:
-- Nutzung unterwegs (z. B. ÖPNV), zu Hause oder in Pausen
-- Unterschiedliche Lichtverhältnisse und mögliche Ablenkungen
 
 Soziale & organisatorische Umgebung:
 - Nutzung meist individuell
