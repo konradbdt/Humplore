@@ -91,13 +91,21 @@ den Fokus. Wenn eine Persona in keiner User Story vorkommt, wird sie gestrichen.
 
 | Ziele & Aufgaben
 | Nutzer:innen möchten:
-- 
+- Neue Perspektiven kennenlernen
+- verbotene oder selten zu findende Inhalte sehen 
+- Aufklärung und Antworten suchen und finden
+- DIREKT EINBLICKE VON ECHTEN MENSCHEN zu jeglichen Themen sehen
+- Creator direkt schreiben oder Fragen stellen 
 
 Typische Aufgaben:
 - Beitrag erstellen oder lesen
 - Inhalte nach Thema durchsuchen oder filtern
 - Profile von Creatorn ansehen
 - Mit Beiträgen interagieren (liken, kommentieren, speichern)
+- Creatorn direkt Fragen stellen 
+- Creatorn eine Nachricht schreiben 
+- Creatorn die Spendeoption geben für wertvolle und interessante Beiträge als "Dankeschön"
+
 
 | Ressourcen
 | Technisch:
