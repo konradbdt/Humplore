@@ -162,20 +162,17 @@ Der Prozess ist ineffizient, unübersichtlich und erfordert viel Eigenaufwand.
 | Datenschutzbedenken
 | Klare Datenschutzeinstellungen, anonyme Nutzung ermöglichen, transparente Kommunikation der Datennutzung
 
-| Geringes Vertrauen in Inhalte
-| Verifizierungsmechanismen für Creator, Kennzeichnung von Erfahrungslevel oder Hintergrund
+| Vertrauensproblem
+| Verifizierung der Creator direkt nach der Registrierung.
 
-| Zu viele oder unstrukturierte Inhalte
-| Einführung von Kategorien, Tags, Filtern und klaren Beitragsformaten
+| Entdecken von Creatorn
+| Menschen mit spannenden Perspektiven posten nicht gerne öffenetlich. Anschreiben von Ngos, Betriebe (Feuerwehr), Social Media Nutzer
 
-| Niedrige Motivation zum Erstellen von Beiträgen
-| Einfache und schnelle Erstellung, Templates und Leitfragen anbieten
+| Kreativität der Creator
+| Über 1 spezifisches Thema zu sprechen ist für eine langfristige Sicht nicht eifnach. Universal-Leitfäden anbieten auf der Plattform.
 
-| Missbrauch (z. B. beleidigende Inhalte)
-| Moderationssystem, Meldefunktion und Community-Richtlinien
-
-| Technische Einschränkungen (z. B. schlechtes Internet)
-| Optimierung für mobile Nutzung, reduzierte Datenlast, Offline-Funktionalitäten für gespeicherte Inhalte
+| Schubladendenken
+| Zu Beginn werden wir von vielen Menschen unterbewusst als eine weitere Plattform wahrgenommen. Das Design muss daher unseren USP klar hervorheben und den Nutzer bereits beim ersten Besuch direkt abholen
 
 | Überforderung neuer Nutzer:innen
 | Intuitive Navigation, klare Struktur, ggf. Onboarding
