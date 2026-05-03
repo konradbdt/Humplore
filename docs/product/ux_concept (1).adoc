@@ -104,7 +104,7 @@ Typische Aufgaben:
 - Mit Beiträgen interagieren (liken, kommentieren, speichern)
 - Creatorn direkt Fragen stellen 
 - Creatorn eine Nachricht schreiben 
-- Creatorn die Spendeoption geben für wertvolle und interessante Beiträge als "Dankeschön"
+- Nutzer die Spendeoption geben für wertvolle und interessante Beiträge als "Dankeschön"
 
 
 | Ressourcen
