@@ -82,14 +82,16 @@ den Fokus. Wenn eine Persona in keiner User Story vorkommt, wird sie gestrichen.
 | Aspekt | Beschreibung
 
 | Benutzer
-| Die Plattform richtet sich an Personen, die aktiv Erfahrungen teilen oder nach authentischen Erfahrungsberichten suchen. Dazu gehören z. B. Studierende, Berufseinsteiger:innen, Fachkräfte oder allgemein neugierige Nutzer:innen. Die Nutzenden haben unterschiedliche digitale Kompetenzen, sind aber mit mobilen Apps und sozialen Plattformen vertraut. Motivation ist vor allem der Austausch von echten Erlebnissen sowie das Lernen aus den Erfahrungen anderer.
+| Nutzer (Creator), die Ihre eigene Erfahrung/Perspektive seitens Krankheit, Hobby, Umsatand, etc. teilen möchte. 
+- Neugiereige Nutzer, die was neues lernen/erfahren möchten
+- NGOs (Vereine), Schulen, Universitäten als Unterrichtsstoff
+- Schüler und Studenten, die was zu Ihrer Beruflichen Orientierung lernen möchten, oder eine Vorstellung von Ihrem zukünftigen Job erhfahren möchten
+- Arbeitgeber/Arbeitnehmer, die den Beruflichen Alltag und Aufgaben dokumentieren um für weitere Mitarbeiter zu werben, oder für den Beruf zu begeistern 
+- Alternative Social Media Nutzer - Nutzer, die die klassichen Social Media Netzwerke nutzen und nach einem ausgleich oder alternative suchen
 
 | Ziele & Aufgaben
 | Nutzer:innen möchten:
-- Eigene Erfahrungen strukturiert teilen (z. B. zu Studium, Beruf, Alltag)
-- Erfahrungen anderer zu bestimmten Themen finden
-- Fragen stellen und Antworten aus erster Hand erhalten
-- Sich orientieren (z. B. bei Entscheidungen oder neuen Situationen)
+- 
 
 Typische Aufgaben:
 - Beitrag erstellen oder lesen
