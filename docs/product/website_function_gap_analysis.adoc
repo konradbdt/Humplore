@@ -1,0 +1,71 @@
+= Funktionsvergleich Website
+
+== Ziel
+Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesammelten Funktionen.
+
+== Funktionsmatrix
+
+[cols="2,2,2,2,1,1", options="header"]
+|===
+| Funktion
+| Aktueller Stand auf der Website
+| Bereits vorhanden
+| Fehlt noch
+| Änderung nötig
+| Priorität
+
+| 
+|
+|
+|
+|
+|
+
+| 
+|
+|
+|
+|
+|
+
+| 
+|
+|
+|
+|
+|
+
+| 
+|
+|
+|
+|
+|
+
+| 
+|
+|
+|
+|
+|
+
+| 
+|
+|
+|
+|
+|
+
+| 
+|
+|
+|
+|
+|
+|===
+
+== Funktionslücken
+
+== Änderungsbedarf
+
+== Nächste Aufgaben
