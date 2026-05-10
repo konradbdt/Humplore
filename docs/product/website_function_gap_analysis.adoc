@@ -60,11 +60,11 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 | Ja
 | Hoch
 
-| 
-|
-|
-|
-|
+| Profil Bearbeiten (Creator)
+| Im Profil kann man momentan nur die Bio, den Namen und das Foto bearbeiten
+| weitere Felder hinzufügen wie: Ort? , Alter?, da fehlt mehr persönliches 
+| Ja 
+| Mittel
 
 |
 |
