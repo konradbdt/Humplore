@@ -19,8 +19,8 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 | Ja
 | Mittel 
 
-| Registration (Creator)
-| Nach ausfüllen von E-Mail, Passwort, Thema, Username, bist du Creator Kasten --> Verifizierungsfenster
+| Verifizierung (Creator)
+| Nach ausfüllen von E-Mail, Passwort, Thema, Username, bist du Creator Kasten --> Verifizierungsfenster (Registrationsphase)
 | Verifizierungsfenster 
 | Ja 
 | Hoch
