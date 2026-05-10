@@ -26,11 +26,11 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 | Hoch
 
 
-| 
-|
-|
-|
-|
+| Kategorien
+| Kategorien Leiste ist auf dem Feed zu erkennen, jedoch nicht anklickbar
+| beim anklicken der Kategorien --> Neuer Feed lädt mit allen Posts rund ums Thema "Krankheit" 
+| Ja
+| Hoch
 
 
 | 
