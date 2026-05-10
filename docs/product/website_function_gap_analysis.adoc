@@ -5,7 +5,7 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 
 == Funktionsmatrix
 
-[cols="2,2,2,2,1,1", options="header"]
+[cols="2,2,2,1,1", options="header"]
 |===
 | Funktion
 | Aktueller Stand auf der Website
