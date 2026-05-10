@@ -84,12 +84,17 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 | Ja
 | niedrig - mittel
 
-| 
-|
-|
-|
-|
+| Audio-System 
+| auf humplore momentan nicht vorhanden
+| wie wäre es, wenn abgesehenn von Text und Videos, Creator die Möglichkeit hätten mit Audios zu bloggen? (Storytelling)
+| Ja
+| niedrig - mittel
 
+|
+|
+|
+|
+|
 |===
 
 == Funktionslücken
