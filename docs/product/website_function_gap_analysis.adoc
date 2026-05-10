@@ -33,11 +33,11 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 | Hoch
 
 
-| 
-|
-|
-|
-|
+| Buttons unter den Beiträgen
+| aktuell gibt es nur: Wissenswert (Glühbirne), Kommentieren (Sprachblase), teilen (Molekül)
+| Neues gelernt! (Glühbirne), Kommentieren/Fragen (Sprachblase/?), Save (Speichern), teilen (Molekül) + später Donation
+| = 
+| Hoch
 
 
 | 
