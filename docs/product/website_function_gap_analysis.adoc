@@ -49,12 +49,24 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 
 | Fragen & Antworten (Pinnwand)
 | Als User kann man eine Frage beim Creator hinterlassen = Der Creator kann die Frage als individuellen Blogbeitrag beantworten oder nur auf die Fage eine Kurzantwort hinterlassen
-| sieht vollkommen aus 
+| sieht gut aus!
 | nein 
 | Hoch
 
 
+| Der News Button (Navigation)
+| Ist nur in der Navigation vorhanden, keine Funktion
+| Creator & User sollen über den Button "News" sehen können ob eine Interaktion stattgefunden hat, wie: Frage wurde beantwortet, du hast eine neue Frage erhalten,neuer Follower, deine Frage wurde kommentiert, es gibt neue Creator passend zu deiner Suche u.s.w.
+| Ja
+| Hoch
+
 | 
+|
+|
+|
+|
+
+|
 |
 |
 |
