@@ -62,15 +62,15 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 
 | Profil Bearbeiten (Creator)
 | Im Profil kann man momentan nur die Bio, den Namen und das Foto bearbeiten
-| weitere Felder hinzufügen wie: Ort? , Alter?, da fehlt mehr persönliches 
+| weitere Felder hinzufügen wie: Ort? , Alter?, Fokus? 
 | Ja 
 | Mittel
 
-|
-|
-|
-|
-|
+| Videos Posten
+| auf humplore momentan nicht vorhanden
+| über das "+" unter dem "Bild hochladen" vllt "Video hochladen" oder 1 zentraler Button für beides wie "Datei hochladen" 
+| Ja
+| Hoch
 
 |===
 
