@@ -72,6 +72,24 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 | Ja
 | Hoch
 
+| "Melden" Button
+| auf humplore momentan nicht vorhanden
+| alle Kommentare und Blogs begleitet ein Meldebutton " vllt eine Glocke"
+| Ja
+| Hoch, wir wollen ein Safe-Space schaffen
+
+| Kommentare deaktivieren
+| noch nichtt vorhanden auf humplore
+| Creator können kurz vor jedem Post mit einem Hebelsystem On/Off entscheiden, ob kommentare erwünscht sind für die folgende Beiträge
+| Ja
+| niedrig - mittel
+
+| 
+|
+|
+|
+|
+
 |===
 
 == Funktionslücken
