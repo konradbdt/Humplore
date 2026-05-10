@@ -40,11 +40,18 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 | Hoch
 
 
-| 
-|
-|
-|
-|
+| Direknachrichten Creator & User
+| dieses Feature existiert im Moment nicht
+| Standard Nachrichten Symbol integrieren in der Navigaton, User können Creator schreiben und andersrum (In der Zukunft mit Tokens?)
+| Ja
+| Hoch
+
+
+| Fragen & Antworten (Pinnwand)
+| Als User kann man eine Frage beim Creator hinterlassen = Der Creator kann die Frage als individuellen Blogbeitrag beantworten oder nur auf die Fage eine Kurzantwort hinterlassen
+| sieht vollkommen aus 
+| nein 
+| Hoch
 
 
 | 
@@ -53,13 +60,6 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 |
 |
 
-
-| 
-|
-|
-|
-|
-|
 |===
 
 == Funktionslücken
