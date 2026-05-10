@@ -9,52 +9,50 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 |===
 | Funktion
 | Aktueller Stand auf der Website
-| Bereits vorhanden
 | Fehlt noch
 | Änderung nötig
 | Priorität
 
-| 
-|
-|
-|
-|
-|
+| Registration (Creator)
+| Beim Registrieren wird gefragt: E-Mail, Passwort, welches Thema, Username, bist du Creator
+| Kategorien zuordung abfragen: Glasknochen --> Krankheit auswählen 
+| Ja
+| Mittel 
+
+| Registration (Creator)
+| Nach ausfüllen von E-Mail, Passwort, Thema, Username, bist du Creator Kasten --> Verifizierungsfenster
+| Verifizierungsfenster 
+| Ja 
+| Hoch
+
 
 | 
 |
 |
 |
 |
-|
+
 
 | 
 |
 |
 |
 |
-|
+
 
 | 
 |
 |
 |
 |
-|
+
 
 | 
 |
 |
 |
 |
-|
 
-| 
-|
-|
-|
-|
-|
 
 | 
 |
