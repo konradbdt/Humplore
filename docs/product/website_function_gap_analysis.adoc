@@ -90,11 +90,18 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 | Ja
 | niedrig - mittel
 
+| 
+|
+|
+|
+|
+
 |
 |
 |
 |
 |
+
 |===
 
 == Funktionslücken
