@@ -90,11 +90,11 @@ Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesa
 | Ja
 | niedrig - mittel
 
-| 
-|
-|
-|
-|
+| Rabit-hole
+| auf humplore momentan nicht vorhanden
+| Alle Blogs werden einer Unterkategorie zugeordent: Thema: HIV, Überschrift: Ich habe meinen Eltern davon erzählt, Unterkategorie: Outing. Wenn man auf outing drückt, sieht man lauter Blogs im Feed mit der selben Unterkategorie, nur zu anderen Themen
+| Ja
+| Mittel
 
 |
 |
