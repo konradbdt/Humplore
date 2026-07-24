@@ -1,0 +1,388 @@
+= Produktkonzept: humplore
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+{localdatetime}
+
+---
+
+== Motivation
+
+Wenn man sich heutzutage über ein Thema informieren will und nach Erfahrungen anderer mit dem Thema sucht, dann findet man auf SocialMedia nur teilweise sinnvolle Beiträge zwischen einem Haufen irrelevanter Informationen. Es gibt keine wirkliche Struktur und keinen Filter für die Art der Beiträge. Man sucht also zwischen Tänzen, Rezepten oder Motivationssprüchen nach echten Erfahrungen! Dabei muss man sich oft aber auch am Thumbnail oder den Hashtags orientieren, was einen ziemlich verwirren und verunsichern kann!
+
+== Produktvision
+
+=== Visions-Statement
+
+____
+Für SoicalMedia Nutzer,
+die nach echten Erfahrungen suchen,
+ist Humplore
+eine Plattform,
+die echte Erfahrung strukturiert und leicht auffind- und filterbar darstellt.
+Im Gegensatz zu Reddit
+bietet unser Produkt einen Fokus auf inhaltlich hochwertige Beiträge und echte Erfahrungen.
+____
+
+//Beispiel: Für Studierende der HTWD, die zu wenig Zeit in der Mittagspause zum Essen haben, ist Flying Burger ein Lieferdienst für Burger, der per Drohne liefert. Anders als landgestützte Lieferdienste kann unser Produkt durchs Fenster direkt in den Hörsaal liefern.
+
+NOTE: Das Visions-Statement kann im Team mit der „Elevator Pitch"-Methode oder dem „Future Press Release"-Format erarbeitet werden.
+
+=== Zielbild
+
+Mit Humplore sieht die Welt so aus, dass Menschen gezielt echte Lebensrealitäten verstehen können. Nutzer erhalten direkten Zugang zu Erfahrungen aus erster Hand und entwickeln dadurch mehr Empathie und ein tieferes Verständnis für unterschiedliche Lebenswege. Vorurteile und Stigmatisierung werden reduziert, weil unbekannte Themen sichtbar und nachvollziehbar werden. Social Media wird dadurch von reiner Unterhaltung zu einem Werkzeug für Bildung und Perspektivwechsel.
+
+
+== Produktpositionierung
+_Wer sind die Zielgruppen, und wie positioniert sich das Produkt im Vergleich zu bestehenden Alternativen?_
+
+=== Zielgruppen
+
+[cols="1,3", options="header"]
+|===
+| Zielgruppe | Beschreibung
+
+| Studenten
+|Studenten die sich nach Möglichkeiten nach dem Studium umsehen wollen und nicht wissen was auf sie zukommmt.
+
+| Lehrer/In, Dozent/In
+| Lehrende schaffen es oft nicht Themen Alltagsnah und spannend zu gestalten und greifen oft zu abstrakten Beispielen!
+| Ein Lehrer/In o. Dozent/In würde Humplore nutzen, um Unterricht durch reale Einblicke aus dem echten Leben zu ergänzen. Statt nur theoretischer Inhalte kann er Schüler:innen zeigen, wie Berufe, Krankheiten oder Lebensumstände tatsächlich erlebt werden. Die Plattform eignet sich für praxisnahe Beispiele, Diskussionen im Unterricht und zur Unterstützung der Berufsorientierung. Außerdem können Schüler:innen eigenständig recherchieren und sich über Themen aus erster Hand informieren.
+
+| Neugiere User
+| Neugierige User würden Humplore besuchen, weil sie echte Einblicke in Lebensrealitäten bekommen, die sonst schwer zugänglich sind. Sie können gezielt Themen entdecken und Antworten aus erster Hand erhalten, statt nur theoretisches Wissen zu konsumieren. Die Plattform stillt ihren Drang, Neues zu verstehen, Perspektiven zu wechseln und hinter die Oberfläche von Berufen, Krankheiten oder Lebenswegen zu schauen.
+
+|Gleichgesinnte
+|Betroffene würden Humplore nutzen, um sich mit Menschen auszutauschen, die ähnliche Erfahrungen gemacht haben, und sich verstanden zu fühlen. Sie erhalten Einblicke aus erster Hand, die über reine Fakten hinausgehen und im Alltag wirklich weiterhelfen. Die Plattform bietet Orientierung, Unterstützung und das Gefühl, nicht allein mit ihrer Situation zu sein.
+
+|Arbeitstätige
+|Ein Mitarbeitender würde Humplore nutzen, um Einblicke in andere Abteilungen, Berufe und Arbeitsweisen zu erhalten und so seinen eigenen Horizont zu erweitern. Die Plattform ermöglicht es, von den Erfahrungen anderer zu lernen und ein besseres Verständnis für unterschiedliche Rollen im Unternehmen oder Arbeitsmarkt zu entwickeln. 
+
+
+| Schüler
+| Schüler wissen oft nicht was dem Abschluss ansteht und werden auf Messen auch nur zum Studium nicht aber zum Studienleben informiert.
+
+|Kranke
+|Menschen mit Krankheiten oder Einschränkungen suchen oft nach Gleichgesinnten um ihr Leid zu teilen und sich Tipps für gewisse Umstände von anderen zu holen
+
+
+|===
+
+NOTE: Ausführliche Beschreibungen der Nutzenden — Personas, Nutzungskontext,
+typische Aufgaben — sind im link:ux_concept.adoc[UX-Konzept] dokumentiert.
+
+=== Wettbewerb & Alternativen
+
+[cols="1,3,2", options="header"]
+|===
+| Alternative | Beschreibung | Warum unser Produkt besser passt
+
+| Reddit
+| Ist eine Plattform mit vielen Diskussionen und Fragerunden zu allen möglichen Themen.
+| Humplore versichert authentische Beiträge. Ein Thema bringt gleich mehrere Beiträge mit und nicht nur eine Diskussion oder einen einzelnen Beitrag einer PErson zu einem Thema
+
+| Instagram
+| Eine Plattform, auf der Leute zu allen möglichen Themen Beiträge posten können
+| Humplore fokusiert sich mehr auf Erfahrungen zu einem bestimmten Thema. Keine rein unterhaltene Beiträge sondern immer auch gleichzeitig informierende Beiträge
+
+|===
+
+
+== Stakeholder
+
+Wer hat Einfluss auf das Produkt oder ein Interesse an dessen Erfolg? Stakeholder formen oft Anforderungen und Rahmenbedingungen — ihre Nennung hier
+erklärt, warum bestimmte Entscheidungen getroffen wurden.
+
+[cols="1,2,2,1", options="header"]
+|===
+| Stakeholder | Rolle / Interesse | Erwartungen an das Produkt | Einfluss
+
+| Explorer
+| Hauptnutzer; wollen verstehen wie andere Leben/Denken
+| Authentische Inhalte/Profile, einfache Nutzung
+| Hoch
+
+| Betreiber
+| Entwickeln und Vertreiben das Produkt
+| Einfache Wartung/Skalierung, leichte Analyse
+| Mittel
+
+| Storyteller
+| Menschen, die ihre echten Erfahrungen teilen
+| Leicht Sachen zu posten, anonymität, Sicherheit
+| Mittel
+
+| Gesetzgeber
+| gibt Gesetze vor
+| Einhaltung der DGVO
+| [Hoch / Mittel / Niedrig]
+
+| Influenzer
+| helfen beim Wachtum
+| einfaches Konzept, gutes Design
+| Mittel
+| User
+| Hauptnutzer/In wollen echte Einblicke und Verständnis gewinnen
+| Einfache Nutzung, relevante Inhalte, echte Perspektiven
+| Hoch
+
+| Creator
+| Liefern Inhalte. Teilen Wissen und persönliche Erfahrungen
+| Reichweite, einfache Content-Erstellung, klare Themenstruktur
+| Hoch
+
+| Schüler und Studierende
+| Nutzen Plattform für Lernen, Recherche und Berufsorientierung
+| Strukturierte Inhalte, Suchfunktion nach Themen, verlässliche Infos (Qualifizierte Creator)
+| Hoch
+
+| Unis & Schulen & Ausbildungsstätte
+| Nutzen Inhalte für Unterricht und Praxisbeispiele
+| leicht auffindbare Inhalte, Seriösität
+| Hoch
+
+| Investoren
+| Finanzierung und Wachstum des StartUps 
+| Monitarisierung, Einstellen von Mitarbeitern oder direkte Eingliederung in ein bestehendes Team, Marketing
+| Hoch
+
+| Unternehmen
+| Interesse an Einblicke in Berufe 
+| Authentische Darstellung von Berufen, neue Mitarbeiter Scouten sollte leicht gemacht sein
+| Hoch
+
+| Mitarbeiter/In
+| Unterstützung des StartUps in der Entwicklung, Marketing, Wachstum und Instandhaltung 
+| Einstellen von motivierten Mitarbeitern, die die Mission verstehen 
+| Hoch
+|===
+
+
+
+== Hauptfunktionen
+
+Welche Kernfunktionen muss das Produkt bieten, um die Produktvision zu erfüllen? Jede Funktion ist direkt auf einen Nutzerbedarf zurückgeführt — nicht als technische Anforderung, sondern als Antwort auf ein Nutzungsproblem.
+
+Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung von User Stories verwendet werden.
+
+[cols="2,2,1", options="header"]
+|===
+| Nutzerbedarf | Hauptfunktion | Priorität
+
+| Nutzer:innen wollen gezielt nach echten Erfahrungen zu bestimmten Themen suchen
+| Themenbasierte Suche & intelligente Filter (z. B. nach Lebenssituation, Beruf, Krankheit, Alter)
+| Hoch
+
+| Nutzer:innen wollen schnell mehrere Perspektiven zu einem Thema sehen
+| Erfahrungs-Feeds pro Thema
+| Hoch
+
+| Storyteller möchten ihre Erfahrungen einfach und sicher teilen.
+| Erfahrungs-Posting mit Struktur (Leitfragen, Kategorien, optional anonym)
+| Mittel
+
+| Nutzer:innen wollen die Qualität und Relevanz von Beiträgen einschätzen
+| Bewertungs- und Vertrauenssystem (z. B. hilfreich, authentisch, nachvollziehbar)
+| Niedrig
+
+| Nutzer:innen wollen Inhalte speichern und später wiederfinden
+| Favoriten & Sammlungen
+| Hoch
+
+| Nutzer:innen wollen personalisierte Inhalte erhalten
+| Personalisierter Feed basierend auf Interessen
+| Hoch
+
+| Betreiber möchten Inhalte moderieren und Qualität sichern
+| Moderations- und Reporting-System
+| Hoch
+
+| Betreiber möchten Nutzung und Wachstum analysieren
+| Analyse-Dashboard (z. B. beliebte Themen, Engagement)
+| Mittel
+
+| Nutzer:innen wollen gezielt Rückfragen zu Erfahrungen stellen können
+| Fragefunktion an Creator (z. B. direkte Fragen unter Beiträgen oder als Q&A-Format, optional anonym)
+| Hoch
+| Nutzer wollen gezielt nach echten Erfahrungen zu sensiblen Themen suchen (z. B. Krankheiten, Berufe)
+| Suchfunktion mit Themenbasierten Wörter
+| Hoch
+
+| Nutzer wollen Anonym bleiben (trauen sich nur wenn Sie Anonym sind)
+| Anonyme Profiloption, beim registrieren frewillig ob echtes Bild echter Name oder erfunden
+| Hoch
+
+| Creator wollen ihre persönliche Geschichte strukturiert und verständlich teilen/ 
+| Content- Unterkategorien, Beispiel: Thema HIV, Ich habe meiner Familie davon erzählt; Unterkategorie: Outing 
+| Hoch
+
+| Nutzer wollen Inhalte von Menschen sehen, die wirklich Erfahrung mit dem Thema haben 
+| Verifizierte Erfahrungsprofile 
+| Sehr Hoch 
+
+| Visuelle Inhalte
+| Vlog Formate und Storytelling, Videos hochladen
+| Hoch
+
+| Nutzer wollen Fragen zu einem Thema direkt an Betroffene stellen
+| Pinnwand/Fragebereich auf jedem Profil (Creator beantwortet Fragen direkt oder als Blog/Vlog)
+| Hoch
+
+| Nutzer wollen Creator für wertvollen Content unterstützen.
+| Spendeoption unter jedem Beitrag, Freikäuflicher Kontent 
+| Hoch
+
+| Nutzer wollen mit Inhalten interagieren.
+| Like und Kommentarfeld (Bei uns andere Befriffe)
+| Hoch
+
+| Nutzer wollen relevante Themen oder Personen langfristig verfolgen.
+| Folgen von Themen/Tags 
+| Mittel
+
+| Creator und User wollen sich sicher fühlen auf der Plattform
+| KI-Tool für Schimpfwörter, Mobbing u.s.w.? 
+| Hoch 
+
+| Rabbithole Funktion
+| Das schnelle vertiefen in viele verschiedene Themen, anklicken von Unterkategorien
+| Mittel
+
+
+
+
+|===
+
+NOTE: Die Reihenfolge entspricht einer ersten groben Priorisierung und wird im Rahmen
+der Backlog-Priorisierung verfeinert.
+
+== Qualitätsziele & Einschränkungen
+
+_Dieser Abschnitt beschreibt, unter welchen Rahmenbedingungen das Produkt entwickelt
+und betrieben wird. Es wird unterschieden zwischen Qualitätszielen (angestrebte
+Eigenschaften) und Einschränkungen (nicht verhandelbare Rahmenbedingungen)._
+
+=== Qualitätsziele
+
+_Qualitätsziele sind messbare oder zumindest überprüfbare Eigenschaften, die das
+Produkt erfüllen soll. Sie sollten spezifisch genug sein, um als Testkriterium zu dienen._
+
+NOTE: Dieses Dokument ist die einzige Quelle für Qualitätsziele und Einschränkungen.
+Das link:../technical/architecture.adoc[Architektur]-Dokument referenziert diese Anforderungen und dokumentiert die
+technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederholen.
+
+[cols="1,3,2", options="header"]
+|===
+| Qualitätsziel | Beschreibung | Messkriterium
+
+| Benutzbarkeit
+| Die Plattform ist ohne Einarbeitung nutzbar.
+| Neue Nutzer:innen finden die Kernfunktion innerhalb von 2 Minuten ohne Hilfe.
+
+| Performance
+| Das Produkt reagiert schnell auf Nutzerinteraktionen.
+| Seitenladezeit unter 2 Sekunden bei normaler Netzwerkverbindung.
+
+| Verfügbarkeit
+| Das Produkt ist sobald Internetverbindung besteht, auf jeglichen Kontinenten aufrufbar.
+| Aus Deutschland oder Russland, jeder sollte Zugriff drauf haben.
+
+| Stabilität
+| Hohe Nutzerzahlen sollten nicht dazu führen, dass humplore abstürzt oder die Belastung nicht tragen kann. 
+| Beispiel: Bei einem Hype, Nutzerzahlen steigen von 5000 --> 100.000 Nutzer an einem Tag. humpore stürzt nicht ab.
+
+| Sicherheit
+| Creator sollen sich wohl fühlen bei Erstellung des Contents. Keine Verurteilung, kein Mobbing, oder Beleidigungen.
+| Moderation oder KI Bot der diese Kriterien feststellt und meldet. Kommentare an/aus Funktion.
+
+| Qualität 
+| Verifizierte Menschen sorgen für echten Inhalt. Kein erfundenes Wissen, sondern echtes.
+| Kurze Qualifizierung beim Registrieren. Ohne Qualifizierung kein Creator Account.
+
+| Monetarisierung
+| Creator werden für hochwertigen Content belohnt vom User. Humplore selbst schaltet auch parallel Werbung.
+| Wie viele Creator haben bereits Geld verdient? Wir zählen.
+
+| Kommunikation
+| Austausch zwischen Nutzern und Creatorn möglich.
+| Fragerunden an die Pinnwand oder Direknachricht.
+
+| Themenfokus
+| Jeder Creator bleibt bei seinem Thema.
+| 8 von 10 Creator bleiben bei Ihrem Thema.
+
+| Vielfältigkeit
+| unterschiedliche Perspektive werden geteilt. 
+| Jede Kategorie sollte in der Zukunft abgedeckt sein. Zu anfang mindestens 3-4 Kategorien von 10.
+
+| Datenschutz
+| Die Verarbeitung von Daten sollte der DSGVO entsprechen. 
+| Keine Datenleks. Datenschutzabfrage. Die Anfrage unsere Datenschutzordung zu lesen und akzetieren sollte angefragt werden.
+|===
+
+=== Einschränkungen
+
+_Einschränkungen sind Rahmenbedingungen, die nicht verhandelbar sind — technische,
+organisatorische, rechtliche oder zeitliche Vorgaben._
+
+[cols="1,2,1", options="header"]
+|===
+| Einschränkung | Beschreibung | Kategorie
+
+| DSGVO
+| Personenbezogene Daten dürfen nur gemäß DSGVO verarbeitet und gespeichert werden.
+| Rechtlich
+
+| Projektlaufzeit
+| Das Produkt muss innerhalb des Jahres 2026 lieferbar sein.
+| Zeitlich
+
+| Verifizierung
+| Creator müssen verifiziert werden um den Inhalt Qualitativ und echt zu gestalten. 
+| Technisch
+
+| UX & UI Design
+| Das Objektive und die Struktur muss so entwickelt werden, dass der User abgeholt wird und den USP von humplore in kurzer Zeit versteht.
+| Technisch
+
+| Marketing
+| Ein guter Marketing Mitarbeiter, der die Vermarktung der Plattform steuert. Die Verbreitung von humplore. 
+| Marketing
+
+| Budget
+| In naher Zukunft werden Gelder notwendig sein für Mitarbeier, Marketing und Entwicklung. Investoren sind Wichtig, 
+| Business
+
+| Verifizierung
+| Creator müssen verifiziert werden um den Inhalt Qualitativ und echt zu gestalten. 
+| Technisch
+
+| Moderationsaufwand
+| Inhalte oder Kommentare von Usern müssen geprüft werden. 
+| Technisch
+
+| Genutzte Geräte 
+| Die Plattform muss mindestens Auf dem Handy IOs und Tablets nutzbar sein.
+| Technisch
+
+| Moderationsaufwand
+| Inhalte oder Kommentare von Usern müssen geprüft werden. 
+| Technisch
+
+|===
+
+
+== Versionsverlauf
+
+[cols="1,1,2", options="header"]
+|===
+| Version | Datum | Änderung
+
+| 1.0
+| [Datum]
+| Initiale Version nach Kick-off-Workshop
+
+|===
+
+---
+
+_Dieses Dokument ist bewusst stabil gehalten. Änderungen sollten nur bei wesentlichen
+Richtungsentscheidungen vorgenommen werden und im Versionsverlauf dokumentiert sein._

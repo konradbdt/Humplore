@@ -1,0 +1,111 @@
+= Funktionsvergleich Website
+
+== Ziel
+Vergleich der aktuell vorhandenen Website-Funktionen mit den geplanten bzw. gesammelten Funktionen.
+
+== Funktionsmatrix
+
+[cols="2,2,2,1,1", options="header"]
+|===
+| Funktion
+| Aktueller Stand auf der Website
+| Fehlt noch
+| Änderung nötig
+| Priorität
+
+| Registration (Creator)
+| Beim Registrieren wird gefragt: E-Mail, Passwort, welches Thema, Username, bist du Creator
+| Kategorien zuordung abfragen: Glasknochen --> Krankheit auswählen 
+| Ja
+| Mittel 
+
+| Verifizierung (Creator)
+| Nach ausfüllen von E-Mail, Passwort, Thema, Username, bist du Creator Kasten --> Verifizierungsfenster (Registrationsphase)
+| Verifizierungsfenster 
+| Ja 
+| Hoch
+
+
+| Kategorien
+| Kategorien Leiste ist auf dem Feed zu erkennen, jedoch nicht anklickbar
+| beim anklicken der Kategorien --> Neuer Feed lädt mit allen Posts rund ums Thema "Krankheit" 
+| Ja
+| Hoch
+
+
+| Buttons unter den Beiträgen
+| aktuell gibt es nur: Wissenswert (Glühbirne), Kommentieren (Sprachblase), teilen (Molekül)
+| Neues gelernt! (Glühbirne), Kommentieren/Fragen (Sprachblase/?), Save (Speichern), teilen (Molekül) + später Donation
+| = 
+| Hoch
+
+
+| Direknachrichten Creator & User
+| dieses Feature existiert im Moment nicht
+| Standard Nachrichten Symbol integrieren in der Navigaton, User können Creator schreiben und andersrum (In der Zukunft mit Tokens?)
+| Ja
+| Hoch
+
+
+| Fragen & Antworten (Pinnwand)
+| Als User kann man eine Frage beim Creator hinterlassen = Der Creator kann die Frage als individuellen Blogbeitrag beantworten oder nur auf die Fage eine Kurzantwort hinterlassen
+| sieht gut aus!
+| nein 
+| Hoch
+
+
+| Der News Button (Navigation)
+| Ist nur in der Navigation vorhanden, keine Funktion
+| Creator & User sollen über den Button "News" sehen können ob eine Interaktion stattgefunden hat, wie: Frage wurde beantwortet, du hast eine neue Frage erhalten,neuer Follower, deine Frage wurde kommentiert, es gibt neue Creator passend zu deiner Suche u.s.w.
+| Ja
+| Hoch
+
+| Profil Bearbeiten (Creator)
+| Im Profil kann man momentan nur die Bio, den Namen und das Foto bearbeiten
+| weitere Felder hinzufügen wie: Ort? , Alter?, Fokus? 
+| Ja 
+| Mittel
+
+| Videos Posten
+| auf humplore momentan nicht vorhanden
+| über das "+" unter dem "Bild hochladen" vllt "Video hochladen" oder 1 zentraler Button für beides wie "Datei hochladen" 
+| Ja
+| Hoch
+
+| "Melden" Button
+| auf humplore momentan nicht vorhanden
+| alle Kommentare und Blogs begleitet ein Meldebutton " vllt eine Glocke"
+| Ja
+| Hoch, wir wollen ein Safe-Space schaffen
+
+| Kommentare deaktivieren
+| noch nichtt vorhanden auf humplore
+| Creator können kurz vor jedem Post mit einem Hebelsystem On/Off entscheiden, ob kommentare erwünscht sind für die folgende Beiträge
+| Ja
+| niedrig - mittel
+
+| Audio-System 
+| auf humplore momentan nicht vorhanden
+| wie wäre es, wenn abgesehenn von Text und Videos, Creator die Möglichkeit hätten mit Audios zu bloggen? (Storytelling)
+| Ja
+| niedrig - mittel
+
+| Rabit-hole
+| auf humplore momentan nicht vorhanden
+| Alle Blogs werden einer Unterkategorie zugeordent: Thema: HIV, Überschrift: Ich habe meinen Eltern davon erzählt, Unterkategorie: Outing. Wenn man auf outing drückt, sieht man lauter Blogs im Feed mit der selben Unterkategorie, nur zu anderen Themen
+| Ja
+| Mittel
+
+|
+|
+|
+|
+|
+
+|===
+
+== Funktionslücken
+
+== Änderungsbedarf
+
+== Nächste Aufgaben

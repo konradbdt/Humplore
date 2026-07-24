@@ -1,0 +1,133 @@
+= Humplore – Funktionsanalyse der bestehenden Website
+:toc:
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+
+== Ziel der Analyse
+
+Diese Analyse bewertet den aktuellen Stand der bestehenden Humplore-Website anhand zentraler Funktionen aus dem Product Concept. Ziel ist es zu prüfen, welche Funktionen bereits vorhanden sind, was noch fehlt und welche Änderungen für eine nutzerfreundliche, vertrauenswürdige Erfahrungsplattform notwendig sind.
+
+== Übersicht der bisherigen Funktionsanalyse
+
+[cols="1,2,2,2,1", options="header"]
+|===
+| Funktion
+| Aktueller Stand auf der Website
+| Fehlt noch
+| Änderung nötig
+| Priorität
+
+| Themenbasierte Suche
+| Es gibt eine Suchleiste. Nutzer können nach Themen, Beiträgen und Creatorn suchen. Die Suche funktioniert jedoch nur bei exakter oder sehr passender Eingabe. Bei Tippfehlern werden keine Ergebnisse angezeigt. Nutzer müssen also bereits genau wissen, wonach sie suchen.
+| Fehlertolerante Suche, Suchvorschläge bei Tippfehlern, Autocomplete, ähnliche Suchbegriffe und thematische Empfehlungen.
+| Suchfunktion verbessern: Tippfehler erkennen, „Meintest du …?“-Vorschläge anzeigen, ähnliche Themen oder Creator vorschlagen und relevante Ergebnisse auch bei ungenauen Suchbegriffen anzeigen.
+| Sehr hoch
+
+| Filterfunktion
+| Es gibt aktuell noch keine Filter. Nutzer können Inhalte nur über die Suchleiste suchen und müssen den passenden Suchbegriff kennen.
+| Filter nach Themen, Beiträgen, Creatorn, Kategorien, Lebenssituationen, Beruf, Alter, Erfahrungstyp sowie Sortierung nach Relevanz, Aktualität oder Beliebtheit.
+| Filterfunktion ergänzen, damit Nutzer Inhalte gezielter eingrenzen können und auch ohne exakten Suchbegriff passende Erfahrungsberichte finden.
+| Sehr hoch
+
+| Themen- / Kategorieübersicht mit passenden Beiträgen
+| Es gibt aktuell eine Dummyversion: Links auf der Seite werden Kategorien angezeigt. Diese wurden manuell eingefügt, sind aber noch nicht funktional.
+| Klickbare Kategorien, die passende Beiträge, Themen und Creator anzeigen. Optional Unterkategorien oder Tags.
+| Kategorien technisch anbinden und mit Beiträgen verknüpfen, sodass Nutzer durch Themen stöbern können. Kategorien sollten später leicht ergänzt oder geändert werden können.
+| Sehr hoch
+
+| Creator-Profil
+| Creator-Profile sind bereits vorhanden. Sichtbar sind Profilbild, Username, Thema, Ort/Sprache, Bio, Follower-Anzahl, Beitragsanzahl, Folgen-Button, Profil-teilen-Button, eigene Beiträge sowie ein Bereich für Fragen an den Creator.
+| Verifizierungsstatus und klar sichtbare Unterthemen/Tags, die zeigen, zu welchen konkreten Bereichen der Creator Erfahrungen teilt.
+| Profil um Vertrauenselemente und strukturierte Themen-Tags ergänzen, damit Nutzer schneller einschätzen können, ob der Creator zu ihrer Frage oder Situation passt.
+| Sehr hoch
+
+| Verifizierung / Vertrauenselemente
+| Es gibt aktuell noch keine Verifizierung. Auf Creator-Profilen oder Beiträgen ist nicht erkennbar, ob die Erfahrung oder Identität geprüft wurde.
+| Sichtbarer Verifizierungsstatus, z. B. Badge „Verifizierte Erfahrung“ oder „Geprüfter Creator“. Zusätzlich eine kurze Erklärung, was verifiziert wurde.
+| Verifizierungsprozess entwickeln und Verifizierungsbadge auf Profilen oder Beiträgen anzeigen, damit Nutzer die Echtheit der Erfahrungsberichte besser einschätzen können.
+| Sehr hoch
+
+| Anonyme Nutzung / Privatsphäre
+| Eine klassische Anonymfunktion gibt es bisher nicht. Nutzer können jedoch einen frei gewählten Nutzernamen verwenden und müssen nicht ihren echten Namen angeben. Es ist also pseudonyme Nutzung möglich, aber keine vollständige Anonymfunktion.
+| Echte Anonym- bzw. Privatsphäre-Funktionen, z. B. anonym Fragen stellen, Beiträge anonym veröffentlichen, Profilbild/Ort ausblenden und Sichtbarkeit einzelner Informationen steuern.
+| Pseudonyme Nutzung klar als Option beibehalten und zusätzliche Privatsphäre-Einstellungen ergänzen, damit Nutzer bei sensiblen Themen besser geschützt sind.
+| Hoch
+
+| Fragefunktion an Creator
+| Auf dem Creator-Profil gibt es bereits eine funktionierende Fragefunktion. Nutzer können Fragen stellen, Creator können darauf antworten und beantwortete Fragen werden angezeigt.
+| Anonyme Fragestellung und Schutzfunktionen gegen unangemessene, beleidigende oder sensible Inhalte.
+| Fragefunktion um anonymes Fragen und Sicherheitsfunktionen ergänzen, z. B. Melden, Blockieren, Moderation oder Freigabe durch den Creator.
+| Hoch
+
+| Favoriten / Speichern
+| Eine Speicher- oder Favoritenfunktion gibt es bisher noch nicht. Nutzer können Beiträge oder Creator aktuell nicht merken und später nicht gezielt wiederfinden.
+| Speichern-Button für Beiträge und Creator, Favoritenbereich im Nutzerprofil und optional thematische Sammlungen.
+| Speicherfunktion ergänzen, damit Nutzer hilfreiche Erfahrungen sichern und später erneut aufrufen können.
+| Hoch
+
+| Folgen von Creatorn oder Themen
+| Nutzer können Creatorn folgen. Es gibt jedoch keine Möglichkeit, Themen zu folgen. Außerdem gibt es keine Benachrichtigungen, keine Übersicht der gefolgten Creator und der Feed verändert sich durch das Folgen nicht.
+| Themen folgen, Liste gefolgter Creator, Benachrichtigungen bei neuen Beiträgen und ein personalisierter Feed basierend auf gefolgten Creatorn oder Themen.
+| Follow-Funktion mit dem Feed, Nutzerprofil und Benachrichtigungen verbinden. Zusätzlich sollte das Folgen von Themen/Kategorien ergänzt werden.
+| Mittel bis hoch
+
+| Kommentare / Austausch unter Beiträgen
+| Beiträge können kommentiert werden. Es gibt aber keine Antworten auf Kommentare, keine Meldefunktion, keine Likes auf Kommentare und Creator können Kommentare nicht deaktivieren oder moderieren.
+| Antwortfunktion, Meldefunktion, Likes/Reaktionen auf Kommentare, Moderationsmöglichkeiten und Option für Creator, Kommentare zu deaktivieren.
+| Kommentarfunktion erweitern und Schutzfunktionen ergänzen, damit Austausch unter Beiträgen möglich, aber bei sensiblen Themen kontrollierbar bleibt.
+| Mittel bis hoch
+
+| Likes / hilfreiche Bewertung
+| Beiträge können bereits geliked werden. Eine speziellere Bewertung wie „hilfreich“ oder „hat mir geholfen“ gibt es aktuell nicht.
+| Hilfreich-Markierung oder passende Reaktionen, z. B. „Danke“, „hilfreich“ oder „nachvollziehbar“. Optional: Sortierung nach hilfreichsten Beiträgen.
+| Like-Funktion beibehalten, aber ggf. um eine passendere Hilfreich-Bewertung erweitern, damit Erfahrungsberichte nicht nur beliebt, sondern auch nach Nutzen bewertet werden können.
+| Mittel
+|===
+
+== Nicht priorisiert / vorerst zurückgestellt
+
+[cols="1,2,2,2,1", options="header"]
+|===
+| Funktion
+| Aktueller Stand auf der Website
+| Fehlt noch
+| Änderung nötig
+| Priorität
+
+| Personalisierter Feed
+| Aktuell nicht vorhanden und für die erste Version der Website noch nicht zentral. Das Folgen von Creatorn verändert den Feed derzeit nicht.
+| Später ggf. Inhalte basierend auf gefolgten Creatorn, Themen, gespeicherten Beiträgen oder Nutzerinteressen.
+| Vorerst keine direkte Änderung nötig. Kann in einer späteren Entwicklungsphase ergänzt werden.
+| Niedrig
+|===
+
+== Wichtigste Erkenntnisse bisher
+
+Die Website besitzt bereits einige zentrale Grundelemente, vor allem Suche, Creator-Profile, Follow-Funktion, Fragefunktion, Kommentare und Likes. Viele dieser Funktionen sind jedoch noch nicht vollständig mit dem Nutzungserlebnis verbunden oder es fehlen wichtige Schutz- und Vertrauenselemente.
+
+Besonders hohe Priorität haben aktuell:
+
+* Verbesserung der Suche durch Tippfehler-Toleranz und Suchvorschläge
+* Einführung von Filtern
+* Funktionale Kategorien statt Dummy-Kategorien
+* Ausbau der Creator-Profile mit Tags und Verifizierung
+* Einführung eines Verifizierungsprozesses
+* Ergänzung von Privatsphäre- und Anonymfunktionen
+* Melde- und Schutzfunktionen für Fragen und Kommentare
+* Speicherfunktion für Beiträge und Creator
+
+== Noch offen für die weitere Analyse
+
+Folgende Funktionen wurden noch nicht im Detail analysiert und können als Nächstes geprüft werden:
+
+* Reporting / Meldefunktion für Beiträge, Kommentare und Profile
+* Moderationssystem
+* Kommentare deaktivieren
+* Datenschutz / DSGVO-Hinweise
+* Registrierung / Login
+* Creator-Qualifizierung
+* Video- / Vlog-Inhalte
+* Mobile Optimierung
+* Ladezeit / Performance
+* Analyse-Dashboard
+* Monetarisierung / Werbung / Unterstützungsfunktion
