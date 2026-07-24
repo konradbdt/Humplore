@@ -1,5 +1,14 @@
-# Humplore
+# Humplore – aktive Arbeitskopie
 
-Die oeffentlichen Einstiegsseiten liegen weiterhin im Projekt-Root, damit bestehende URLs unveraendert bleiben.
+`Webseite - Redesign/` ist die zuletzt bearbeitete Arbeitskopie. Öffentliche
+Routen bleiben in diesem Verzeichnis, gemeinsame Logik liegt unter `app/`.
 
-Die gemeinsame technische Basis liegt jetzt unter `app/`; Details stehen in `docs/project-structure.md`.
+Verbindliche Projektdokumentation:
+
+- [`../docs/architektur.md`](../docs/architektur.md)
+- [`../docs/projektstatus.md`](../docs/projektstatus.md)
+- [`../funktions-roadmap.md`](../funktions-roadmap.md)
+- [`../openspec/README.md`](../openspec/README.md)
+
+Feature-Anforderungen und Aufgaben werden nicht in diesem Codeverzeichnis
+dupliziert.

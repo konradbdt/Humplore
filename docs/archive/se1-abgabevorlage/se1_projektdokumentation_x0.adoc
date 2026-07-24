@@ -1,3 +1,4 @@
+// ARCHIV: unvervollständigte SE-I-Abgabevorlage, nicht aktueller Projektstand
 // --- 1. Projektthema -------------------------
 = SE I - Projektdokumentation: {project-name}
 // --- 2. Teammitglieder -----------------------

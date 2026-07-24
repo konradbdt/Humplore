@@ -28,7 +28,7 @@ Humplore's search and filters now support discovery, but users still need an ove
 ## Impact
 
 - Affects `platform.php` rendering.
-- Adds or extends helper behavior under `Webseite - Codex/app/support`.
+- Adds or extends helper behavior under `Webseite - Redesign/app/support`.
 - Reuses existing `topic` and `cat` filter URL behavior.
 - Does not require a database migration.
 - Does not add a new public route in the first implementation.
