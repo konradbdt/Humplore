@@ -1,0 +1,10 @@
+[Sun Mar 29 09:12:45 2026] PHP 8.3.29 Development Server (http://127.0.0.1:8110) started
+[Sun Mar 29 09:12:46 2026] 127.0.0.1:55725 Accepted
+[Sun Mar 29 09:12:46 2026] 127.0.0.1:55725 [200]: GET /profile.php?debug=ping
+[Sun Mar 29 09:12:46 2026] 127.0.0.1:55725 Closing
+[Sun Mar 29 09:12:46 2026] 127.0.0.1:55726 Accepted
+[Sun Mar 29 09:12:46 2026] 127.0.0.1:55726 [200]: GET /profile.php?debug=trace&user_id=1
+[Sun Mar 29 09:12:46 2026] 127.0.0.1:55726 Closing
+[Sun Mar 29 09:12:46 2026] 127.0.0.1:55727 Accepted
+[Sun Mar 29 09:12:46 2026] 127.0.0.1:55727 [200]: GET /ionos_check.php
+[Sun Mar 29 09:12:46 2026] 127.0.0.1:55727 Closing

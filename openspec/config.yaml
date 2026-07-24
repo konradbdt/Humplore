@@ -1,0 +1,11 @@
+schema: spec-driven
+context: |
+  Humplore is a brownfield PHP and SQLite website. Public routes live in the project root.
+  Shared application behavior should live under Webseite - Codex/app/support where possible.
+  Prioritized roadmap comes from humplore_funktionsanalyse_bisher.adoc.
+rules:
+  specs:
+    - Use SHALL, MUST, SHOULD, or MAY for requirements.
+    - Use GIVEN/WHEN/THEN scenarios for behavior.
+  tasks:
+    - Each task must be independently verifiable.

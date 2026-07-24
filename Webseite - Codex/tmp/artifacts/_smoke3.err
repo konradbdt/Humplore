@@ -1,0 +1,19 @@
+[Thu Mar 26 15:32:57 2026] PHP 8.3.29 Development Server (http://127.0.0.1:8103) started
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59422 Accepted
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59422 [200]: GET /login.php
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59422 Closing
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59423 Accepted
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59423 [302]: GET /platform.php
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59423 Closing
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59424 Accepted
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59424 [302]: GET /search.php
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59424 Closing
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59425 Accepted
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59425 [302]: GET /news.php
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59425 Closing
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59426 Accepted
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59426 [302]: GET /posten.php
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59426 Closing
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59427 Accepted
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59427 [200]: GET /profile.php?debug=ping
+[Thu Mar 26 15:32:58 2026] 127.0.0.1:59427 Closing
