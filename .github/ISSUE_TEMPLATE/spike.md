@@ -104,8 +104,8 @@ Das Ergebnis ist immer ein konkretes Artefakt — kein „wir haben darüber ger
 
 - [ ] Klare Antwort auf die Leitfrage (dokumentiert im Abschnitt „Ergebnis" unten)
 - [ ] Empfehlung oder Entscheidung für das weitere Vorgehen
-- [ ] [z. B. „ADR in `architecture.adoc` erstellt" — bei technischem Spike]
-- [ ] [z. B. „UX-Konzept oder Persona aktualisiert" — bei Produkt-Spike]
+- [ ] [z. B. „Entscheidung in `docs/architektur.md` dokumentiert" — bei technischem Spike]
+- [ ] [z. B. „`docs/produktumfang.md` aktualisiert" — bei Produkt-Spike]
 - [ ] [z. B. „Proof-of-Concept-Code in Branch `spike/ldap` verfügbar"]
 - [ ] Folgeaufgaben als neue Issues erstellt (User Stories, Technische Stories oder Bugs)
 

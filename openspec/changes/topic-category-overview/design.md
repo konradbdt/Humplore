@@ -72,9 +72,9 @@ platform.php page state
 
 ## File Changes
 
-- `Webseite - Codex/app/support/platform-page.php` - modified: add reusable overview visibility and grouped data loading helpers.
-- `Webseite - Codex/platform.php` - modified: render Browse area above the feed only in the normal unfiltered state.
-- `Webseite - Codex/css/styles.css` or page-local styles - modified if needed: style compact overview cards responsively.
+- `Webseite - Redesign/app/support/platform-page.php` - modified: add reusable overview visibility and grouped data loading helpers.
+- `Webseite - Redesign/platform.php` - modified: render Browse area above the feed only in the normal unfiltered state.
+- `Webseite - Redesign/css/styles.css` or page-local styles - modified if needed: style compact overview cards responsively.
 
 ## Data Rules
 

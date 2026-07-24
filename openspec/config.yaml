@@ -1,11 +1,15 @@
 schema: spec-driven
 context: |
   Humplore is a brownfield PHP and SQLite website. Public routes live in the project root.
-  Shared application behavior should live under Webseite - Codex/app/support where possible.
-  Prioritized roadmap comes from humplore_funktionsanalyse_bisher.adoc.
+  The current working copy is Webseite - Redesign; Webseite - Codex is a comparison baseline.
+  Shared application behavior should live under Webseite - Redesign/app/support where possible.
+  Product scope is defined in docs/produktumfang.md.
+  Current implementation status is defined in docs/projektstatus.md.
+  Priorities are defined in funktions-roadmap.md.
 rules:
   specs:
     - Use SHALL, MUST, SHOULD, or MAY for requirements.
     - Use GIVEN/WHEN/THEN scenarios for behavior.
   tasks:
     - Each task must be independently verifiable.
+    - OpenSpec tasks are the only detailed task checklist; do not mirror them elsewhere.

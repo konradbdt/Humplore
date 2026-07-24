@@ -52,7 +52,7 @@ Produktkonzept, falls zutreffend.]
 ## Bezug zu anderen Artefakten
 
 **Zugehöriges ADR:**
-[Link zum ADR in `architecture.adoc` — oder „nicht zutreffend"]
+[Link zur Entscheidung in `docs/architektur.md` — oder „nicht zutreffend"]
 
 **Betroffene User Stories:**
 [Links zu Stories, die diese Arbeit voraussetzen oder davon profitieren — oder „keine"]
@@ -72,7 +72,7 @@ Mindestens 2 Kriterien.
 
 - [ ] [z. B. „CI-Pipeline ist grün bei jedem Push auf main."]
 - [ ] [z. B. „Alle bestehenden Tests bestehen nach dem Refactoring."]
-- [ ] [z. B. „Technische Änderung ist in `architecture.adoc` oder `design.adoc` dokumentiert."]
+- [ ] [z. B. „Technische Änderung ist in `docs/architektur.md` dokumentiert."]
 - [ ] [Weiteres Kriterium]
 
 ---
@@ -87,10 +87,11 @@ PLANNING: Einträge als Sub-Issues anlegen und zuweisen.
 - [ ] [z. B. Pipeline-Konfiguration schreiben (`.github/workflows/ci.yml`)]
 - [ ] [z. B. Secrets in GitHub Repository konfigurieren]
 - [ ] [z. B. Deployment auf Staging-Umgebung testen]
-- [ ] [z. B. `deployment.adoc` aktualisieren]
+- [ ] [z. B. `docs/architektur.md` oder `docs/teststrategie.md` aktualisieren]
 - [ ] [Weiterer Schritt]
 
 ---
 
-> **Definition of Ready** prüfen, bevor diese Story in einen Sprint aufgenommen wird:
-> [Team-Charta - Definition of Ready](https://github.com/[ORG]/[REPO]/blob/main/docs/team/team_charter.adoc)
+> Vor der Umsetzung Priorität, Abgrenzung und Akzeptanzkriterien mit
+> `funktions-roadmap.md`, `docs/produktumfang.md` und der passenden
+> OpenSpec-Änderung abgleichen.

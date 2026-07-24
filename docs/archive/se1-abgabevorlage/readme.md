@@ -1,4 +1,8 @@
-# Abgabe in SE I
+# Archivierte Abgabevorlage für SE I
+
+> Diese unvervollständigte Hochschulvorlage ist kein Teil der aktuellen
+> Humplore-Dokumentation. Ihre Include-Pfade verweisen auf den ebenfalls
+> archivierten AsciiDoc-Stand.
 
 Im Verzeichnis **abgabe_se1** finden Sie die Vorlagedatei
 _se1_projektdokumentation_x0.adoc_, welche alle Ihre erzeugten Dokumente für die Abgabe als

@@ -71,8 +71,9 @@ zulässig. Mindestens 2 Kriterien pro Story.
 
 ---
 
-> **Definition of Ready** prüfen, bevor diese Story in einen Sprint aufgenommen wird:
-> [Team-Charta - Definition of Ready](https://github.com/[ORG]/[REPO]/blob/main/docs/team/team_charter.adoc)
+> Vor der Umsetzung Priorität, Abgrenzung und Akzeptanzkriterien mit
+> `funktions-roadmap.md`, `docs/produktumfang.md` und der passenden
+> OpenSpec-Änderung abgleichen.
 
 ---
 

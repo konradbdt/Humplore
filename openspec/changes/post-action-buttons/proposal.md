@@ -27,7 +27,7 @@ Humplore's post action row should express the platform's learning intent more cl
 
 ## Impact
 
-- Affects post card partials under `Webseite - Codex/app/views/partials`.
+- Affects post card partials under `Webseite - Redesign/app/views/partials`.
 - May add a saved-post relationship table or reuse an existing saved-post persistence concept.
 - May add a save toggle route or handler.
 - Requires bulk remembered-state loading for rendered posts.

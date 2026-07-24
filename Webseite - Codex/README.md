@@ -1,5 +1,8 @@
-# Humplore
+# Humplore – Vergleichsbasis
 
-Die oeffentlichen Einstiegsseiten liegen weiterhin im Projekt-Root, damit bestehende URLs unveraendert bleiben.
+`Webseite - Codex/` ist der vorherige Stand und dient vorläufig nur zum
+Vergleich mit der neueren Arbeitskopie `Webseite - Redesign/`.
 
-Die gemeinsame technische Basis liegt jetzt unter `app/`; Details stehen in `docs/project-structure.md`.
+Nicht parallel in beiden Verzeichnissen weiterentwickeln. Der aktuelle Status
+und die Entscheidung zur Konsolidierung stehen in
+[`../docs/projektstatus.md`](../docs/projektstatus.md).
