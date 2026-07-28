@@ -26,10 +26,10 @@ Humplore's discovery model now separates Themenkategorie, Thema, and Kategorie. 
 
 ## Impact
 
-- Affects `Webseite - Redesign/platform.php`.
-- Affects `Webseite - Redesign/app/support/platform-page.php`.
-- Affects `Webseite - Redesign/app/support/search-discovery.php`.
-- Later-stage profile editing affects `Webseite - Redesign/app/support/profile-page.php` and `Webseite - Redesign/app/views/partials/profile-settings-modal.php`.
+- Affects `Webseite - Codex/platform.php`.
+- Affects `Webseite - Codex/app/support/platform-page.php`.
+- Affects `Webseite - Codex/app/support/search-discovery.php`.
+- Later-stage profile editing affects `Webseite - Codex/app/support/profile-page.php` and `Webseite - Codex/app/views/partials/profile-settings-modal.php`.
 - No breaking URL changes. Existing `topic_cat`, `topic`, and `cat` links remain compatible.
 
 ## Rollback

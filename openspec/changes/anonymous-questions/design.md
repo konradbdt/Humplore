@@ -75,10 +75,10 @@ The current implementation deletes the source question after creating a post. If
 
 ## Files Likely Affected
 
-- `Webseite - Redesign/app/support/profile-actions.php` - read and persist anonymous question state.
-- `Webseite - Redesign/app/support/profile-page.php` - load `is_anonymous` and/or display metadata.
-- `Webseite - Redesign/app/views/partials/profile-questions-card.php` - add checkbox, helper copy, anonymous author label.
-- `Webseite - Redesign/create_tables.sql` - document additive question schema.
+- `Webseite - Codex/app/support/profile-actions.php` - read and persist anonymous question state.
+- `Webseite - Codex/app/support/profile-page.php` - load `is_anonymous` and/or display metadata.
+- `Webseite - Codex/app/views/partials/profile-questions-card.php` - add checkbox, helper copy, anonymous author label.
+- `Webseite - Codex/create_tables.sql` - document additive question schema.
 - Existing schema helper if present - ensure `Questions.is_anonymous` for brownfield databases.
 
 ## UX Constraints

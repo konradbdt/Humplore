@@ -208,13 +208,13 @@ Rollback is logical and non-destructive:
 
 ## File Changes
 
-- `Webseite - Redesign/app/support/platform-page.php` - parse list values, load profile filter options, generate profile-filter SQL.
-- `Webseite - Redesign/app/support/search-discovery.php` - apply profile filters to profile and post searches.
-- `Webseite - Redesign/platform.php` - render profile-filter UI and active chips.
-- `Webseite - Redesign/app/support/profile-page.php` - later-stage read support for new fields.
-- `Webseite - Redesign/app/views/partials/profile-settings-modal.php` - later-stage editing controls.
-- `Webseite - Redesign/app/support/helpers.php` - later-stage additive schema setup and language backfill.
-- `Webseite - Redesign/app/support/profile-actions.php` - later-stage validation and persistence for profile attributes and consent.
+- `Webseite - Codex/app/support/platform-page.php` - parse list values, load profile filter options, generate profile-filter SQL.
+- `Webseite - Codex/app/support/search-discovery.php` - apply profile filters to profile and post searches.
+- `Webseite - Codex/platform.php` - render profile-filter UI and active chips.
+- `Webseite - Codex/app/support/profile-page.php` - later-stage read support for new fields.
+- `Webseite - Codex/app/views/partials/profile-settings-modal.php` - later-stage editing controls.
+- `Webseite - Codex/app/support/helpers.php` - later-stage additive schema setup and language backfill.
+- `Webseite - Codex/app/support/profile-actions.php` - later-stage validation and persistence for profile attributes and consent.
 
 ## Risks
 

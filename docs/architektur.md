@@ -1,6 +1,6 @@
 # Humplore Architektur
 
-Stand: 24. Juli 2026
+Stand: 28. Juli 2026
 
 ## Laufzeit
 
@@ -11,24 +11,23 @@ Stand: 24. Juli 2026
 
 ## Aktive Arbeitskopie
 
-`Webseite - Redesign/` ist die zuletzt bearbeitete Arbeitskopie. Der nahezu
-identische Baum `Webseite - Codex/` bleibt bis zur Git-Wiederherstellung als
-Vergleichsbasis erhalten und wird nicht parallel weiterentwickelt.
+`Webseite - Codex/` ist der einzige maßgebliche Codebaum. `Webseite - Redesign/`
+ist verworfen und weder Test- noch Implementierungsgrundlage.
 
 ## Anwendungsstruktur
 
 | Pfad | Verantwortung |
 |---|---|
-| `Webseite - Redesign/*.php` | Öffentliche Routen und Seitencontroller |
-| `Webseite - Redesign/app/bootstrap.php` | Session, Datenbank und gemeinsame Support-Funktionen |
-| `Webseite - Redesign/app/support/` | Wiederverwendbare Auth-, Content-, Such-, Profil-, Filter- und Reportinglogik |
-| `Webseite - Redesign/app/views/partials/` | Wiederverwendbare Navigation, Postkarten, Profil- und Reportingoberflächen |
-| `Webseite - Redesign/config/` | Laufzeitkonfiguration und Datenbankverbindung |
-| `Webseite - Redesign/data/` | Lokale SQLite-Laufzeitdaten |
-| `Webseite - Redesign/css/` | Globale Styles |
-| `Webseite - Redesign/inc/` | Rückwärtskompatible Include-Einstiegspunkte |
-| `Webseite - Redesign/legacy/` | Nicht produktive Backups und Experimente |
-| `Webseite - Redesign/tmp/` | Testausgaben, Browserprofile und Logs |
+| `Webseite - Codex/*.php` | Öffentliche Routen und Seitencontroller |
+| `Webseite - Codex/app/bootstrap.php` | Session, Datenbank und gemeinsame Support-Funktionen |
+| `Webseite - Codex/app/support/` | Wiederverwendbare Auth-, Content-, Such-, Profil-, Filter- und Reportinglogik |
+| `Webseite - Codex/app/views/partials/` | Wiederverwendbare Navigation, Postkarten, Profil- und Reportingoberflächen |
+| `Webseite - Codex/config/` | Laufzeitkonfiguration und Datenbankverbindung |
+| `Webseite - Codex/data/` | Lokale SQLite-Laufzeitdaten |
+| `Webseite - Codex/css/` | Globale Styles |
+| `Webseite - Codex/inc/` | Rückwärtskompatible Include-Einstiegspunkte |
+| `Webseite - Codex/legacy/` | Nicht produktive Backups und Experimente |
+| `Webseite - Codex/tmp/` | Testausgaben, Browserprofile und Logs |
 
 Öffentliche URLs wie `platform.php`, `search.php`, `profile.php` und
 `posten.php` bleiben stabil. Neue gemeinsame Logik gehört bevorzugt nach
@@ -42,6 +41,18 @@ Vergleichsbasis erhalten und wird nicht parallel weiterentwickelt.
 - Datenbankzugriffe verwenden vorbereitete Statements.
 - Vor einem MySQL-Wechsel sind Schema-Kompatibilität, Migration, Backups und
   Hosting verbindlich zu planen.
+
+## Medienstand
+
+- Die aktive Erstellseite `posten.php` akzeptiert und speichert ausschließlich
+  Bilder in `Posts.media_image`.
+- Video-Uploads sind im aktiven Posting-Workflow nicht implementiert.
+- Die Feed- und Suchkarten deklarieren gespeicherte Bilder derzeit pauschal als
+  JPEG. PNG-, WebP- und GIF-Dateien können deshalb trotz erfolgreichem Upload
+  falsch oder gar nicht angezeigt werden.
+- Die alte Route `create_post.php` mit `process_post.php` ist nicht aus der
+  Anwendung verlinkt und erwartet zusätzlich einen nicht vorhandenen
+  `uploads/`-Ordner. Sie ist keine funktionierende Medienbasis.
 
 ## Sicherheitsgrundlagen
 

@@ -68,9 +68,9 @@ Keep existing share behavior and molecule-style icon. The row composition change
 
 ## Files Likely Affected
 
-- `Webseite - Redesign/app/views/partials/platform-post-card.php`
-- `Webseite - Redesign/app/views/partials/profile-post-card.php`
-- `Webseite - Redesign/app/support/content.php` or another shared support helper for bulk save state
+- `Webseite - Codex/app/views/partials/platform-post-card.php`
+- `Webseite - Codex/app/views/partials/profile-post-card.php`
+- `Webseite - Codex/app/support/content.php` or another shared support helper for bulk save state
 - A save toggle route/handler if no suitable existing action handler exists
 - Page-local or shared CSS for `.post-actions` and `.action-button`
 

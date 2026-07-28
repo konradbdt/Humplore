@@ -25,9 +25,9 @@ Humplore promises low-barrier questions to creators, but the current question fl
 
 ## Impact
 
-- Affects `Webseite - Redesign/app/support/profile-actions.php` for question submission.
-- Affects `Webseite - Redesign/app/support/profile-page.php` for question loading/display data.
-- Affects `Webseite - Redesign/app/views/partials/profile-questions-card.php` for form controls and anonymous labels.
+- Affects `Webseite - Codex/app/support/profile-actions.php` for question submission.
+- Affects `Webseite - Codex/app/support/profile-page.php` for question loading/display data.
+- Affects `Webseite - Codex/app/views/partials/profile-questions-card.php` for form controls and anonymous labels.
 - Affects question schema by adding an additive `Questions.is_anonymous` field.
 - May affect question-to-post post creation metadata or copy when answering a question as a post.
 
