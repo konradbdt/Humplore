@@ -1,6 +1,6 @@
 # Humplore Funktions-Roadmap
 
-Stand: 24. Juli 2026
+Stand: 28. Juli 2026
 
 Diese Datei enthält nur Prioritäten und Reihenfolge. Verbindliche
 Produktentscheidungen stehen in [`docs/produktumfang.md`](docs/produktumfang.md),
@@ -14,14 +14,13 @@ Aufgaben werden ausschließlich in OpenSpec geführt.
 
 **Ziel:** Nur eine bearbeitbare Anwendung und eine nachvollziehbare Historie.
 
-- `Webseite - Redesign/` als aktuellen Kandidaten prüfen und bestätigen.
-- Die 14 Abweichungen zu `Webseite - Codex/` fachlich abnehmen.
-- Den aktuellen Arbeitsbaum prüfen und die zusammengehörigen Änderungen
-  nachvollziehbar committen.
-- Danach den nicht mehr benötigten Codebaum archivieren oder entfernen.
+- `Webseite - Codex/` als einzigen aktiven Codebaum beibehalten.
+- Den verworfenen Baum `Webseite - Redesign/` erst nach einer gesonderten
+  Sicherungsentscheidung archivieren oder entfernen.
+- Änderungen im Codex-Baum nachvollziehbar committen.
 
-**Abgeschlossen, wenn:** Ein bestätigter Basis-Commit vorliegt und nur ein
-aktiver Codebaum dokumentiert ist.
+**Abgeschlossen, wenn:** `Webseite - Codex/` als einziger aktiver Codebaum
+dokumentiert und versioniert ist.
 
 ## P0: Launch-Blocker
 
@@ -102,10 +101,13 @@ Kommentar-Deaktivierung durch Creator sowie Kommentar-Melden und Moderation
 gemeinsam spezifizieren. Threaded Replies und Kommentar-Likes sind nicht
 automatisch Teil dieses Changes.
 
-### 12. Video produktionsreif machen
+### 12. Medien-Upload reparieren und Video unterstützen
 
-Bestehenden Uploadpfad prüfen und Anforderungen für Formate, Limits,
-Speicherung, Vorschau, Transcoding, Moderation und mobile Wiedergabe festlegen.
+Die aktuelle Posting-Seite unterstützt nur Bilder; deren Darstellung in Feed und
+Suche ist für nicht-JPEG-Dateien unzuverlässig. Zuerst Bild-Upload und
+Bildanzeige end-to-end prüfen und vereinheitlichen. Danach Video als eigenen
+Umfang mit Formaten, Limits, Speicherung, Vorschau, Transcoding, Moderation
+und mobiler Wiedergabe spezifizieren.
 
 ### 13. Performance, Last und Datenbank
 
@@ -129,7 +131,7 @@ Speicherung, Vorschau, Transcoding, Moderation und mobile Wiedergabe festlegen.
 
 ## Reihenfolge für neue Arbeit
 
-1. Codebaum und Git klären.
+1. Codex-Codebaum und Git-Stand sichern.
 2. Verifizierung und Moderation spezifizieren.
 3. Datenschutz und Account-Löschung spezifizieren.
 4. Bereits aktive MVP-Changes abschließen.

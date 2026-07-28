@@ -1,8 +1,8 @@
 schema: spec-driven
 context: |
   Humplore is a brownfield PHP and SQLite website. Public routes live in the project root.
-  The current working copy is Webseite - Redesign; Webseite - Codex is a comparison baseline.
-  Shared application behavior should live under Webseite - Redesign/app/support where possible.
+  The only active working copy is Webseite - Codex. Webseite - Redesign is rejected and not a code or test baseline.
+  Shared application behavior should live under Webseite - Codex/app/support where possible.
   Product scope is defined in docs/produktumfang.md.
   Current implementation status is defined in docs/projektstatus.md.
   Priorities are defined in funktions-roadmap.md.

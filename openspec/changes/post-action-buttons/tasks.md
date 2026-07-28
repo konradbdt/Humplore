@@ -52,6 +52,6 @@
 - [ ] 4.13 Inspect mobile layout for icon-only actions, visible counts, tappable targets, and no overlap.
 
 Audit note (2026-07-24): Foundation, backend and UI implementation are present
-in `Webseite - Redesign/`. Verification remains open because the standalone
+in `Webseite - Codex/`. Verification remains open because the standalone
 `search.php` does not render the shared action toolbar and no complete
 interactive protocol covers all success and failure scenarios.
