@@ -1,4 +1,0 @@
-
-Warning: session_start(): Session cannot be started after headers have already been sent in C:\Users\borns\OneDrive\Desktop\Humplore\Webseite\media.php on line 2
-
-Warning: http_response_code(): Cannot set response code - headers already sent (output started at C:\Users\borns\OneDrive\Desktop\Humplore\Webseite\_test_media_profile.php:1) in C:\Users\borns\OneDrive\Desktop\Humplore\Webseite\media.php on line 165

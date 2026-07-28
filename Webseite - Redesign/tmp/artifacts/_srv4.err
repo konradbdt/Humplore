@@ -1,4 +1,0 @@
-[Sun Mar 29 09:16:58 2026] PHP 8.3.29 Development Server (http://127.0.0.1:8113) started
-[Sun Mar 29 09:16:59 2026] 127.0.0.1:54491 Accepted
-[Sun Mar 29 09:16:59 2026] 127.0.0.1:54491 [200]: GET /profile.php?debug=ping
-[Sun Mar 29 09:16:59 2026] 127.0.0.1:54491 Closing

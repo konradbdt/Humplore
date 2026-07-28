@@ -1,4 +1,0 @@
-[Sun Mar 29 09:14:15 2026] PHP 8.3.29 Development Server (http://127.0.0.1:8112) started
-[Sun Mar 29 09:14:16 2026] 127.0.0.1:58291 Accepted
-[Sun Mar 29 09:14:16 2026] 127.0.0.1:58291 [200]: GET /profile.php?debug=trace&user_id=1
-[Sun Mar 29 09:14:16 2026] 127.0.0.1:58291 Closing
