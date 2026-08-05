@@ -49,6 +49,54 @@ Statuswerte:
 | Kommentare | Erstellen und Anzeigen funktioniert. | Antworten, Meldung auf allen Oberflächen, Likes, Deaktivierung durch Creator und Moderationswerkzeuge. |
 | Folgen | Creator-Follow und ein Following-Modus sind vorhanden. | Themen-Follow, Benachrichtigungen und Übersicht gefolgter Creator. |
 
+## Funktionsabgleich mit den Produktanalysen
+
+Funktionskatalog und Sollbild stammen ausschliesslich aus diesen beiden
+historischen Produktanalysen:
+
+- `docs/archive/asciidoc-stand-2026-07-24/product/humplore_funktionsanalyse_bisher.adoc`
+- `docs/archive/asciidoc-stand-2026-07-24/product/website_function_gap_analysis.adoc`
+
+Die Aussagen dort zum damaligen Stand und zu Luecken sind veraltet. Die
+folgende Neubewertung prueft deshalb die genannten Funktionen gegen den
+aktiven Codebaum `Webseite - Codex/`. Sie ist eine Code- und
+Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
+
+| Funktion aus den Analysen | Neubewerteter Stand im aktiven Projekt | Noch zu pruefen oder umzusetzen |
+|---|---|---|
+| Themenbasierte Suche | implementiert | Direktsuche, fehlertolerante Suche, Vorschlaege und Leerzustand sind vorhanden. Eine aktuelle Browser-Abnahme mit realistischen Daten fehlt. |
+| Filter und Sortierung | teilweise | Themenkategorie, Thema, Beitrags-/Lebenskategorie, Wohnort, Sprache sowie Neueste/Beliebt sind vorhanden. Filter fuer Beruf, Alter und Erfahrungstyp fehlen; die vollstaendige Kombination der vorhandenen Filter ist manuell zu pruefen. |
+| Themen- und Kategorieuebersicht | implementiert, Abnahme offen | Funktionaler Browse-Bereich mit getrennten Themen- und Beitrags-/Lebenskategorien sowie Feed-Links ist vorhanden. Desktop- und Mobilansicht sind noch manuell abzunehmen. |
+| Creator-Registrierung | teilweise | Registrierung erfasst Creator-Status und Hauptthema. Eine strukturierte Kategorienzuordnung waehrend der Registrierung fehlt. |
+| Creator-Profil und Profilbearbeitung | teilweise | Profilbild und Bio sind bearbeitbar; Profile zeigen unter anderem Hauptthema, Ort/Sprache, Beitraege und Follow. Bearbeitbare Felder fuer Ort, Alter und Fokus sowie strukturierte Unterthemen/Tags fehlen. |
+| Creator-Verifizierung und Vertrauenselemente | offen | Kein Verifizierungsprozess, kein Badge und keine erkennbare Posting-Sperre fuer nicht verifizierte Creator. |
+| Anonyme Nutzung und Privatsphaere | teilweise | Pseudonyme Nutzung ist durch frei waehbaren Nutzernamen moeglich. Anonyme Fragen, anonyme Beitraege und steuerbare Profilsichtbarkeit sind nicht implementiert. |
+| Fragen und Antworten an Creator | implementiert, Abnahme offen | Fragen koennen gestellt und vom Creator kurz beantwortet oder in einen Beitrag uebernommen werden. Anonyme Fragen sowie weitergehende Schutzfunktionen fehlen. |
+| Beitragsaktionen und Merken | teilweise | `Neues gelernt!`, Kommentieren, Merken und Teilen sind in den gemeinsamen Beitragskarten vorhanden; Merken wird pro Nutzer gespeichert. Die eigenstaendige Suche nutzt Karten ohne diese Aktionsleiste; die interaktive Abnahme der Aktionen steht aus. Donation ist nicht implementiert. |
+| Folgen | teilweise | Creator koennen gefolgt werden; ein Following-Modus ist vorhanden. Themen folgen, Benachrichtigungen und eine eigene Uebersicht gefolgter Creator fehlen. |
+| Kommentare und Austausch | teilweise | Kommentare koennen erstellt und angezeigt werden; Kommentare sind meldbar. Antworten auf Kommentare, Kommentar-Likes, Creator-Steuerung zum Deaktivieren und Moderationswerkzeuge fehlen. |
+| Melden und Safe-Space-Funktionen | teilweise | Fragen und Kommentare koennen mit Validierung, CSRF- und Duplikatschutz gemeldet werden. Beitraege und Profile sind nicht meldbar; Moderationsqueue, Entscheidungen, Verwarnungen, Sperren und Blockieren fehlen. |
+| News und Benachrichtigungen | offen | `news.php` ist eine statische News-Seite; Interaktionsbenachrichtigungen, ungelesene Zustaende und ein Ereignisfeed sind nicht implementiert. |
+| Direktnachrichten | offen | Keine Nachrichtenfunktion zwischen Usern und Creatorn gefunden. |
+| Bild-, Video- und Audio-Beitraege | fehlerhaft / offen | Die aktive Posting-Seite akzeptiert nur Bilder. PNG, WebP und GIF koennen trotz Upload im Feed bzw. in der Suche wegen einer pauschalen JPEG-Auslieferung fehlerhaft erscheinen. Video und Audio sind nicht implementiert. |
+| Themenuebergreifende Unterkategorien ("Rabbit-hole") | teilweise | Beitrags-/Lebenskategorien lassen sich bereits themenuebergreifend filtern. Ein eigenes, strukturiertes Unterkategorie- bzw. Tag-Modell mit der beschriebenen Navigation fehlt. |
+| Personalisierter Feed | offen / zurueckgestellt | Kein personalisierter Feed auf Basis von Folgen, Interessen oder gespeicherten Beitraegen. |
+
+### Noch auszufuehrende manuelle Funktionsabnahme
+
+1. Suche: exakter Begriff, Tippfehler, Vorschlag und Leerzustand.
+2. Explore: alle vorhandenen Filter einzeln und kombiniert, Sortierung sowie
+   vollstaendiges Zuruecksetzen.
+3. Browse-Uebersicht: Anzeige ohne Filter sowie Desktop- und Mobilansicht.
+4. Registrierung, Login, Creator-Profil, Fragen/Antworten, Folgen und
+   Profilbearbeitung mit zwei Testkonten.
+5. Beitragsaktionen: Reaktion, Kommentieren, Merken/Entmerken nach Neuladen,
+   Teilen sowie Gast- und CSRF-Fehlerfall.
+6. Melden: Frage und Kommentar melden, Doppelmeldung, ungueltige Daten und
+   nicht angemeldeter Aufruf.
+7. Medien: JPEG, PNG und WebP posten und in Explore, Suche und Profil anzeigen;
+   Video und Audio weiterhin als nicht implementiert festhalten.
+
 ## Offen
 
 ### Launch-Blocker
