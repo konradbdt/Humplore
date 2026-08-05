@@ -13,9 +13,24 @@ Diese Regeln gelten fuer alle Arbeiten in diesem Repository.
   Chatverlaeufen oder historischen Dokumenten als weiterhin vorhanden
   angenommen werden.
 
-## Pflichtpruefung vor Status, Planung und Implementierung
+## Aufgabenbezogene Pflichtpruefung
 
-Vor jeder Aussage zum aktuellen Projektstand und vor jeder neuen Aufgabe:
+Die Pruefung muss proportional zur konkreten Aufgabe erfolgen:
+
+- Bei reinen Text-, Konzept- oder Analyseaufgaben ohne Abhaengigkeit vom
+  aktuellen Implementierungsstand nur die vom Nutzer genannten Unterlagen und
+  den unmittelbar benoetigten Kontext lesen.
+- Bei Aenderungen an einzelnen Dateien den Git-Arbeitsstand und nur die
+  betroffenen Dateien sowie ihre direkten Abhaengigkeiten pruefen.
+- Bei Implementierungen den Git-Arbeitsstand, den betroffenen Funktionsbereich
+  und die dazugehoerige Dokumentation pruefen.
+- Eine vollstaendige Projektpruefung nur bei Fragen zum Gesamtstatus, zur
+  Roadmap, zu Prioritaeten oder fehlenden Funktionen sowie vor groesseren
+  projektweiten Aenderungen und Veroeffentlichungen durchfuehren.
+- Keine umfassende Projektanalyse starten, wenn sie fuer die konkrete Aufgabe
+  keinen erkennbaren Mehrwert bietet.
+
+Wenn eine vollstaendige Projektpruefung erforderlich ist:
 
 1. Aktuellen Branch mit `git branch --show-current` pruefen.
 2. Arbeitsstand mit `git status --short` pruefen.
@@ -48,12 +63,33 @@ geaendert wurden.
 - Eine Aenderung auf einem Arbeitsbranch darf nicht als in `main` vorhanden
   bezeichnet werden, solange sie nicht nach `main` gemergt wurde.
 
-## Abschluss jeder Aufgabe
+## Dokumentation und Abschluss
+
+Relevante Ergebnisse sollen in den meisten Aufgaben dauerhaft festgehalten
+werden. Dazu gehoeren insbesondere getroffene Produktentscheidungen,
+verbindliche Konzepte, geaendertes Verhalten, neue Erkenntnisse zum
+Projektstand, Testergebnisse und bewusst offen gelassene Punkte.
+
+- Zuerst die passende bestehende Dokumentation aktualisieren und keine zweite
+  Datei mit demselben Zweck anlegen.
+- `docs/projektstatus.md` aktualisieren, wenn sich Implementierungsstand,
+  Teststatus, bekannte Fehler, Risiken oder naechste Schritte veraendern.
+- Produktentscheidungen in der passenden Produktdokumentation festhalten;
+  technische Entscheidungen in Architektur- oder Entwicklungsdokumentation.
+- Bei einer Konzeptauswertung die beschlossenen Ergebnisse und offenen Fragen
+  dokumentieren, sofern sie fuer Humplore weiterverwendet werden sollen.
+- Rein unverbindliche Erklaerungen, kurze Rueckfragen und verworfene Ideen
+  muessen nicht dauerhaft dokumentiert werden.
+- Besteht keine passende Zieldatei, zuerst eine sinnvolle Einordnung nennen
+  und nur bei Bedarf eine neue Dokumentationsdatei anlegen.
+- Dokumentation und Code muessen sich nicht widersprechen. Veraltete Aussagen
+  im direkt betroffenen Dokument sind bei der Aktualisierung zu entfernen.
 
 Nach einer abgeschlossenen Implementierung:
 
 1. Relevante Syntax-, Funktions- und Regressionstests ausfuehren.
-2. `docs/projektstatus.md` vollstaendig und widerspruchsfrei aktualisieren.
+2. Betroffene Dokumentation und gegebenenfalls `docs/projektstatus.md`
+   widerspruchsfrei aktualisieren.
 3. Geaenderte Dateien und Testergebnisse nennen.
 4. Offene Einschraenkungen klar dokumentieren.
 5. Vor dem Staging pruefen, dass keine fremden oder lokalen Artefakte in den
