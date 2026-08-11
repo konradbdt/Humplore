@@ -1,13 +1,14 @@
 # Humplore Projektstatus
 
-Stand: 28. Juli 2026
+Stand: 11. August 2026
 
 ## Bewertungsbasis
 
 - maßgeblicher Codebaum: `Webseite - Codex/`
 - OpenSpec-Aufgaben und vorhandene Testartefakte
 - manuelle Medienprüfung am 28. Juli 2026
-- PHP-Syntaxprüfung zentraler Codex-Dateien am 28. Juli 2026
+- isolierte Browser- und Handlerprüfung der Post-Aktionen am 11. August 2026
+- PHP-Syntaxprüfung der geänderten Post-Aktionsdateien am 11. August 2026
 
 `Webseite - Redesign/` ist verworfen und wird für diesen Status nicht bewertet.
 
@@ -27,13 +28,13 @@ Statuswerte:
 | Discovery-Basisfilter | Themen-, Themenkategorie- und Beitragskategorien sind im Codex-Code kombinierbar und zurücksetzbar. | `openspec/specs/discovery/spec.md` |
 | Reporting für Fragen und Kommentare | Persistenz, Validierung, CSRF und Duplikatschutz sind vorhanden. | `openspec/specs/moderation/spec.md` |
 | Profilfilter Stufe 1 | Wohnort und Sprache sind als Filterbereich implementiert. | `openspec/changes/profile-discovery-filters/tasks.md` |
+| Post-Aktionen | `Neues gelernt!`, `Kommentieren`, privates `Merken` und `Teilen` sind in Explore, eigenständiger Suche, Profil und Modal geprüft; Handler-, CSRF-, Gast-, Sperr- und Mobilfälle sind belegt. | `openspec/specs/engagement/spec.md` |
 
 ## Implementiert, Abnahme offen
 
 | Bereich | Vorhanden | Noch offen |
 |---|---|---|
 | Themen-/Kategorieübersicht | Browse-Bereich oberhalb des Explore-Feeds mit Themen, Kategorien, Beiträgen und Creatorn. | Manuelle Desktop-/Mobile-Abnahme. |
-| Post-Aktionen | `Neues gelernt!`, `Kommentieren`, privates `Merken`, `Teilen`, `SavedPosts`, CSRF-Handler und synchronisierte Save-Buttons. | `search.php` verwendet eigene Karten ohne Action-Leiste; vollständiges interaktives Prüfprotokoll fehlt. |
 | Authentifizierung | Registrierung, Login, Logout und Sessions sind vorhanden. | Account-Löschung, E-Mail-Verifizierung, Rate-Limits und Security-Review. |
 | Creator-Profile | Profilinformationen, Beiträge, Fragen, Folgen und Teilen sind vorhanden. | Verifizierung, Vertrauenselemente, Direktnachrichten und Kommentarsteuerung. |
 
@@ -59,8 +60,9 @@ historischen Produktanalysen:
 
 Die Aussagen dort zum damaligen Stand und zu Luecken sind veraltet. Die
 folgende Neubewertung prueft deshalb die genannten Funktionen gegen den
-aktiven Codebaum `Webseite - Codex/`. Sie ist eine Code- und
-Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
+aktiven Codebaum `Webseite - Codex/`. Sie basiert grundsätzlich auf der Code-
+und Dokumentenprüfung vom 28. Juli 2026; die Beitragsaktionen wurden zusätzlich
+am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 | Funktion aus den Analysen | Neubewerteter Stand im aktiven Projekt | Noch zu pruefen oder umzusetzen |
 |---|---|---|
@@ -72,7 +74,7 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 | Creator-Verifizierung und Vertrauenselemente | offen | Kein Verifizierungsprozess, kein Badge und keine erkennbare Posting-Sperre fuer nicht verifizierte Creator. |
 | Anonyme Nutzung und Privatsphaere | teilweise | Pseudonyme Nutzung ist durch frei waehbaren Nutzernamen moeglich. Anonyme Fragen, anonyme Beitraege und steuerbare Profilsichtbarkeit sind nicht implementiert. |
 | Fragen und Antworten an Creator | implementiert, Abnahme offen | Fragen koennen gestellt und vom Creator kurz beantwortet oder in einen Beitrag uebernommen werden. Anonyme Fragen sowie weitergehende Schutzfunktionen fehlen. |
-| Beitragsaktionen und Merken | teilweise | `Neues gelernt!`, Kommentieren, Merken und Teilen sind in den gemeinsamen Beitragskarten vorhanden; Merken wird pro Nutzer gespeichert. Die eigenstaendige Suche nutzt Karten ohne diese Aktionsleiste; die interaktive Abnahme der Aktionen steht aus. Donation ist nicht implementiert. |
+| Beitragsaktionen und Merken | geprüft | `Neues gelernt!`, Kommentieren, privates Merken und Teilen sind in Explore, eigenständiger Suche, Profil und Modal interaktiv geprüft. Suche verwendet die gemeinsame Plattform-Postkarte und Bulk-Lookups. Eine Seite für gemerkte Beiträge und Donation bleiben bewusst außerhalb dieses Changes. |
 | Folgen | teilweise | Creator koennen gefolgt werden; ein Following-Modus ist vorhanden. Themen folgen, Benachrichtigungen und eine eigene Uebersicht gefolgter Creator fehlen. |
 | Kommentare und Austausch | teilweise | Kommentare koennen erstellt und angezeigt werden; Kommentare sind meldbar. Antworten auf Kommentare, Kommentar-Likes, Creator-Steuerung zum Deaktivieren und Moderationswerkzeuge fehlen. |
 | Melden und Safe-Space-Funktionen | teilweise | Fragen und Kommentare koennen mit Validierung, CSRF- und Duplikatschutz gemeldet werden. Beitraege und Profile sind nicht meldbar; Moderationsqueue, Entscheidungen, Verwarnungen, Sperren und Blockieren fehlen. |
@@ -90,11 +92,9 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 3. Browse-Uebersicht: Anzeige ohne Filter sowie Desktop- und Mobilansicht.
 4. Registrierung, Login, Creator-Profil, Fragen/Antworten, Folgen und
    Profilbearbeitung mit zwei Testkonten.
-5. Beitragsaktionen: Reaktion, Kommentieren, Merken/Entmerken nach Neuladen,
-   Teilen sowie Gast- und CSRF-Fehlerfall.
-6. Melden: Frage und Kommentar melden, Doppelmeldung, ungueltige Daten und
+5. Melden: Frage und Kommentar melden, Doppelmeldung, ungueltige Daten und
    nicht angemeldeter Aufruf.
-7. Medien: JPEG, PNG und WebP posten und in Explore, Suche und Profil anzeigen;
+6. Medien: JPEG, PNG und WebP posten und in Explore, Suche und Profil anzeigen;
    Video und Audio weiterhin als nicht implementiert festhalten.
 
 ## Offen
@@ -144,12 +144,8 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 
 ## Letzte technische Prüfung
 
-`php -l` war am 28. Juli 2026 fehlerfrei für:
-
-- `posten.php`
-- `app/support/post-editor.php`
-- `platform.php`
-- `profile.php`
-- `search.php`
-- `media.php`
-- `process_post.php`
+Am 11. August 2026 waren `php -l` für `search.php`, `platform.php`,
+`profile.php` und `app/views/partials/platform-post-card.php` sowie
+`node --check` für `js/post-actions.js` fehlerfrei. Die interaktive Prüfung
+verwendete eine isolierte SQLite-Kopie mit zwei Testkonten und veränderte die
+Repository-Datei `Webseite - Codex/data/database.db` nicht.

@@ -1,6 +1,6 @@
 # Humplore Funktions-Roadmap
 
-Stand: 28. Juli 2026
+Stand: 11. August 2026
 
 Diese Datei enthält nur Prioritäten und Reihenfolge. Verbindliche
 Produktentscheidungen stehen in [`docs/produktumfang.md`](docs/produktumfang.md),
@@ -61,17 +61,14 @@ Identität.
 öffentliche Entkopplung vom Profil und die Nutzer-Anonymitätseinstellung
 erstellen.
 
-### 7. Post-Aktionen abnehmen und gespeicherte Beiträge anzeigen
+### 7. Gespeicherte Beiträge anzeigen
 
-**Aktiver Change:** `openspec/changes/post-action-buttons/`
+**Abgeschlossen:** Die gemeinsame Post-Aktionsleiste ist in Explore,
+eigenständiger Suche, Profil und Modal geprüft. Der Change ist unter
+`openspec/changes/archive/2026-08-11-post-action-buttons/` archiviert.
 
-**Nächste Schritte:**
-
-- Action-Leiste in der eigenständigen `search.php` ergänzen oder bewusst auf
-  eine gemeinsame Postkarte umstellen.
-- Interaktive Prüfungen für Markieren, Entfernen, Reload, CSRF, 401,
-  Duplikatschutz und mobile Darstellung protokollieren.
-- Danach einen kleinen Change für die Seite „Gemerkte Beiträge“ erstellen.
+**Nächster Schritt:** Einen eigenen kleinen OpenSpec-Change für die Seite
+„Gemerkte Beiträge“ erstellen. Donation bleibt ein separates späteres Thema.
 
 ### 8. Themen-/Kategorieübersicht abnehmen
 

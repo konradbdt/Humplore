@@ -77,6 +77,7 @@ $totalPages = $feedData['totalPages'];
   <title>humplore â€“ Explore</title>
   <meta name="csrf-token" content="<?= e($csrf_token) ?>">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/post-actions.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -2826,7 +2827,8 @@ $totalPages = $feedData['totalPages'];
   </style>
 </head>
 
-<body>
+<body data-post-share-title="Beitrag auf humplore" data-post-share-text="Schau dir diesen Beitrag an."
+  data-post-share-confirmation="Link kopiert!">
   <!-- Header -->
   <header>
     <div class="header-inner">
@@ -3547,43 +3549,6 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
   openPostModalFromCard(postCard);
 }
 
-
-
-
-    function toggleComments(postId, trigger) {
-      const scopedCard = trigger ? trigger.closest('.post-card') : null;
-      const el = scopedCard ? scopedCard.querySelector(`#comments-${postId}`) : document.getElementById('comments-' + postId);
-      if (!el) return;
-      const isOpen = el.classList.contains('open');
-      if (isOpen) { el.style.maxHeight = el.scrollHeight + 'px'; requestAnimationFrame(() => { el.classList.remove('open'); el.style.maxHeight = '0px'; }); }
-      else {
-        el.classList.add('open');
-        el.style.maxHeight = el.scrollHeight + 'px';
-        setTimeout(() => {
-          el.style.maxHeight = '1000px';
-          const textarea = el.querySelector('textarea[name="comment_text"]');
-          if (textarea) textarea.focus();
-        }, 310);
-      }
-    }
-
-
-    function copyToClipboard(text) {
-      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text); }
-      else { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) { } document.body.removeChild(ta); }
-    }
-    function sharePost(postId) {
-      const params = new URLSearchParams(location.search);
-      params.delete('post_id');
-      params.set('post_id', postId);
-      const url = `${location.origin}${location.pathname}?${params.toString()}`;
-      if (navigator.share) { navigator.share({ title: 'Beitrag auf humplore', text: 'Schau dir diesen Beitrag an.', url }).catch(() => { }); return; }
-      copyToClipboard(url);
-      // kleiner Toast
-      let t = document.getElementById('toast'); if (!t) { t = document.createElement('div'); t.id = 'toast'; t.style = "position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 14px;border-radius:10px;opacity:0;transition:opacity .2s;z-index:2000;font-size:.95rem"; document.body.appendChild(t); }
-      t.textContent = 'Link kopiert!'; t.style.opacity = 1; setTimeout(() => t.style.opacity = 0, 1500);
-    }
-
     // Infinite Scroll: nÃ¤chste Seite laden und Posts anhÃ¤ngen
     const feedEl = document.getElementById('explore-feed');
     const feedSentinel = document.getElementById('feed-sentinel');
@@ -3766,145 +3731,6 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
         });
     });
 
-    // verhindert Spammen pro Post
-    const likeBusy = new Set();
-    const likeFocusTimers = new WeakMap();
-
-    function scheduleLikeFocusClear(button) {
-      const existingTimer = likeFocusTimers.get(button);
-      if (existingTimer) clearTimeout(existingTimer);
-
-      const timer = window.setTimeout(() => {
-        if (document.activeElement === button) button.blur();
-        likeFocusTimers.delete(button);
-      }, 1500);
-
-      likeFocusTimers.set(button, timer);
-    }
-
-    function toggleLike(button) {
-      const postId = button.getAttribute('data-post-id');
-      if (!postId) return;
-
-      if (likeBusy.has(postId)) return;
-      likeBusy.add(postId);
-      button.disabled = true;
-      scheduleLikeFocusClear(button);
-
-      const countEl = button.querySelector('.like-count');
-      const wasLiked = button.classList.contains('liked');
-      const oldCount = countEl ? parseInt(countEl.textContent || '0', 10) : 0;
-
-      // Optimistic UI
-      if (wasLiked) {
-        button.classList.remove('liked');
-        button.setAttribute('aria-pressed', 'false');
-        if (countEl) countEl.textContent = Math.max(0, oldCount - 1);
-      } else {
-        button.classList.add('liked');
-        button.setAttribute('aria-pressed', 'true');
-        if (countEl) countEl.textContent = oldCount + 1;
-      }
-
-      const fd = new FormData();
-      fd.append('post_id', postId);
-      fd.append('csrf_token', getCsrf());
-
-      fetch('like_handler.php', {
-        method: 'POST',
-        body: fd,
-        credentials: 'same-origin',
-        headers: { 'X-CSRF-Token': getCsrf() }
-      })
-        .then(async (r) => {
-          let data = null;
-          try { data = await r.json(); } catch (_) { }
-          if (!r.ok || !data || !data.success) {
-            throw new Error((data && data.error) || 'Like failed');
-          }
-          // Server-Werte setzen
-          if (countEl) countEl.textContent = data.likeCount;
-          if (data.liked) {
-            button.classList.add('liked');
-            button.setAttribute('aria-pressed', 'true');
-            button.setAttribute('aria-label', 'Neues gelernt! entfernen');
-          } else {
-            button.classList.remove('liked');
-            button.setAttribute('aria-pressed', 'false');
-            button.setAttribute('aria-label', 'Neues gelernt! markieren');
-          }
-        })
-        .catch((_e) => {
-          // Rollback bei Fehler
-          if (wasLiked) {
-            button.classList.add('liked');
-            button.setAttribute('aria-pressed', 'true');
-            if (countEl) countEl.textContent = oldCount;
-          } else {
-            button.classList.remove('liked');
-            button.setAttribute('aria-pressed', 'false');
-            if (countEl) countEl.textContent = oldCount;
-          }
-          let t = document.getElementById('toast');
-          if (!t) {
-            t = document.createElement('div');
-            t.id = 'toast';
-            t.style = "position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#b91c1c;color:#fff;padding:10px 14px;border-radius:10px;opacity:0;transition:opacity .2s;z-index:2000;font-size:.95rem";
-            document.body.appendChild(t);
-          }
-          t.textContent = 'Like fehlgeschlagen';
-          t.style.opacity = 1; setTimeout(() => t.style.opacity = 0, 1500);
-        })
-        .finally(() => {
-          likeBusy.delete(postId);
-          button.disabled = false;
-        });
-    }
-
-    const savePostBusy = new Set();
-
-    function setSavedPostButtons(postId, saved) {
-      document.querySelectorAll(`.save-post-button[data-post-id="${postId}"]`).forEach((button) => {
-        button.classList.toggle('saved', saved);
-        button.setAttribute('aria-pressed', saved ? 'true' : 'false');
-        button.setAttribute('aria-label', saved ? 'Beitrag nicht mehr merken' : 'Beitrag merken');
-      });
-    }
-
-    function toggleSavedPost(button) {
-      const postId = button.getAttribute('data-post-id');
-      if (!postId || savePostBusy.has(postId)) return;
-
-      savePostBusy.add(postId);
-      button.disabled = true;
-
-      const fd = new FormData();
-      fd.append('post_id', postId);
-      fd.append('csrf_token', getCsrf());
-
-      fetch('save_post_handler.php', {
-        method: 'POST',
-        body: fd,
-        credentials: 'same-origin',
-        headers: { 'X-CSRF-Token': getCsrf() }
-      })
-        .then(async (r) => {
-          let data = null;
-          try { data = await r.json(); } catch (_) { }
-          if (!r.ok || !data || typeof data.saved !== 'boolean' || !data.post_id) {
-            throw new Error((data && data.error) || 'Save failed');
-          }
-          setSavedPostButtons(String(data.post_id), data.saved);
-        })
-        .catch((err) => {
-          console.error(err);
-        })
-        .finally(() => {
-          savePostBusy.delete(postId);
-          button.disabled = false;
-        });
-    }
-
     const postModal = document.getElementById('postModal');
     const postModalContent = document.getElementById('postModalContent');
     const postModalClose = document.getElementById('postModalClose');
@@ -4030,7 +3856,7 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
     });
 
   </script>
+  <script src="js/post-actions.js?v=20260811"></script>
 </body>
 
 </html>
-

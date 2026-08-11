@@ -13,7 +13,6 @@ technische Entscheidungen und Aufgaben einzelner Änderungen.
 ## Aktive Änderungen
 
 - `anonymous-questions`
-- `post-action-buttons`
 - `profile-discovery-filters`
 - `topic-category-overview`
 
@@ -32,4 +31,3 @@ Einzelaufgaben.
 
 Die frühere parallele SpecKit-Dokumentation ist nur noch unter
 `docs/archive/spec-kit/` als Historie vorhanden.
-

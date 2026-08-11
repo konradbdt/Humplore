@@ -13,6 +13,7 @@ $isQuestionPost = !empty($post['source_question_id']);
 $cardClassNames = trim('post-card ' . trim((string) ($cardClass ?? '')) . ($isQuestionPost ? ' question-post' : ''));
 $hasSaved = !empty($hasSaved);
 $viewerUserId = (int) ($viewerUserId ?? $userId ?? 0);
+$showCommentReports = (bool) ($showCommentReports ?? true);
 ?>
 <article class="<?= e($cardClassNames) ?>" id="post-<?= $postId ?>">
   <div class="post-inner">
@@ -27,6 +28,9 @@ $viewerUserId = (int) ($viewerUserId ?? $userId ?? 0);
       </a>
       <div class="post-meta">
         <a class="author" href="<?= e($profileHref) ?>">@<?= e($post['username']) ?></a>
+        <?php if (!empty($post['created_at'])): ?>
+          <span class="date"><?= e(date('d.m.Y H:i', strtotime((string) $post['created_at']))) ?></span>
+        <?php endif; ?>
 
         <?php if (!empty($post['creator_main_topic']) || !empty($post['cat_list']) || !empty($post['category'])): ?>
           <?php if (!empty($post['creator_main_topic'])): ?>
@@ -128,12 +132,14 @@ $viewerUserId = (int) ($viewerUserId ?? $userId ?? 0);
             <div class="comment-bubble">
               <div class="comment-header"><span class="comment-user">@<?= e($comment['username']) ?></span><span class="comment-time"><?= e(date("d.m.Y H:i", strtotime($comment['created_at']))) ?></span></div>
               <div class="comment-text"><?= nl2br(e($comment['comment_text'])) ?></div>
+              <?php if ($showCommentReports): ?>
               <?php
               $reportTargetType = 'comment';
               $reportTargetId = $commentId;
               $reportIsReported = !empty($comment['is_reported']);
               require __DIR__ . '/report-control.php';
               ?>
+              <?php endif; ?>
             </div>
           </div>
         <?php endforeach; ?>
