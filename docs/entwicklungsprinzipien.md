@@ -1,6 +1,6 @@
 # Humplore Entwicklungsprinzipien
 
-Stand: 24. Juli 2026
+Stand: 12. August 2026
 
 ## Produktprinzipien
 
@@ -27,9 +27,14 @@ Stand: 24. Juli 2026
 
 ## Entscheidungsreihenfolge
 
+Produktentscheidungen trifft der Nutzer. Bei neuen Konzepten und
+Spezifikationen werden offene fachliche Entscheidungen vor der Ausarbeitung in
+einem strukturierten Grill-Me-Dialog geklaert und anschliessend bestaetigt.
+Codex darf Optionen und Empfehlungen ausarbeiten, aber keine fachliche Option
+stellvertretend als verbindlich festlegen.
+
 1. Verbessert die Änderung Discovery, Vertrauen, Sicherheit oder einen
    bestätigten MVP-Workflow?
 2. Erhält sie bestehende URLs und Daten?
 3. Ist das Verhalten lokal und reproduzierbar prüfbar?
 4. Ist klar, welche nachfolgende MVP-Funktion darauf aufbaut?
-
