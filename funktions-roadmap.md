@@ -1,6 +1,6 @@
 # Humplore Funktions-Roadmap
 
-Stand: 11. August 2026
+Stand: 12. August 2026
 
 Diese Datei enthält nur Prioritäten und Reihenfolge. Verbindliche
 Produktentscheidungen stehen in [`docs/produktumfang.md`](docs/produktumfang.md),
@@ -15,8 +15,8 @@ Aufgaben werden ausschließlich in OpenSpec geführt.
 **Ziel:** Nur eine bearbeitbare Anwendung und eine nachvollziehbare Historie.
 
 - `Webseite - Codex/` als einzigen aktiven Codebaum beibehalten.
-- Den verworfenen Baum `Webseite - Redesign/` erst nach einer gesonderten
-  Sicherungsentscheidung archivieren oder entfernen.
+- Der verworfene Baum `Webseite - Redesign/` ist nicht mehr vorhanden und darf
+  nicht erneut als Arbeitsgrundlage angenommen werden.
 - Änderungen im Codex-Baum nachvollziehbar committen.
 
 **Abgeschlossen, wenn:** `Webseite - Codex/` als einziger aktiver Codebaum
@@ -24,11 +24,13 @@ dokumentiert und versioniert ist.
 
 ## P0: Launch-Blocker
 
-### 2. Creator-Verifizierung und Posting-Gate
+### 2. Anonyme Fragen abschließen
 
-**Nächster Schritt:** OpenSpec-Change für Nachweise, Rollen, Statusübergänge,
-Badge, Adminentscheidung und Posting-Sperre anlegen. Vorher müssen die offenen
-Produktfragen in `docs/produktumfang.md` entschieden werden.
+**Aktiver Change:** `openspec/changes/anonymous-questions/`
+
+**Nächster Schritt:** Die vorhandenen 25 Tasks implementieren und prüfen.
+Interne Account-Zuordnung bleibt bestehen; Creator und Besucher sehen keine
+Identität.
 
 ### 3. Moderationsdashboard und Post-Reporting
 
@@ -45,15 +47,7 @@ Account-Löschung als zusammenhängendes Launch-Paket spezifizieren. AGB,
 Impressum und Kontaktseite sind vorhanden, ersetzen aber keine
 Datenschutzdokumentation.
 
-### 5. Anonyme Fragen abschließen
-
-**Aktiver Change:** `openspec/changes/anonymous-questions/`
-
-**Nächster Schritt:** Die vorhandenen 25 Tasks implementieren und prüfen.
-Interne Account-Zuordnung bleibt bestehen; Creator und Besucher sehen keine
-Identität.
-
-### 6. Anonyme Beiträge und Anonymitätseinstellung
+### 5. Anonyme Beiträge und Anonymitätseinstellung
 
 **Abhängigkeit:** Erst nach anonymen Fragen.
 
@@ -61,7 +55,7 @@ Identität.
 öffentliche Entkopplung vom Profil und die Nutzer-Anonymitätseinstellung
 erstellen.
 
-### 7. Gespeicherte Beiträge anzeigen
+### 6. Gespeicherte Beiträge anzeigen
 
 **Abgeschlossen:** Die gemeinsame Post-Aktionsleiste ist in Explore,
 eigenständiger Suche, Profil und Modal geprüft. Der Change ist unter
@@ -70,7 +64,7 @@ eigenständiger Suche, Profil und Modal geprüft. Der Change ist unter
 **Nächster Schritt:** Einen eigenen kleinen OpenSpec-Change für die Seite
 „Gemerkte Beiträge“ erstellen. Donation bleibt ein separates späteres Thema.
 
-### 8. Themen-/Kategorieübersicht abnehmen
+### 7. Themen-/Kategorieübersicht abnehmen
 
 **Aktiver Change:** `openspec/changes/topic-category-overview/`
 
@@ -78,13 +72,21 @@ eigenständiger Suche, Profil und Modal geprüft. Der Change ist unter
 Desktop-/Mobile-Prüfung. Bei Erfolg Change archivieren; bei Fehlern konkrete
 Korrekturtasks ergänzen.
 
-### 9. Mobile und funktionale MVP-Abnahme
+### 8. Mobile und funktionale MVP-Abnahme
 
 **Nächster Schritt:** Die MVP-Abnahmematrix aus
 [`docs/teststrategie.md`](docs/teststrategie.md) ausführen und um
 featurebezogene OpenSpec-Prüfungen ergänzen.
 
 ## P1: Weitere bestätigte MVP-Funktionen
+
+### 9. Creator-Verifizierung und bevorzugte Ausspielung
+
+Die Verifizierung ist optional und darf das Veröffentlichen nicht sperren.
+Vor der Umsetzung sind Nachweise, Rollen, Statusübergänge, Badge sowie
+Kriterien und Stärke des Ranking-Vorteils zu entscheiden. Danach einen eigenen
+OpenSpec-Change für Betreiberprüfung, Vertrauenssignal und bevorzugte
+Ausspielung in Suche und Discovery erstellen.
 
 ### 10. Direktnachrichten
 
@@ -129,8 +131,8 @@ und mobiler Wiedergabe spezifizieren.
 ## Reihenfolge für neue Arbeit
 
 1. Codex-Codebaum und Git-Stand sichern.
-2. Verifizierung und Moderation spezifizieren.
-3. Datenschutz und Account-Löschung spezifizieren.
-4. Bereits aktive MVP-Changes abschließen.
+2. Den aktiven Change für anonyme Fragen implementieren und prüfen.
+3. Moderation sowie Datenschutz und Account-Löschung spezifizieren.
+4. Weitere aktive MVP-Changes abschließen.
 5. Mobile Gesamtprüfung durchführen.
-6. Erst danach P1- und P2-Funktionen beginnen.
+6. Erst danach optionale Verifizierung und weitere P1-/P2-Funktionen beginnen.

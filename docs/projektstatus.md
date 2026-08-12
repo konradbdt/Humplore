@@ -1,6 +1,6 @@
 # Humplore Projektstatus
 
-Stand: 11. August 2026
+Stand: 12. August 2026
 
 ## Bewertungsbasis
 
@@ -36,7 +36,7 @@ Statuswerte:
 |---|---|---|
 | Themen-/Kategorieübersicht | Browse-Bereich oberhalb des Explore-Feeds mit Themen, Kategorien, Beiträgen und Creatorn. | Manuelle Desktop-/Mobile-Abnahme. |
 | Authentifizierung | Registrierung, Login, Logout und Sessions sind vorhanden. | Account-Löschung, E-Mail-Verifizierung, Rate-Limits und Security-Review. |
-| Creator-Profile | Profilinformationen, Beiträge, Fragen, Folgen und Teilen sind vorhanden. | Verifizierung, Vertrauenselemente, Direktnachrichten und Kommentarsteuerung. |
+| Creator-Profile | Profilinformationen, Beiträge, Fragen, Folgen und Teilen sind vorhanden. Creator können unabhängig von einer Verifizierung veröffentlichen. | Optionaler Verifizierungsprozess, Badge und Ranking-Vorteil sowie Direktnachrichten und Kommentarsteuerung. |
 
 ## Teilweise umgesetzt oder fehlerhaft
 
@@ -71,7 +71,7 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 | Themen- und Kategorieuebersicht | implementiert, Abnahme offen | Funktionaler Browse-Bereich mit getrennten Themen- und Beitrags-/Lebenskategorien sowie Feed-Links ist vorhanden. Desktop- und Mobilansicht sind noch manuell abzunehmen. |
 | Creator-Registrierung | teilweise | Registrierung erfasst Creator-Status und Hauptthema. Eine strukturierte Kategorienzuordnung waehrend der Registrierung fehlt. |
 | Creator-Profil und Profilbearbeitung | teilweise | Profilbild und Bio sind bearbeitbar; Profile zeigen unter anderem Hauptthema, Ort/Sprache, Beitraege und Follow. Bearbeitbare Felder fuer Ort, Alter und Fokus sowie strukturierte Unterthemen/Tags fehlen. |
-| Creator-Verifizierung und Vertrauenselemente | offen | Kein Verifizierungsprozess, kein Badge und keine erkennbare Posting-Sperre fuer nicht verifizierte Creator. |
+| Creator-Verifizierung und Vertrauenselemente | offen | Kein Verifizierungsprozess, kein Badge und keine bevorzugte Ausspielung verifizierter Creator. Eine Posting-Sperre ist ausdruecklich nicht vorgesehen. |
 | Anonyme Nutzung und Privatsphaere | teilweise | Pseudonyme Nutzung ist durch frei waehbaren Nutzernamen moeglich. Anonyme Fragen, anonyme Beitraege und steuerbare Profilsichtbarkeit sind nicht implementiert. |
 | Fragen und Antworten an Creator | implementiert, Abnahme offen | Fragen koennen gestellt und vom Creator kurz beantwortet oder in einen Beitrag uebernommen werden. Anonyme Fragen sowie weitergehende Schutzfunktionen fehlen. |
 | Beitragsaktionen und Merken | geprüft | `Neues gelernt!`, Kommentieren, privates Merken und Teilen sind in Explore, eigenständiger Suche, Profil und Modal interaktiv geprüft. Suche verwendet die gemeinsame Plattform-Postkarte und Bulk-Lookups. Eine Seite für gemerkte Beiträge und Donation bleiben bewusst außerhalb dieses Changes. |
@@ -101,7 +101,6 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 ### Launch-Blocker
 
-- Creator-Verifizierung und Posting-Sperre für nicht verifizierte Creator.
 - Admin-Moderationsdashboard und Reporting für Beiträge.
 - Datenschutzseite, Löschkonzept und Account-Löschung.
 - Anonyme Fragen sowie anonyme Creator-Beiträge.
@@ -120,15 +119,17 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 ### Später
 
+- Optionale Creator-Verifizierung mit Badge und nachvollziehbarem
+  Ranking-Vorteil in Suche und Discovery.
 - Monetarisierung und Donation.
 - Datenexport, Profilmeldungen, Feed-Personalisierung, Echtzeitfunktionen,
   PWA, Analytics und native App.
 
 ## Bekannte Risiken und Inkonsistenzen
 
-1. **Verworfener zweiter Codebaum:** `Webseite - Redesign/` liegt noch im
-   Repository, ist aber keine Arbeitsgrundlage. Er darf nicht wieder als
-   Referenz für Status oder Tests verwendet werden.
+1. **Verworfener zweiter Codebaum:** `Webseite - Redesign/` ist im aktuellen
+   Repository nicht mehr vorhanden und darf nicht wieder als Referenz für
+   Status oder Tests angenommen werden.
 2. **Medienlogik ist uneinheitlich:** Aktive und alte Posting-Routen verwenden
    unterschiedliche Speicherwege; die alte Video-Route ist nicht integriert.
 3. **Unvollständige Regression:** Ein historischer Test vom 14. Juni 2026
