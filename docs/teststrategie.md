@@ -1,6 +1,6 @@
 # Humplore Teststrategie
 
-Stand: 24. Juli 2026
+Stand: 12. August 2026
 
 ## Aktueller Zustand
 
@@ -27,15 +27,15 @@ Vor dem Launch müssen mindestens folgende Abläufe Ende-zu-Ende geprüft werden
 
 | Bereich | Kernabläufe |
 |---|---|
-| Einstieg | Landingpage, Navigation, Rechtstexte, Kontakt |
+| Einstieg | Landingpage, Registrierung, Login, Rechtstexte und Kontakt ohne Anmeldung; alle eigentlichen Produktinhalte und -funktionen nur nach Anmeldung |
 | Account | Registrierung, Login, Logout, Profiländerung, Account-Löschung |
 | Discovery | exakte Suche, Tippfehler, Vorschläge, kombinierte Filter, Leerzustände |
 | Creator | Profil, Verifizierung, Folgen, Teilen, Direktnachricht |
-| Beiträge | Text, Bild, Video, anonym, Kommentar an/aus |
+| Beiträge | Text, Bild, Video, eindeutige Zuordnung zum pseudonymen Creator-Profil, Kommentar an/aus |
 | Fragen | normal, anonym, direkte Antwort, Antwort als Beitrag |
 | Engagement | `Neues gelernt!`, Kommentieren, Merken, Teilen |
 | Moderation | Meldung je Inhaltstyp, Queue, Entscheidung, Sichtbarkeit, Sperre |
-| Datenschutz | öffentliche Anonymität, interne Zuordnung, Löschablauf |
+| Datenschutz | Anonymität von Fragen, interne Zuordnung, pseudonyme Creator-Namen, Löschablauf |
 
 ## Nicht funktionale Abnahme
 
@@ -52,4 +52,3 @@ Vor dem Launch müssen mindestens folgende Abläufe Ende-zu-Ende geprüft werden
 Der historische Regressionstest vom 14. Juni 2026 enthält zwei
 30-Sekunden-Timeouts bei Plattformaufrufen. Dieser Ablauf muss mit der aktiven
 Arbeitskopie reproduziert oder als behoben dokumentiert werden.
-

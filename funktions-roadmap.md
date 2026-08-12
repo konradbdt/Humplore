@@ -24,38 +24,37 @@ dokumentiert und versioniert ist.
 
 ## P0: Launch-Blocker
 
-### 2. Anonyme Fragen abschließen
+### 2. Moderationsdashboard und Post-Reporting
 
-**Aktiver Change:** `openspec/changes/anonymous-questions/`
+**Abgeschlossen:** Anonyme Fragen sind implementiert, vollständig geprüft und
+unter `openspec/changes/archive/2026-08-12-anonymous-questions/` archiviert.
+Anonyme Beiträge sind nicht vorgesehen; Creator können stattdessen unter
+einem frei gewählten, auch fiktiven Nutzernamen veröffentlichen.
 
-**Nächster Schritt:** Die vorhandenen 25 Tasks implementieren und prüfen.
-Interne Account-Zuordnung bleibt bestehen; Creator und Besucher sehen keine
-Identität.
-
-### 3. Moderationsdashboard und Post-Reporting
-
-**Abhängigkeit:** Reporting für Fragen und Kommentare ist bereits abgeschlossen.
+**Ausgangslage:** Reporting für Fragen und Kommentare ist bereits abgeschlossen.
 
 **Nächster Schritt:** Einen gemeinsamen OpenSpec-Change für Post-Reporting,
 Moderationsqueue, Entscheidungen, Audit-Trail, Verwarnung und Sperre erstellen.
 Profile bleiben außerhalb des MVP.
 
-### 4. Datenschutz und Account-Löschung
+### 3. Datenschutz und Account-Löschung
 
 **Nächster Schritt:** Datenschutzseite, Löschkontakt, Datenlöschablauf und
 Account-Löschung als zusammenhängendes Launch-Paket spezifizieren. AGB,
 Impressum und Kontaktseite sind vorhanden, ersetzen aber keine
 Datenschutzdokumentation.
 
-### 5. Anonyme Beiträge und Anonymitätseinstellung
+### 4. Geschützten Zugang vollständig abnehmen
 
-**Abhängigkeit:** Erst nach anonymen Fragen.
+**Produktregel:** Ohne Anmeldung sind nur Einstieg, Registrierung, Login,
+Rechtstexte und Kontakt erreichbar. Alle eigentlichen Humplore-Inhalte und
+-Funktionen setzen Anmeldung voraus.
 
-**Nächster Schritt:** Separaten OpenSpec-Change für Creator-Beiträge,
-öffentliche Entkopplung vom Profil und die Nutzer-Anonymitätseinstellung
-erstellen.
+**Nächster Schritt:** Alle öffentlichen Routen und zustandsändernden Endpunkte
+systematisch prüfen, direkte Gastaufrufe serverseitig absichern und die
+erwarteten Login-Weiterleitungen beziehungsweise Fehlerantworten dokumentieren.
 
-### 6. Gespeicherte Beiträge anzeigen
+### 5. Gespeicherte Beiträge anzeigen
 
 **Abgeschlossen:** Die gemeinsame Post-Aktionsleiste ist in Explore,
 eigenständiger Suche, Profil und Modal geprüft. Der Change ist unter
@@ -64,7 +63,7 @@ eigenständiger Suche, Profil und Modal geprüft. Der Change ist unter
 **Nächster Schritt:** Einen eigenen kleinen OpenSpec-Change für die Seite
 „Gemerkte Beiträge“ erstellen. Donation bleibt ein separates späteres Thema.
 
-### 7. Themen-/Kategorieübersicht abnehmen
+### 6. Themen-/Kategorieübersicht abnehmen
 
 **Aktiver Change:** `openspec/changes/topic-category-overview/`
 
@@ -72,7 +71,7 @@ eigenständiger Suche, Profil und Modal geprüft. Der Change ist unter
 Desktop-/Mobile-Prüfung. Bei Erfolg Change archivieren; bei Fehlern konkrete
 Korrekturtasks ergänzen.
 
-### 8. Mobile und funktionale MVP-Abnahme
+### 7. Mobile und funktionale MVP-Abnahme
 
 **Nächster Schritt:** Die MVP-Abnahmematrix aus
 [`docs/teststrategie.md`](docs/teststrategie.md) ausführen und um
@@ -80,7 +79,7 @@ featurebezogene OpenSpec-Prüfungen ergänzen.
 
 ## P1: Weitere bestätigte MVP-Funktionen
 
-### 9. Creator-Verifizierung und bevorzugte Ausspielung
+### 8. Creator-Verifizierung und bevorzugte Ausspielung
 
 Die Verifizierung ist optional und darf das Veröffentlichen nicht sperren.
 Vor der Umsetzung sind Nachweise, Rollen, Statusübergänge, Badge sowie
@@ -88,19 +87,19 @@ Kriterien und Stärke des Ranking-Vorteils zu entscheiden. Danach einen eigenen
 OpenSpec-Change für Betreiberprüfung, Vertrauenssignal und bevorzugte
 Ausspielung in Suche und Discovery erstellen.
 
-### 10. Direktnachrichten
+### 9. Direktnachrichten
 
 Vor der Umsetzung Produktumfang für Threadstart, Inbox, Benachrichtigungen,
 Blockieren und Melden entscheiden und anschließend als eigenen Change
 spezifizieren.
 
-### 11. Kommentarsteuerung
+### 10. Kommentarsteuerung
 
 Kommentar-Deaktivierung durch Creator sowie Kommentar-Melden und Moderation
 gemeinsam spezifizieren. Threaded Replies und Kommentar-Likes sind nicht
 automatisch Teil dieses Changes.
 
-### 12. Medien-Upload reparieren und Video unterstützen
+### 11. Medien-Upload reparieren und Video unterstützen
 
 Die aktuelle Posting-Seite unterstützt nur Bilder; deren Darstellung in Feed und
 Suche ist für nicht-JPEG-Dateien unzuverlässig. Zuerst Bild-Upload und
@@ -108,7 +107,7 @@ Bildanzeige end-to-end prüfen und vereinheitlichen. Danach Video als eigenen
 Umfang mit Formaten, Limits, Speicherung, Vorschau, Transcoding, Moderation
 und mobiler Wiedergabe spezifizieren.
 
-### 13. Performance, Last und Datenbank
+### 12. Performance, Last und Datenbank
 
 - Messbare Baseline für Explore, Suche und Profile erfassen.
 - Den historischen 30-Sekunden-Timeout reproduzieren oder ausschließen.
@@ -131,8 +130,8 @@ und mobiler Wiedergabe spezifizieren.
 ## Reihenfolge für neue Arbeit
 
 1. Codex-Codebaum und Git-Stand sichern.
-2. Den aktiven Change für anonyme Fragen implementieren und prüfen.
-3. Moderation sowie Datenschutz und Account-Löschung spezifizieren.
+2. Moderation sowie Datenschutz und Account-Löschung spezifizieren.
+3. Loginpflicht für geschützte Inhalte und Funktionen vollständig abnehmen.
 4. Weitere aktive MVP-Changes abschließen.
 5. Mobile Gesamtprüfung durchführen.
 6. Erst danach optionale Verifizierung und weitere P1-/P2-Funktionen beginnen.

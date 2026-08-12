@@ -21,7 +21,6 @@ der nächsten Arbeiten in [`../funktions-roadmap.md`](../funktions-roadmap.md).
 - Creator dürfen unabhängig von ihrer Verifizierung veröffentlichen.
 - Account-Löschung.
 - Anonyme Fragen an Creator.
-- Anonyme Creator-Beiträge ohne öffentliche Creator-Zuordnung.
 - Meldungen für Beiträge, Fragen und Kommentare.
 - Post-Aktionen: `Neues gelernt!`, `Kommentieren`, `Merken` und `Teilen`.
 - Eine eigene Ansicht für gemerkte Beiträge.
@@ -32,6 +31,8 @@ der nächsten Arbeiten in [`../funktions-roadmap.md`](../funktions-roadmap.md).
 
 ## Nicht Bestandteil des MVP
 
+- Anonyme Creator-Beiträge oder eine beitragsbezogene
+  Anonymitätseinstellung; beides ist auch außerhalb des MVP nicht vorgesehen.
 - Datenexport.
 - Monetarisierung, Werbung, Donation und Creator-Auszahlungen.
 - Profilmeldungen.
@@ -41,6 +42,9 @@ der nächsten Arbeiten in [`../funktions-roadmap.md`](../funktions-roadmap.md).
 
 ## Creator- und Profilregeln
 
+- Creator dürfen einen frei gewählten, auch fiktiven Nutzernamen verwenden.
+  Beiträge bleiben diesem öffentlichen Creator-Profil zugeordnet; eine
+  zusätzliche Anonymisierung einzelner Beiträge ist nicht vorgesehen.
 - Die Verifizierung ist keine Voraussetzung für das Veröffentlichen.
 - Eine Verifizierung bestätigt einen Creator für ein bestimmtes Thema und
   wird als Vertrauenssignal sichtbar gemacht.
@@ -55,13 +59,26 @@ der nächsten Arbeiten in [`../funktions-roadmap.md`](../funktions-roadmap.md).
 
 ## Anonymitätsregeln
 
-- Bei anonymen Fragen sehen Creator und Besucher keine Identität des Fragenden.
-- Bei anonymen Creator-Beiträgen sind im Explore-Feed weder Creator-Zuordnung
-  noch öffentlicher Profil-Link sichtbar.
+- Anonymität als Inhaltsfunktion gibt es ausschließlich für Fragen.
+- Bei anonymen Fragen sehen Creator und andere Nutzer keine Identität des
+  Fragenden.
 - Die Betreiber behalten aus Sicherheits- und Moderationsgründen die interne
-  Zuordnung zum Account.
-- Anonyme Inhalte erhalten keine stabilen öffentlichen Ersatzkennungen, über
-  die Beiträge derselben Person gruppiert werden könnten.
+  Account-Zuordnung anonymer Fragen.
+- Anonyme Fragen erhalten keine stabilen öffentlichen Ersatzkennungen, über
+  die mehrere Fragen derselben Person gruppiert werden könnten.
+- Creator-Beiträge sind nie anonym, können aber unter einem frei gewählten,
+  fiktiven Nutzernamen veröffentlicht werden.
+
+## Zugangsregeln
+
+- Die eigentlichen Humplore-Funktionen und -Inhalte sind nur nach Anmeldung
+  nutzbar. Dazu gehören insbesondere Explore, Suche, Profile, Beiträge,
+  Fragen, Kommentare, Folgen, Merken und Melden.
+- Ohne Anmeldung sind nur die für den Zugang und den rechtlichen Betrieb
+  erforderlichen Seiten erreichbar: Einstieg, Registrierung, Login,
+  Rechtstexte und Kontakt.
+- Direkte Aufrufe geschützter Seiten und zustandsändernder Endpunkte müssen
+  serverseitig abgewiesen oder zum Login geführt werden.
 
 ## Moderationsregeln
 

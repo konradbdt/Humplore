@@ -37,7 +37,7 @@ Statuswerte:
 | Bereich | Vorhanden | Noch offen |
 |---|---|---|
 | Themen-/Kategorieübersicht | Browse-Bereich oberhalb des Explore-Feeds mit Themen, Kategorien, Beiträgen und Creatorn. | Manuelle Desktop-/Mobile-Abnahme. |
-| Authentifizierung | Registrierung, Login, Logout und Sessions sind vorhanden. | Account-Löschung, E-Mail-Verifizierung, Rate-Limits und Security-Review. |
+| Authentifizierung | Registrierung, Login, Logout und Sessions sind vorhanden; die zentralen Anwendungsrouten verlangen bereits eine Anmeldung. | Vollständige Prüfung und Absicherung aller Alt-, Medien- und Hilfsrouten sowie Account-Löschung, E-Mail-Verifizierung, Rate-Limits und Security-Review. |
 | Creator-Profile | Profilinformationen, Beiträge, Fragen, Folgen und Teilen sind vorhanden. Creator können unabhängig von einer Verifizierung veröffentlichen. | Optionaler Verifizierungsprozess, Badge und Ranking-Vorteil sowie Direktnachrichten und Kommentarsteuerung. |
 
 ## Teilweise umgesetzt oder fehlerhaft
@@ -74,7 +74,7 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 | Creator-Registrierung | teilweise | Registrierung erfasst Creator-Status und Hauptthema. Eine strukturierte Kategorienzuordnung waehrend der Registrierung fehlt. |
 | Creator-Profil und Profilbearbeitung | teilweise | Profilbild und Bio sind bearbeitbar; Profile zeigen unter anderem Hauptthema, Ort/Sprache, Beitraege und Follow. Bearbeitbare Felder fuer Ort, Alter und Fokus sowie strukturierte Unterthemen/Tags fehlen. |
 | Creator-Verifizierung und Vertrauenselemente | offen | Kein Verifizierungsprozess, kein Badge und keine bevorzugte Ausspielung verifizierter Creator. Eine Posting-Sperre ist ausdruecklich nicht vorgesehen. |
-| Anonyme Nutzung und Privatsphaere | teilweise | Pseudonyme Nutzung ist durch frei waehbaren Nutzernamen moeglich; anonyme Fragen sind geprüft implementiert. Anonyme Beitraege und steuerbare Profilsichtbarkeit fehlen. |
+| Anonyme Fragen und pseudonyme Creator | geprüft / implementiert | Anonyme Fragen sind geprüft implementiert. Creator koennen bereits einen frei waehlbaren Nutzernamen verwenden; Beitraege bleiben dem jeweiligen oeffentlichen Profil zugeordnet. Anonyme Beitraege sind bewusst nicht vorgesehen. |
 | Fragen und Antworten an Creator | geprüft | Normale und anonyme Fragen koennen gestellt und vom Creator kurz beantwortet oder ohne Veröffentlichung der Fragesteller-Identität in einen Beitrag uebernommen werden. Schema-, Handler-, Desktop- und Mobile-Fälle sind belegt. |
 | Beitragsaktionen und Merken | geprüft | `Neues gelernt!`, Kommentieren, privates Merken und Teilen sind in Explore, eigenständiger Suche, Profil und Modal interaktiv geprüft. Suche verwendet die gemeinsame Plattform-Postkarte und Bulk-Lookups. Eine Seite für gemerkte Beiträge und Donation bleiben bewusst außerhalb dieses Changes. |
 | Folgen | teilweise | Creator koennen gefolgt werden; ein Following-Modus ist vorhanden. Themen folgen, Benachrichtigungen und eine eigene Uebersicht gefolgter Creator fehlen. |
@@ -105,7 +105,6 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 - Admin-Moderationsdashboard und Reporting für Beiträge.
 - Datenschutzseite, Löschkonzept und Account-Löschung.
-- Anonyme Creator-Beiträge.
 - Direktnachrichten.
 - Eigene Seite für gemerkte Beiträge.
 - Kommentar-Deaktivierung durch Creator.
@@ -113,6 +112,8 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 ### Technische Launch-Arbeit
 
+- Loginpflicht für alle geschützten Inhalte, Seiten und Endpunkte
+  systematisch prüfen und vorhandene Zugriffslücken schließen.
 - Bild-Upload und Bildanzeige in Profil, Explore und Suche end-to-end reparieren und abnehmen.
 - Video-Upload erst nach einer eigenen Spezifikation implementieren.
 - Performance-Baseline und Lasttests für Explore, Suche und Profile.
@@ -144,6 +145,11 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
    als Produktdaten committed werden.
 6. **OpenSpec-CLI:** Die CLI ist in dieser Umgebung nicht installiert. Die
    OpenSpec-Struktur wurde deshalb manuell geprüft.
+7. **Loginpflicht noch nicht vollständig durchgesetzt:** Die zentralen Routen
+   `platform.php`, `search.php`, `profile.php`, `posten.php` und `news.php`
+   verlangen bereits eine Anmeldung. Die direkt erreichbare Altseite
+   `fragen.php`, Medienrouten und diagnostische Hilfsseiten besitzen jedoch
+   noch keine einheitliche serverseitige Zugangskontrolle.
 
 ## Letzte technische Prüfung
 
