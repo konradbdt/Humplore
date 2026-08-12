@@ -260,6 +260,11 @@ if (!function_exists('humplore_ensure_database_schema')) {
             return;
         }
 
+        $questionColumns = humplore_table_columns($pdo, 'Questions');
+        if (!isset($questionColumns['is_anonymous'])) {
+            $pdo->exec('ALTER TABLE Questions ADD COLUMN is_anonymous INTEGER NOT NULL DEFAULT 0');
+        }
+
         $postColumns = humplore_table_columns($pdo, 'Posts');
         if (!isset($postColumns['source_question_id'])) {
             $pdo->exec('ALTER TABLE Posts ADD COLUMN source_question_id INTEGER DEFAULT NULL');

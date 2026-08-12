@@ -3421,7 +3421,7 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
                   </div>
                 </div>
                 <div class="q"><?= e((string) $rq['question_text']) ?></div>
-                  <?php if (!empty($rq['author_name'])): ?> â€¢ von @<?= e((string) $rq['author_name']) ?><?php endif; ?>
+                  <?php if (empty($rq['is_anonymous']) && empty($rq['answer_text']) && !empty($rq['author_name'])): ?> â€¢ von @<?= e((string) $rq['author_name']) ?><?php endif; ?>
               </button>
             <?php endforeach; ?>
           </div>
@@ -3474,7 +3474,7 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
                 <?php if (!empty($rq['answer_text'])): ?>
                   <div class="a"><?= e((string) $rq['answer_text']) ?></div>
                 <?php endif; ?>
-                <?php if (!empty($rq['author_name'])): ?>
+                <?php if (empty($rq['is_anonymous']) && empty($rq['answer_text']) && !empty($rq['author_name'])): ?>
                   <span class="author-meta">von @<?= e((string) $rq['author_name']) ?></span>
                 <?php endif; ?>
               </a>

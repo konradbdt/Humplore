@@ -2847,6 +2847,31 @@ $active = 'profile';
   max-height: clamp(220px, 36vh, 420px) !important;
 }
 
+.qa-anonymous-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: #25301f;
+  font-size: .92rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.qa-anonymous-control input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #6a743a;
+}
+
+.qa-anonymous-hint {
+  margin-top: 5px;
+  color: #667160;
+  font-size: .8rem;
+  line-height: 1.4;
+}
+
 .qa-item form textarea {
   width: 100% !important;
   box-sizing: border-box;
@@ -3156,6 +3181,10 @@ body.qa-post-modal-open .qa-post-modal {
   .qa-post-modal__form {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .qa-anonymous-control {
+    min-height: 44px;
   }
 }
 
@@ -4728,6 +4757,34 @@ body {
     margin-top: 0 !important;
   }
 }
+
+@media (max-width: 768px) {
+  .profile-header-shell {
+    order: 1;
+  }
+
+  .side-container.right-container {
+    display: flex !important;
+    order: 2;
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 12px 12px !important;
+    box-sizing: border-box;
+    align-items: stretch;
+  }
+
+  .right-container .questions-card {
+    width: 100% !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  .profile-container {
+    order: 3;
+  }
+}
   </style>
 </head>
 
@@ -5580,8 +5637,6 @@ body {
 </body>
 
 </html>
-
-
 
 
 

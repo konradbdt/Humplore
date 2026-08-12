@@ -180,9 +180,16 @@ if (!function_exists('humplore_profile_load_questions')) {
 
         try {
             $stmtQuestions = $pdo->prepare("
-                SELECT q.*,
+                SELECT q.id,
+                       q.creator_id,
+                       q.author_id,
+                       q.question_text,
+                       q.answer_text,
+                       q.created_at,
+                       q.answered_at,
+                       q.is_anonymous,
                        COUNT(ql.id) AS like_count,
-                       u.username AS author_name
+                       CASE WHEN q.is_anonymous = 1 THEN NULL ELSE u.username END AS author_name
                 FROM Questions q
                 LEFT JOIN QuestionLikes ql ON q.id = ql.question_id
                 JOIN Users u ON q.author_id = u.id

@@ -9,6 +9,7 @@ Stand: 12. August 2026
 - manuelle Medienprüfung am 28. Juli 2026
 - isolierte Browser- und Handlerprüfung der Post-Aktionen am 11. August 2026
 - PHP-Syntaxprüfung der geänderten Post-Aktionsdateien am 11. August 2026
+- isolierte Schema-, Handler- und Browserprüfung anonymer Fragen am 12. August 2026
 
 `Webseite - Redesign/` ist verworfen und wird für diesen Status nicht bewertet.
 
@@ -29,6 +30,7 @@ Statuswerte:
 | Reporting für Fragen und Kommentare | Persistenz, Validierung, CSRF und Duplikatschutz sind vorhanden. | `openspec/specs/moderation/spec.md` |
 | Profilfilter Stufe 1 | Wohnort und Sprache sind als Filterbereich implementiert. | `openspec/changes/profile-discovery-filters/tasks.md` |
 | Post-Aktionen | `Neues gelernt!`, `Kommentieren`, privates `Merken` und `Teilen` sind in Explore, eigenständiger Suche, Profil und Modal geprüft; Handler-, CSRF-, Gast-, Sperr- und Mobilfälle sind belegt. | `openspec/specs/engagement/spec.md` |
+| Anonyme Fragen | Angemeldete Nutzer können pro Frage Anonymität wählen; interne Attribution bleibt erhalten, Creator- und Besucheransichten sowie Frage-als-Beitrag schützen die Identität. Schema-, Handler-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/specs/questions/spec.md` |
 
 ## Implementiert, Abnahme offen
 
@@ -72,8 +74,8 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 | Creator-Registrierung | teilweise | Registrierung erfasst Creator-Status und Hauptthema. Eine strukturierte Kategorienzuordnung waehrend der Registrierung fehlt. |
 | Creator-Profil und Profilbearbeitung | teilweise | Profilbild und Bio sind bearbeitbar; Profile zeigen unter anderem Hauptthema, Ort/Sprache, Beitraege und Follow. Bearbeitbare Felder fuer Ort, Alter und Fokus sowie strukturierte Unterthemen/Tags fehlen. |
 | Creator-Verifizierung und Vertrauenselemente | offen | Kein Verifizierungsprozess, kein Badge und keine bevorzugte Ausspielung verifizierter Creator. Eine Posting-Sperre ist ausdruecklich nicht vorgesehen. |
-| Anonyme Nutzung und Privatsphaere | teilweise | Pseudonyme Nutzung ist durch frei waehbaren Nutzernamen moeglich. Anonyme Fragen, anonyme Beitraege und steuerbare Profilsichtbarkeit sind nicht implementiert. |
-| Fragen und Antworten an Creator | implementiert, Abnahme offen | Fragen koennen gestellt und vom Creator kurz beantwortet oder in einen Beitrag uebernommen werden. Anonyme Fragen sowie weitergehende Schutzfunktionen fehlen. |
+| Anonyme Nutzung und Privatsphaere | teilweise | Pseudonyme Nutzung ist durch frei waehbaren Nutzernamen moeglich; anonyme Fragen sind geprüft implementiert. Anonyme Beitraege und steuerbare Profilsichtbarkeit fehlen. |
+| Fragen und Antworten an Creator | geprüft | Normale und anonyme Fragen koennen gestellt und vom Creator kurz beantwortet oder ohne Veröffentlichung der Fragesteller-Identität in einen Beitrag uebernommen werden. Schema-, Handler-, Desktop- und Mobile-Fälle sind belegt. |
 | Beitragsaktionen und Merken | geprüft | `Neues gelernt!`, Kommentieren, privates Merken und Teilen sind in Explore, eigenständiger Suche, Profil und Modal interaktiv geprüft. Suche verwendet die gemeinsame Plattform-Postkarte und Bulk-Lookups. Eine Seite für gemerkte Beiträge und Donation bleiben bewusst außerhalb dieses Changes. |
 | Folgen | teilweise | Creator koennen gefolgt werden; ein Following-Modus ist vorhanden. Themen folgen, Benachrichtigungen und eine eigene Uebersicht gefolgter Creator fehlen. |
 | Kommentare und Austausch | teilweise | Kommentare koennen erstellt und angezeigt werden; Kommentare sind meldbar. Antworten auf Kommentare, Kommentar-Likes, Creator-Steuerung zum Deaktivieren und Moderationswerkzeuge fehlen. |
@@ -90,8 +92,8 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 2. Explore: alle vorhandenen Filter einzeln und kombiniert, Sortierung sowie
    vollstaendiges Zuruecksetzen.
 3. Browse-Uebersicht: Anzeige ohne Filter sowie Desktop- und Mobilansicht.
-4. Registrierung, Login, Creator-Profil, Fragen/Antworten, Folgen und
-   Profilbearbeitung mit zwei Testkonten.
+4. Registrierung, Login, Creator-Profil, Folgen und Profilbearbeitung mit zwei
+   Testkonten.
 5. Melden: Frage und Kommentar melden, Doppelmeldung, ungueltige Daten und
    nicht angemeldeter Aufruf.
 6. Medien: JPEG, PNG und WebP posten und in Explore, Suche und Profil anzeigen;
@@ -103,7 +105,7 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 - Admin-Moderationsdashboard und Reporting für Beiträge.
 - Datenschutzseite, Löschkonzept und Account-Löschung.
-- Anonyme Fragen sowie anonyme Creator-Beiträge.
+- Anonyme Creator-Beiträge.
 - Direktnachrichten.
 - Eigene Seite für gemerkte Beiträge.
 - Kommentar-Deaktivierung durch Creator.
@@ -145,8 +147,12 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 ## Letzte technische Prüfung
 
-Am 11. August 2026 waren `php -l` für `search.php`, `platform.php`,
-`profile.php` und `app/views/partials/platform-post-card.php` sowie
-`node --check` für `js/post-actions.js` fehlerfrei. Die interaktive Prüfung
-verwendete eine isolierte SQLite-Kopie mit zwei Testkonten und veränderte die
-Repository-Datei `Webseite - Codex/data/database.db` nicht.
+Am 12. August 2026 waren die Schemaerweiterung und ihre Wiederholung, normale
+und anonyme Speicherung, interne `author_id`, Erfolgstexte, manipulierte
+Formularwerte, unveränderliche Anonymität, Gast-Sperre, Creator- und
+Besucheransichten sowie normale und anonyme Frage-als-Beitrag-Flows auf einer
+isolierten SQLite-Kopie erfolgreich. `php -l` war für alle acht geänderten
+PHP-Dateien fehlerfrei. Die Browserprüfung bei 1440x900 und 390x844 bestätigte
+Formular, Checkbox-Default, 44px-Mobile-Control, Identitätsschutz und fehlenden
+horizontalen Overflow; Browser-Logs enthielten keine Fehler oder Warnungen.
+Die Repository-Datei `Webseite - Codex/data/database.db` blieb unverändert.

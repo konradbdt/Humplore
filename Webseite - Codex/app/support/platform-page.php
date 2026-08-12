@@ -1161,10 +1161,14 @@ SELECT
   q.question_text,
   q.answer_text,
   q.created_at,
+  q.is_anonymous,
   cu.id AS creator_id,
   cu.username AS creator_name,
   COALESCE(cd.main_topic, cu.main_topic) AS creator_main_topic,
-  au.username AS author_name
+  CASE
+    WHEN q.is_anonymous = 1 OR q.answer_text IS NOT NULL THEN NULL
+    ELSE au.username
+  END AS author_name
 FROM Questions q
 JOIN Users cu ON cu.id = q.creator_id
 LEFT JOIN CreatorDetails cd ON cd.user_id = cu.id
@@ -1316,4 +1320,3 @@ if (!function_exists('humplore_platform_load_feed')) {
         ];
     }
 }
-

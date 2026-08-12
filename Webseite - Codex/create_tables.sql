@@ -1,6 +1,9 @@
 ALTER TABLE Posts ADD COLUMN is_paid INTEGER NOT NULL DEFAULT 0;              -- 0=free, 1=paid
 ALTER TABLE Posts ADD COLUMN price_cents INTEGER; 
 
+-- Additive Erweiterung fuer bestehende Datenbanken; vorhandene Fragen bleiben nicht anonym.
+ALTER TABLE Questions ADD COLUMN is_anonymous INTEGER NOT NULL DEFAULT 0;     -- 0=normal, 1=anonym
+
 CREATE TABLE IF NOT EXISTS SavedPosts (
   user_id INTEGER NOT NULL,
   post_id INTEGER NOT NULL,

@@ -12,7 +12,6 @@ technische Entscheidungen und Aufgaben einzelner Änderungen.
 
 ## Aktive Änderungen
 
-- `anonymous-questions`
 - `profile-discovery-filters`
 - `topic-category-overview`
 
