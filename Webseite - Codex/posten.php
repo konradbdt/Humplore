@@ -701,7 +701,7 @@ $active = 'post';
                   <small>JPG/PNG/WebP, max. 5 MB</small>
                 </div>
               </div>
-              <input type="file" id="media" name="media" accept="image/*" style="display:none">
+              <input type="file" id="media" name="media" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" style="display:none">
 
               <div class="file-meta" id="fileMeta"></div>
 
@@ -807,8 +807,9 @@ $active = 'post';
         alert('Das Bild ist grÃ¶ÃŸer als 5 MB.');
         mediaInput.value = ''; return;
       }
-      if (!file.type.startsWith('image/')) {
-        alert('Nur Bilddateien sind erlaubt.');
+      const allowedImageTypes = ['image/jpeg', 'image/png', 'image/webp'];
+      if (!allowedImageTypes.includes(file.type)) {
+        alert('Nur JPEG-, PNG- und WebP-Bilder sind erlaubt.');
         mediaInput.value = ''; return;
       }
       // Fake progress (gefÃ¼hlte RÃ¼ckmeldung)

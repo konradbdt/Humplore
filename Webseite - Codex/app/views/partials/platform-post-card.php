@@ -63,7 +63,7 @@ $showCommentReports = (bool) ($showCommentReports ?? true);
     <?php endif; ?>
 
     <?php if ($showInlineImage): ?>
-      <div class="post-image"><img src="data:image/jpeg;base64,<?= base64_encode($post['media_image']) ?>" loading="lazy" decoding="async" alt="Beitragsbild"></div>
+      <div class="post-image"><img src="<?= e(post_img_src($postId)) ?>" loading="lazy" decoding="async" alt="Beitragsbild"></div>
     <?php elseif ($showRemoteImage): ?>
       <div class="post-image"><img src="<?= e($post['media_url']) ?>" loading="lazy" decoding="async" alt="Beitragsbild"></div>
     <?php endif; ?>

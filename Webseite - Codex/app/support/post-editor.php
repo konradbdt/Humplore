@@ -159,26 +159,57 @@ if (!function_exists('humplore_post_editor_resolve_media')) {
             'media_type' => 'text',
         ];
 
-        if (!is_array($mediaFile) || empty($mediaFile['tmp_name'])) {
+        if (!is_array($mediaFile)) {
             return $result;
         }
 
-        if (!empty($mediaFile['size']) && (int) $mediaFile['size'] > 5 * 1024 * 1024) {
+        $uploadError = (int) ($mediaFile['error'] ?? UPLOAD_ERR_NO_FILE);
+        if ($uploadError === UPLOAD_ERR_NO_FILE) {
+            return $result;
+        }
+        if ($uploadError !== UPLOAD_ERR_OK) {
+            throw new Exception('Das Bild konnte nicht vollstaendig hochgeladen werden.');
+        }
+
+        $tmpName = (string) ($mediaFile['tmp_name'] ?? '');
+        if ($tmpName === '' || !is_uploaded_file($tmpName) || !is_file($tmpName)) {
+            throw new Exception('Die hochgeladene Datei ist ungueltig.');
+        }
+
+        $actualSize = filesize($tmpName);
+        if ($actualSize === false || $actualSize <= 0) {
+            throw new Exception('Das hochgeladene Bild ist leer oder unlesbar.');
+        }
+        if ($actualSize > 5 * 1024 * 1024) {
             throw new Exception('Das Bild ist groesser als 5 MB.');
         }
 
-        $tmpName = (string) $mediaFile['tmp_name'];
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $mime = $finfo ? finfo_file($finfo, $tmpName) : false;
-        if ($finfo) {
-            finfo_close($finfo);
+        $detectedMime = null;
+        if (function_exists('finfo_open')) {
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $detected = $finfo ? finfo_file($finfo, $tmpName) : false;
+            if ($finfo) {
+                finfo_close($finfo);
+            }
+            if (is_string($detected) && $detected !== '') {
+                $detectedMime = $detected;
+            }
         }
 
-        if (!is_string($mime) || strpos($mime, 'image/') !== 0) {
-            throw new Exception('Nur Bilddateien sind erlaubt.');
+        $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+        $imageInfo = @getimagesize($tmpName);
+        $imageMime = is_array($imageInfo) ? ($imageInfo['mime'] ?? null) : null;
+        if (!is_string($imageMime) || !in_array($imageMime, $allowedMimeTypes, true)
+            || ($detectedMime !== null && $detectedMime !== $imageMime)) {
+            throw new Exception('Nur gueltige JPEG-, PNG- und WebP-Bilder sind erlaubt.');
         }
 
-        $result['media_image'] = file_get_contents($tmpName);
+        $binary = file_get_contents($tmpName);
+        if (!is_string($binary) || $binary === '') {
+            throw new Exception('Das hochgeladene Bild konnte nicht gelesen werden.');
+        }
+
+        $result['media_image'] = $binary;
         $result['media_type'] = 'image';
 
         return $result;
