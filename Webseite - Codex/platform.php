@@ -58,8 +58,9 @@ $resultsPosts = $searchData['resultsPosts'];
 $countProfiles = $searchData['countProfiles'];
 $countPosts = $searchData['countPosts'];
 $totalFound = $searchData['totalFound'];
+$relatedTerms = $searchData['relatedTerms'];
 
-$questionsData = humplore_platform_load_questions($pdo);
+$questionsData = humplore_platform_load_questions($pdo, $searchQuery, $relatedTerms);
 $randomQuestions = $questionsData['randomQuestions'];
 $allQuestions = $questionsData['allQuestions'];
 
@@ -3260,8 +3261,9 @@ $totalPages = $feedData['totalPages'];
                     <?php else: ?>         <?= strtoupper(substr($p['username'], 0, 1)) ?>       <?php endif; ?>
                   </div>
                   <div style="flex:1;min-width:0">
-                    <div style="font-weight:800;color:#283221">@<?= e($p['username']) ?></div>
-                    <div style="color:#6b7466"><?= e((string) $p['main_topic']) ?></div>
+                    <div style="font-weight:800;color:#283221">@<?= humplore_search_highlight((string) $p['username'], $p['search_match_terms'] ?? []) ?></div>
+                    <div style="color:#6b7466"><?= humplore_search_highlight((string) $p['main_topic'], $p['search_match_terms'] ?? []) ?></div>
+                    <?php if (!empty($p['search_related_only'])): ?><span class="search-related-label">Thematisch verwandt</span><?php endif; ?>
                     <div style="color:#7e8779;font-size:.93rem"><?= (int) $p['follower_count'] ?> Follower</div>
                   </div>
                 </div>
@@ -3317,6 +3319,8 @@ $imageMode = 'lenient';
 $wrapRawContent = false;
 $commentEmptyText = 'Noch keine Kommentare â€“ starte das GesprÃ¤ch âœ¨';
 $viewerInitial = strtoupper(substr((string) $_SESSION['user_id'], 0, 1));
+$searchHighlightTerms = $post['search_match_terms'] ?? [];
+$searchRelatedOnly = !empty($post['search_related_only']);
 require __DIR__ . '/app/views/partials/platform-post-card.php';
                 ?>
               <?php endforeach; ?>
@@ -3396,14 +3400,14 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
       </section>
     </div>
 
-    <aside class="right-spacer" aria-label="ZufÃ¤llige Fragen">
+    <aside class="right-spacer" aria-label="<?= $searchQuery !== '' ? 'Passende Fragen' : 'ZufÃ¤llige Fragen' ?>">
       <div class="rail-card">
         <div class="rail-head">
-          <h3>Gestellte Fragen</h3>
+          <h3><?= $searchQuery !== '' ? 'Passende Fragen' : 'Gestellte Fragen' ?></h3>
           <button type="button" class="rail-more" id="questionsModalOpen">mehr</button>
         </div>
         <?php if (empty($allQuestions)): ?>
-          <div class="hint" style="font-size:.88rem">Noch keine Fragen vorhanden.</div>
+          <div class="hint" style="font-size:.88rem"><?= $searchQuery !== '' ? 'Keine passenden Fragen gefunden.' : 'Noch keine Fragen vorhanden.' ?></div>
         <?php else: ?>
           <div class="question-list">
             <?php foreach ($allQuestions as $rq): ?>
@@ -3415,12 +3419,13 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
                     <div class="question-target-badges">
                       <div class="question-target-name">@<?= e((string) $rq['creator_name']) ?></div>
                       <?php if (!empty($rq['creator_main_topic'])): ?>
-                        <span class="topic-pill"><?= e((string) $rq['creator_main_topic']) ?></span>
+                        <span class="topic-pill"><?= humplore_search_highlight((string) $rq['creator_main_topic'], $rq['search_match_terms'] ?? []) ?></span>
                       <?php endif; ?>
                     </div>
                   </div>
                 </div>
-                <div class="q"><?= e((string) $rq['question_text']) ?></div>
+                <div class="q"><?= humplore_search_highlight((string) $rq['question_text'], $rq['search_match_terms'] ?? []) ?></div>
+                <?php if (!empty($rq['search_related_only'])): ?><span class="search-related-label">Thematisch verwandt</span><?php endif; ?>
                   <?php if (empty($rq['is_anonymous']) && empty($rq['answer_text']) && !empty($rq['author_name'])): ?> â€¢ von @<?= e((string) $rq['author_name']) ?><?php endif; ?>
               </button>
             <?php endforeach; ?>
@@ -3440,7 +3445,7 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
     </div>
   </div>
 
-  <div class="post-modal" id="questionsModal" aria-hidden="true" role="dialog" aria-label="Alle gestellten Fragen">
+  <div class="post-modal" id="questionsModal" aria-hidden="true" role="dialog" aria-label="<?= $searchQuery !== '' ? 'Passende Fragen' : 'Alle gestellten Fragen' ?>">
     <div class="post-modal__panel question-modal__panel" role="document">
       <div class="post-modal__close">
         <button type="button" id="questionsModalClose" aria-label="SchlieÃƒÅ¸en">SchlieÃŸen</button>
@@ -3448,12 +3453,12 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
       <div class="post-modal__content question-modal__content">
         <div class="question-modal__header">
           <div>
-            <div class="question-modal__title">Alle gestellten Fragen</div>
+            <div class="question-modal__title"><?= $searchQuery !== '' ? 'Passende Fragen' : 'Alle gestellten Fragen' ?></div>
             <div class="question-modal__sub"><?= count($allQuestions) ?> Fragen im Explore-Feed</div>
           </div>
         </div>
         <?php if (empty($allQuestions)): ?>
-          <div class="hint">Noch keine Fragen vorhanden.</div>
+          <div class="hint"><?= $searchQuery !== '' ? 'Keine passenden Fragen gefunden.' : 'Noch keine Fragen vorhanden.' ?></div>
         <?php else: ?>
           <div class="question-feed">
             <?php foreach ($allQuestions as $rq): ?>
@@ -3465,12 +3470,13 @@ require __DIR__ . '/app/views/partials/platform-post-card.php';
                     <div class="question-target-badges">
                       <div class="question-target-name">@<?= e((string) $rq['creator_name']) ?></div>
                       <?php if (!empty($rq['creator_main_topic'])): ?>
-                        <span class="topic-pill"><?= e((string) $rq['creator_main_topic']) ?></span>
+                        <span class="topic-pill"><?= humplore_search_highlight((string) $rq['creator_main_topic'], $rq['search_match_terms'] ?? []) ?></span>
                       <?php endif; ?>
                     </div>
                   </div>
                 </div>
-                <div class="q"><?= e((string) $rq['question_text']) ?></div>
+                <div class="q"><?= humplore_search_highlight((string) $rq['question_text'], $rq['search_match_terms'] ?? []) ?></div>
+                <?php if (!empty($rq['search_related_only'])): ?><span class="search-related-label">Thematisch verwandt</span><?php endif; ?>
                 <?php if (!empty($rq['answer_text'])): ?>
                   <div class="a"><?= e((string) $rq['answer_text']) ?></div>
                 <?php endif; ?>

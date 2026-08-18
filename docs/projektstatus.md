@@ -12,6 +12,7 @@ Stand: 18. August 2026
 - isolierte Browser- und Handlerprüfung der Post-Aktionen am 11. August 2026
 - PHP-Syntaxprüfung der geänderten Post-Aktionsdateien am 11. August 2026
 - isolierte Schema-, Handler- und Browserprüfung anonymer Fragen am 12. August 2026
+- isolierte Funktions- und Browserprüfung der kontextbezogenen Suchmarkierung am 18. August 2026
 
 Statuswerte:
 
@@ -31,6 +32,7 @@ Statuswerte:
 | Profilfilter Stufe 1 | Wohnort und Sprache sind als Filterbereich implementiert. | `openspec/changes/profile-discovery-filters/tasks.md` |
 | Post-Aktionen | `Neues gelernt!`, `Kommentieren`, privates `Merken` und `Teilen` sind in Explore, eigenständiger Suche, Profil und Modal geprüft; Handler-, CSRF-, Gast-, Sperr- und Mobilfälle sind belegt. | `openspec/specs/engagement/spec.md` |
 | Anonyme Fragen | Angemeldete Nutzer können pro Frage Anonymität wählen; interne Attribution bleibt erhalten, Creator- und Besucheransichten sowie Frage-als-Beitrag schützen die Identität. Schema-, Handler-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/specs/questions/spec.md` |
+| Intelligente Suchmarkierung und passende Fragen | Wörtliche und verwandte Treffer werden sicher und nachvollziehbar markiert; die Fragenleiste und ihr Modal verwenden bei aktiver Suche dieselbe gefilterte Datenbasis. PHP-, Funktions-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/changes/contextual-search-highlighting/tasks.md` |
 
 ## Implementiert, Abnahme offen
 
@@ -51,7 +53,6 @@ Statuswerte:
 | Gemerkte Beiträge | Beiträge können privat gespeichert und entfernt werden. | Eigene Seite für gemerkte Beiträge. |
 | Kommentare | Erstellen und Anzeigen funktioniert. | Antworten, Meldung auf allen Oberflächen, Likes, Deaktivierung durch Creator und Moderationswerkzeuge. |
 | Folgen | Creator-Follow und ein Following-Modus sind vorhanden. | Themen-Follow, Benachrichtigungen und Übersicht gefolgter Creator. |
-| Intelligente Suchmarkierung und passende Fragen | Am 17. August 2026 als Produktverhalten beschlossen und unter `openspec/changes/contextual-search-highlighting/` spezifiziert. | Noch nicht implementiert: gelbe Markierung wörtlicher Treffer, Kennzeichnung verwandter Treffer sowie suchabhängige Filterung und Markierung der rechten Fragenleiste. |
 
 ## Funktionsabgleich mit den Produktanalysen
 
@@ -69,7 +70,7 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 | Funktion aus den Analysen | Neubewerteter Stand im aktiven Projekt | Noch zu pruefen oder umzusetzen |
 |---|---|---|
-| Themenbasierte Suche | implementiert | Direktsuche, fehlertolerante Suche, Vorschlaege und Leerzustand sind vorhanden. Eine aktuelle Browser-Abnahme mit realistischen Daten fehlt. |
+| Themenbasierte Suche | geprüft | Direktsuche, fehlertolerante Suche, Vorschläge und Leerzustand sind vorhanden. Wörtliche und verwandte Markierung sowie passende Fragen wurden am 18. August 2026 mit realistischen Daten im Browser geprüft. |
 | Filter und Sortierung | teilweise | Themenkategorie, Thema, Beitrags-/Lebenskategorie, Wohnort, Sprache sowie Neueste/Beliebt sind vorhanden. Filter fuer Beruf, Alter und Erfahrungstyp fehlen; die vollstaendige Kombination der vorhandenen Filter ist manuell zu pruefen. |
 | Themen- und Kategorieuebersicht | implementiert, Abnahme offen | Funktionaler Browse-Bereich mit getrennten Themen- und Beitrags-/Lebenskategorien sowie Feed-Links ist vorhanden. Desktop- und Mobilansicht sind noch manuell abzunehmen. |
 | Creator-Registrierung | teilweise | Registrierung erfasst Creator-Status und Hauptthema. Eine strukturierte Kategorienzuordnung waehrend der Registrierung fehlt. |
@@ -89,17 +90,14 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 ### Noch auszufuehrende manuelle Funktionsabnahme
 
-1. Suche: exakter Begriff, Tippfehler, Vorschlag und Leerzustand.
-   Nach Umsetzung der aktiven Änderung zusätzlich wörtliche und verwandte
-   Markierungen sowie die suchabhängige Fragenleiste prüfen.
-2. Explore: alle vorhandenen Filter einzeln und kombiniert, Sortierung sowie
+1. Explore: alle vorhandenen Filter einzeln und kombiniert, Sortierung sowie
    vollstaendiges Zuruecksetzen.
-3. Browse-Uebersicht: Anzeige ohne Filter sowie Desktop- und Mobilansicht.
-4. Registrierung, Login, Creator-Profil, Folgen und Profilbearbeitung mit zwei
+2. Browse-Uebersicht: Anzeige ohne Filter sowie Desktop- und Mobilansicht.
+3. Registrierung, Login, Creator-Profil, Folgen und Profilbearbeitung mit zwei
    Testkonten.
-5. Melden: Frage und Kommentar melden, Doppelmeldung, ungueltige Daten und
+4. Melden: Frage und Kommentar melden, Doppelmeldung, ungueltige Daten und
    nicht angemeldeter Aufruf.
-6. Medien: authentifiziert je einen JPEG-, PNG- und WebP-Beitrag posten und in
+5. Medien: authentifiziert je einen JPEG-, PNG- und WebP-Beitrag posten und in
    Explore, Suche und Creator-Profil anzeigen; Video und Audio weiterhin als
    nicht implementiert festhalten.
 
@@ -178,3 +176,21 @@ PHP-Dateien fehlerfrei. Die Browserprüfung bei 1440x900 und 390x844 bestätigte
 Formular, Checkbox-Default, 44px-Mobile-Control, Identitätsschutz und fehlenden
 horizontalen Overflow; Browser-Logs enthielten keine Fehler oder Warnungen.
 Die Repository-Datei `Webseite - Codex/data/database.db` blieb unverändert.
+
+Am 18. August 2026 wurde `contextual-search-highlighting` auf einer isolierten
+Kopie der SQLite-Datenbank geprüft. `Krebs` ergab 1 Profil, 10 Beiträge und
+1 passende Frage; die eigenständige Suche zeigte 38 und Explore 40 sichtbare
+Markierungen. `Krebz` aktivierte die fehlertolerante Suche, markierte die
+tatsächlich vorkommenden verwandten Begriffe und zeigte die Kennzeichnung
+`Thematisch verwandt`. Eine Suche ohne passende Frage zeigte ausschließlich
+`Keine passenden Fragen gefunden.`; ohne Suchanfrage blieb `Gestellte Fragen`
+mit 28 Fragen und ohne Markierungen erhalten. HTML-artige Eingaben und Inhalte
+wurden als Text ausgegeben, ohne ausführbares Markup zu erzeugen. Die
+Browserprüfung bei 1440x900 und 390x844 bestätigte fehlenden horizontalen
+Overflow, sichtbare Markierungen mit gelbem Hintergrund `#ffe066` und dunkler
+Schrift `#241d00`, identische Fragedaten in Leiste und Modal sowie fehlerfreie
+Browserlogs. Filterelemente, Pagination und alle vier Post-Aktionsgruppen waren
+vorhanden; eine Like-Aktion wechselte auf der isolierten Kopie erfolgreich den
+Status. `php -l` war für alle sechs geänderten PHP-Dateien fehlerfrei. Die
+Repository-Datei `Webseite - Codex/data/database.db` wurde nach der Prüfung
+gegen den ursprünglichen SHA-256-Stand verifiziert.

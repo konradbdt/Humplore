@@ -1232,12 +1232,40 @@ if (!function_exists('humplore_platform_load_search_results')) {
 }
 
 if (!function_exists('humplore_platform_load_questions')) {
-    function humplore_platform_load_questions(PDO $pdo): array
+    function humplore_platform_load_questions(PDO $pdo, string $searchQuery = '', array $relatedTerms = []): array
     {
         $questionsData = [
             'randomQuestions' => [],
             'allQuestions' => [],
         ];
+
+        if (trim($searchQuery) !== '') {
+            try {
+                $allQuestions = $pdo
+                    ->query(humplore_platform_questions_select_sql() . " ORDER BY q.created_at DESC, q.id DESC")
+                    ->fetchAll(PDO::FETCH_ASSOC);
+                $questionsData['allQuestions'] = array_values(array_filter(array_map(
+                    static function (array $question) use ($searchQuery, $relatedTerms): array {
+                        $values = [
+                            (string) ($question['question_text'] ?? ''),
+                            (string) ($question['creator_main_topic'] ?? ''),
+                        ];
+                        $literalMatches = humplore_search_matching_terms($values, [$searchQuery]);
+                        $relatedMatches = $literalMatches === []
+                            ? humplore_search_matching_terms($values, $relatedTerms)
+                            : [];
+                        $question['search_match_terms'] = $literalMatches !== [] ? $literalMatches : $relatedMatches;
+                        $question['search_related_only'] = $literalMatches === [] && $relatedMatches !== [];
+                        return $question;
+                    }, $allQuestions), static fn(array $question): bool => $question['search_match_terms'] !== []));
+                $questionsData['randomQuestions'] = array_slice($questionsData['allQuestions'], 0, 5);
+            } catch (Throwable $e) {
+                $questionsData['randomQuestions'] = [];
+                $questionsData['allQuestions'] = [];
+            }
+
+            return $questionsData;
+        }
 
         try {
             $questionsData['randomQuestions'] = $pdo

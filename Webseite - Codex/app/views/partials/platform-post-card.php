@@ -14,6 +14,8 @@ $cardClassNames = trim('post-card ' . trim((string) ($cardClass ?? '')) . ($isQu
 $hasSaved = !empty($hasSaved);
 $viewerUserId = (int) ($viewerUserId ?? $userId ?? 0);
 $showCommentReports = (bool) ($showCommentReports ?? true);
+$searchHighlightTerms = is_array($searchHighlightTerms ?? null) ? $searchHighlightTerms : [];
+$searchRelatedOnly = !empty($searchRelatedOnly);
 ?>
 <article class="<?= e($cardClassNames) ?>" id="post-<?= $postId ?>">
   <div class="post-inner">
@@ -34,18 +36,22 @@ $showCommentReports = (bool) ($showCommentReports ?? true);
 
         <?php if (!empty($post['creator_main_topic']) || !empty($post['cat_list']) || !empty($post['category'])): ?>
           <?php if (!empty($post['creator_main_topic'])): ?>
-            <span class="topic-pill"><?= e($post['creator_main_topic']) ?></span>
+            <span class="topic-pill"><?= humplore_search_highlight((string) $post['creator_main_topic'], $searchHighlightTerms) ?></span>
           <?php endif; ?>
 
           <?php if (!empty($post['cat_list']) || !empty($post['category'])): ?>
-            <span class="cat-pill"><?= e($post['cat_list'] ?: $post['category']) ?></span>
+            <span class="cat-pill"><?= humplore_search_highlight((string) ($post['cat_list'] ?: $post['category']), $searchHighlightTerms) ?></span>
           <?php endif; ?>
         <?php endif; ?>
       </div>
     </<?= $headerTag ?>>
 
     <?php if (!empty($post['title'])): ?>
-      <h3 class="post-title"><?= e($post['title']) ?></h3>
+      <h3 class="post-title"><?= humplore_search_highlight((string) $post['title'], $searchHighlightTerms) ?></h3>
+    <?php endif; ?>
+
+    <?php if ($searchRelatedOnly): ?>
+      <span class="search-related-label">Thematisch verwandt</span>
     <?php endif; ?>
 
     <?php if (!$unlocked && (int) ($post['is_paid'] ?? 0) === 1): ?>
@@ -71,11 +77,11 @@ $showCommentReports = (bool) ($showCommentReports ?? true);
     <?php if (!empty($post['cat_list']) || !empty($post['category']) || !empty($post['creator_main_topic'])): ?>
       <div class="post-catline">
         <?php if (!empty($post['cat_list']) || !empty($post['category'])): ?>
-          Kategorie: <?= e($post['cat_list'] ?: $post['category']) ?>
+          Kategorie: <?= humplore_search_highlight((string) ($post['cat_list'] ?: $post['category']), $searchHighlightTerms) ?>
         <?php endif; ?>
         <?php if (!empty($post['creator_main_topic'])): ?>
           <?= (!empty($post['cat_list']) || !empty($post['category'])) ? ' · ' : '' ?>
-          Thema: <?= e($post['creator_main_topic']) ?>
+          Thema: <?= humplore_search_highlight((string) $post['creator_main_topic'], $searchHighlightTerms) ?>
         <?php endif; ?>
       </div>
     <?php endif; ?>

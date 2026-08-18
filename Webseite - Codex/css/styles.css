@@ -371,3 +371,23 @@ footer ul li a {
   font-size: 1.1rem;
   line-height: 1.4;
 }
+mark.search-highlight {
+  padding: 0 .08em;
+  border-radius: .18em;
+  background: #ffe066;
+  color: #241d00;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.search-related-label {
+  display: inline-block;
+  margin-top: .35rem;
+  padding: .2rem .5rem;
+  border-radius: 999px;
+  background: #f2ead0;
+  color: #51420d;
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.35;
+}

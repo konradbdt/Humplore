@@ -43,6 +43,80 @@ if (!function_exists('humplore_search_tokens')) {
     }
 }
 
+if (!function_exists('humplore_search_matching_terms')) {
+    function humplore_search_matching_terms(array $values, array $terms): array
+    {
+        $haystack = txt_lower(implode("\n", array_map('strval', $values)));
+        $matches = [];
+        foreach (array_values(array_unique(array_filter(array_map('trim', $terms)))) as $term) {
+            if ($term !== '' && txt_pos($haystack, txt_lower($term)) !== false) {
+                $matches[] = $term;
+            }
+        }
+
+        usort($matches, static fn(string $a, string $b): int => txt_len($b) <=> txt_len($a));
+        return $matches;
+    }
+}
+
+if (!function_exists('humplore_search_highlight')) {
+    function humplore_search_highlight(string $value, array $terms): string
+    {
+        $literalTerms = [];
+        foreach ($terms as $term) {
+            $literalTerm = trim((string) $term);
+            if ($literalTerm !== '') {
+                $literalTerms[$literalTerm] = true;
+            }
+        }
+        if ($literalTerms === []) {
+            return e($value);
+        }
+
+        $alternatives = array_map(
+            static fn(string $term): string => preg_quote($term, '/'),
+            array_keys($literalTerms)
+        );
+        usort($alternatives, static fn(string $a, string $b): int => strlen($b) <=> strlen($a));
+        $pattern = '/(' . implode('|', $alternatives) . ')/iu';
+        $parts = preg_split($pattern, $value, -1, PREG_SPLIT_DELIM_CAPTURE);
+        if (!is_array($parts)) {
+            return e($value);
+        }
+
+        $highlighted = '';
+        foreach ($parts as $index => $part) {
+            $escapedPart = e($part);
+            $highlighted .= $index % 2 === 1
+                ? '<mark class="search-highlight">' . $escapedPart . '</mark>'
+                : $escapedPart;
+        }
+
+        return $highlighted;
+    }
+}
+
+if (!function_exists('humplore_search_annotate_results')) {
+    function humplore_search_annotate_results(array $rows, string $query, array $relatedTerms, array $fields): array
+    {
+        foreach ($rows as &$row) {
+            $values = [];
+            foreach ($fields as $field) {
+                $values[] = (string) ($row[$field] ?? '');
+            }
+            $literalMatches = humplore_search_matching_terms($values, [$query]);
+            $relatedMatches = $literalMatches === []
+                ? humplore_search_matching_terms($values, $relatedTerms)
+                : [];
+            $row['search_match_terms'] = $literalMatches !== [] ? $literalMatches : $relatedMatches;
+            $row['search_related_only'] = $literalMatches === [] && $relatedMatches !== [];
+        }
+        unset($row);
+
+        return $rows;
+    }
+}
+
 if (!function_exists('humplore_search_build_where')) {
     function humplore_search_build_where(array $terms, array &$params, array $filters = [], string $prefix = 'q'): string
     {
@@ -325,8 +399,18 @@ if (!function_exists('humplore_search_discovery')) {
             }
         }
 
-        $result['resultsProfiles'] = $profiles;
-        $result['resultsPosts'] = $posts;
+        $result['resultsProfiles'] = humplore_search_annotate_results(
+            $profiles,
+            $query,
+            $relatedTerms,
+            ['username', 'email', 'main_topic']
+        );
+        $result['resultsPosts'] = humplore_search_annotate_results(
+            $posts,
+            $query,
+            $relatedTerms,
+            ['title', 'content', 'category', 'cat_list', 'creator_main_topic', 'username']
+        );
         $result['countProfiles'] = count($profiles);
         $result['countPosts'] = count($posts);
         $result['totalFound'] = $result['countProfiles'] + $result['countPosts'];

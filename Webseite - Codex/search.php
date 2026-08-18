@@ -816,8 +816,9 @@ $viewerInitial = strtoupper(substr((string) ($_SESSION['username'] ?? $userId), 
                 <?php endif; ?>
               </div>
               <div class="profile-info">
-                <div class="profile-name">@<?= e($p['username']) ?></div>
-                <div class="profile-topic"><?= e((string) $p['main_topic']) ?></div>
+                <div class="profile-name">@<?= humplore_search_highlight((string) $p['username'], $p['search_match_terms'] ?? []) ?></div>
+                <div class="profile-topic"><?= humplore_search_highlight((string) $p['main_topic'], $p['search_match_terms'] ?? []) ?></div>
+                <?php if (!empty($p['search_related_only'])): ?><span class="search-related-label">Thematisch verwandt</span><?php endif; ?>
                 <div class="profile-follow"><?= (int) $p['follower_count'] ?> Follower</div>
               </div>
             </a>
@@ -855,6 +856,8 @@ $viewerInitial = strtoupper(substr((string) ($_SESSION['username'] ?? $userId), 
               $wrapRawContent = false;
               $commentEmptyText = 'Noch keine Kommentare – starte das Gespräch.';
               $showCommentReports = false;
+              $searchHighlightTerms = $post['search_match_terms'] ?? [];
+              $searchRelatedOnly = !empty($post['search_related_only']);
               require __DIR__ . '/app/views/partials/platform-post-card.php';
               ?>
             <?php endforeach; ?>
@@ -892,6 +895,8 @@ $viewerInitial = strtoupper(substr((string) ($_SESSION['username'] ?? $userId), 
               $wrapRawContent = false;
               $commentEmptyText = 'Noch keine Kommentare – starte das Gespräch.';
               $showCommentReports = false;
+              $searchHighlightTerms = [];
+              $searchRelatedOnly = false;
               require __DIR__ . '/app/views/partials/platform-post-card.php';
               ?>
             <?php endforeach; ?>
