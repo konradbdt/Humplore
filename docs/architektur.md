@@ -1,6 +1,6 @@
 # Humplore Architektur
 
-Stand: 28. Juli 2026
+Stand: 12. August 2026
 
 ## Laufzeit
 
@@ -56,6 +56,10 @@ ist verworfen und weder Test- noch Implementierungsgrundlage.
 
 ## Sicherheitsgrundlagen
 
+- Explore, Suche, Profile, Beiträge und Interaktionen sind geschützte
+  Anwendungsbereiche und setzen eine Anmeldung voraus. Nur Einstieg,
+  Registrierung, Login sowie erforderliche Informations-, Kontakt- und
+  Rechtsseiten bleiben öffentlich erreichbar.
 - Zustandsändernde Fetch-Endpunkte sollen POST, Login und CSRF prüfen.
 - Ausgaben werden über vorhandene Escaping-Helfer behandelt.
 - Reporting und Speichern verwenden eigene JSON-Handler.

@@ -187,7 +187,9 @@ $active = 'profile';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Humannlibrary - Profil</title>
+  <meta name="csrf-token" content="<?= htmlspecialchars($csrf_token, ENT_QUOTES, 'UTF-8') ?>">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/post-actions.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=DM Serif Display' rel='stylesheet'>
@@ -2845,6 +2847,31 @@ $active = 'profile';
   max-height: clamp(220px, 36vh, 420px) !important;
 }
 
+.qa-anonymous-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: #25301f;
+  font-size: .92rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.qa-anonymous-control input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #6a743a;
+}
+
+.qa-anonymous-hint {
+  margin-top: 5px;
+  color: #667160;
+  font-size: .8rem;
+  line-height: 1.4;
+}
+
 .qa-item form textarea {
   width: 100% !important;
   box-sizing: border-box;
@@ -3154,6 +3181,10 @@ body.qa-post-modal-open .qa-post-modal {
   .qa-post-modal__form {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .qa-anonymous-control {
+    min-height: 44px;
   }
 }
 
@@ -4726,10 +4757,39 @@ body {
     margin-top: 0 !important;
   }
 }
+
+@media (max-width: 768px) {
+  .profile-header-shell {
+    order: 1;
+  }
+
+  .side-container.right-container {
+    display: flex !important;
+    order: 2;
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 12px 12px !important;
+    box-sizing: border-box;
+    align-items: stretch;
+  }
+
+  .right-container .questions-card {
+    width: 100% !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  .profile-container {
+    order: 3;
+  }
+}
   </style>
 </head>
 
-<body>
+<body data-post-share-title="Beitrag ansehen" data-post-share-text="Schau dir diesen Beitrag auf humplore an."
+  data-post-share-confirmation="Link zum Beitrag kopiert!">
   <!-- Header -->
   <header>
     <div class="header-inner">
@@ -5023,31 +5083,6 @@ body {
         if (confirmation) {
           confirmation.style.display = "block";
           setTimeout(() => { confirmation.style.display = "none"; }, 2000);
-        }
-      }
-
-      function toggleComments(postId, trigger) {
-        const scopedCard = trigger ? trigger.closest('.post-card') : null;
-        const el = scopedCard ? scopedCard.querySelector(`#comments-${postId}`) : document.getElementById(`comments-${postId}`);
-        if (!el) return;
-        const isOpen = el.classList.contains('open');
-        if (isOpen) {
-          // schlieÃƒÆ’Ã…Â¸en
-          el.style.maxHeight = el.scrollHeight + 'px'; // Startwert setzen
-          requestAnimationFrame(() => {
-            el.classList.remove('open');
-            el.style.maxHeight = '0px';
-          });
-        } else {
-          // ÃƒÆ’Ã‚Â¶ffnen
-          el.classList.add('open');
-          el.style.maxHeight = el.scrollHeight + 'px';
-          // nach der Animation HÃƒÆ’Ã‚Â¶he wieder "auto" lassen
-          setTimeout(() => {
-            el.style.maxHeight = '1000px';
-            const textarea = el.querySelector('textarea[name="comment_text"]');
-            if (textarea) textarea.focus();
-          }, 310);
         }
       }
 
@@ -5346,124 +5381,6 @@ body {
     lessLink.style.display = 'none';
   }
 }
-
-
-
-
-
-      // Like per AJAX (dein like_handler.php)
-      function toggleLike(button) {
-        const postId = button.getAttribute('data-post-id');
-
-        const formData = new FormData();
-        formData.append('post_id', postId);
-        formData.append('csrf_token', csrfToken);  // WICHTIG
-
-        fetch('like_handler.php', {
-          method: 'POST',
-          body: formData
-          // alternativ oder zusÃƒÆ’Ã‚Â¤tzlich:
-          // headers: { 'X-CSRF-Token': csrfToken }
-        })
-          .then(r => r.json())
-          .then(data => {
-            if (!data.success) {
-              console.error('Like-Fehler:', data.error);
-              return;
-            }
-            const likeCountEl = button.querySelector('.like-count');
-            if (likeCountEl) {
-              likeCountEl.textContent = data.likeCount;
-            }
-
-            if (data.liked) {
-              button.classList.add('liked');
-              button.setAttribute('aria-pressed', 'true');
-              button.setAttribute('aria-label', 'Neues gelernt! entfernen');
-            } else {
-              button.classList.remove('liked');
-              button.setAttribute('aria-pressed', 'false');
-              button.setAttribute('aria-label', 'Neues gelernt! markieren');
-            }
-          })
-          .catch(err => {
-            console.error('Fetch-Error:', err);
-          });
-      }
-
-      const savePostBusy = new Set();
-
-      function setSavedPostButtons(postId, saved) {
-        document.querySelectorAll(`.save-post-button[data-post-id="${postId}"]`).forEach((button) => {
-          button.classList.toggle('saved', saved);
-          button.setAttribute('aria-pressed', saved ? 'true' : 'false');
-          button.setAttribute('aria-label', saved ? 'Beitrag nicht mehr merken' : 'Beitrag merken');
-        });
-      }
-
-      function toggleSavedPost(button) {
-        const postId = button.getAttribute('data-post-id');
-        if (!postId || savePostBusy.has(postId)) return;
-
-        savePostBusy.add(postId);
-        button.disabled = true;
-
-        const formData = new FormData();
-        formData.append('post_id', postId);
-        formData.append('csrf_token', csrfToken);
-
-        fetch('save_post_handler.php', {
-          method: 'POST',
-          body: formData,
-          credentials: 'same-origin',
-          headers: { 'X-CSRF-Token': csrfToken }
-        })
-          .then(async (response) => {
-            let data = null;
-            try { data = await response.json(); } catch (_) {}
-            if (!response.ok || !data || typeof data.saved !== 'boolean' || !data.post_id) {
-              throw new Error((data && data.error) || 'Save failed');
-            }
-            setSavedPostButtons(String(data.post_id), data.saved);
-          })
-          .catch((err) => {
-            console.error('Save-Fehler:', err);
-          })
-          .finally(() => {
-            savePostBusy.delete(postId);
-            button.disabled = false;
-          });
-      }
-
-
-      // Teilen
-      function copyToClipboard(text) {
-        if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(text);
-        } else {
-          const ta = document.createElement('textarea');
-          ta.value = text; document.body.appendChild(ta); ta.select();
-          try { document.execCommand('copy'); } catch (e) { }
-          document.body.removeChild(ta);
-        }
-      }
-      function showToast(message) {
-        let toast = document.getElementById('toast');
-        if (!toast) { toast = document.createElement('div'); toast.id = 'toast'; document.body.appendChild(toast); }
-        toast.textContent = message; toast.className = 'toast toast--show';
-        setTimeout(() => toast.className = 'toast', 1800);
-      }
-      function sharePost(postId) {
-        const url = `${location.origin}/profile.php?user_id=<?= (int) $profile_user_id ?>&post_id=${postId}`;
-        if (navigator.share) {
-          navigator.share({ title: 'Beitrag ansehen', text: 'Schau dir diesen Beitrag auf humplore an.', url })
-            .catch(() => { });
-          return;
-        }
-        copyToClipboard(url);
-        showToast('Link zum Beitrag kopiert!');
-      }
-
       // Scroll zu geteiltem Post
       document.addEventListener('DOMContentLoaded', () => {
         const pid = new URLSearchParams(location.search).get('post_id');
@@ -5715,15 +5632,11 @@ body {
       });
 
 
-    </script>
+  </script>
+  <script src="js/post-actions.js?v=20260811"></script>
 </body>
 
 </html>
-
-
-
-
-
 
 
 

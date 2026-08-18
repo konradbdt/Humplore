@@ -47,6 +47,40 @@ Fruehere Chats sind nur Kontext. Sie sind keine verlaessliche Quelle fuer den
 aktuellen Stand, wenn Git, Dateisystem, Dokumentation oder Code inzwischen
 geaendert wurden.
 
+## Produktentscheidungen und Grill-Me-Verfahren
+
+Wenn eine Funktion, ein Konzept, eine Spezifikation, ein Prozess oder ein
+groesserer Arbeitsbereich ausgearbeitet werden soll, darf Codex offene
+fachliche oder nutzersichtbare Entscheidungen nicht stellvertretend treffen.
+Diese Entscheidungen trifft der Nutzer im strukturierten Grill-Me-Verfahren.
+
+1. Zuerst vorhandene verbindliche Entscheidungen aus aktueller Dokumentation
+   und Code ermitteln. Bereits entschiedene Punkte nicht erneut oeffnen, ausser
+   es besteht ein konkreter Widerspruch.
+2. Danach alle fuer die Ausarbeitung wesentlichen offenen Produktfragen
+   sammeln und dem Nutzer schrittweise in verstaendlicher Produktsprache
+   stellen.
+3. Zu jeder Frage Auswirkungen, Risiken und sinnvolle Alternativen erklaeren.
+   Codex darf eine begruendete Empfehlung nennen, aber keine Option ohne
+   ausdrueckliche Nutzerentscheidung als beschlossen behandeln.
+4. Die Antworten des Nutzers zusammenfassen und vor der endgueltigen
+   Ausarbeitung zur Bestaetigung vorlegen.
+5. Erst nach der Bestaetigung verbindliche Produktdokumentation,
+   OpenSpec-Proposal, Design und Tasks erstellen oder entsprechend
+   finalisieren.
+6. Wenn waehrend der Ausarbeitung eine weitere wesentliche Produktentscheidung
+   sichtbar wird, die Arbeit an diesem Punkt pausieren und die Entscheidung
+   erneut ueber Grill Me beim Nutzer einholen.
+
+Technische Detailentscheidungen ohne relevante Auswirkung auf Produktumfang,
+Nutzerverhalten, Datenschutz, Sicherheit, Moderation, Rollen oder Betrieb darf
+Codex selbst treffen. Solche Entscheidungen sind nachvollziehbar zu begruenden
+und in der passenden technischen Dokumentation festzuhalten.
+
+Wenn `Grill Me` in der aktuellen Umgebung als Skill oder Workflow verfuegbar
+ist, muss dieser verwendet werden. Andernfalls fuehrt Codex denselben Ablauf
+als strukturierten Dialog durch.
+
 ## Statusangaben und Nachweise
 
 - `implementiert` bedeutet: Der Code ist im aktiven Codebaum vorhanden.

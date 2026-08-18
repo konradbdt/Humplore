@@ -1,8 +1,8 @@
-# Humplore – Vergleichsbasis
+# Humplore – aktiver Codebaum
 
-`Webseite - Codex/` ist der vorherige Stand und dient vorläufig nur zum
-Vergleich mit der neueren Arbeitskopie `Webseite - Redesign/`.
+`Webseite - Codex/` ist die einzige maßgebliche Arbeitskopie der Anwendung.
+Der verworfene Codebaum `Webseite - Redesign/` ist nicht mehr vorhanden und
+darf nicht als Implementierungs- oder Testgrundlage angenommen werden.
 
-Nicht parallel in beiden Verzeichnissen weiterentwickeln. Der aktuelle Status
-und die Entscheidung zur Konsolidierung stehen in
+Der aktuelle Stand steht in
 [`../docs/projektstatus.md`](../docs/projektstatus.md).

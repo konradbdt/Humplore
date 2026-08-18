@@ -85,6 +85,8 @@ if (!function_exists('humplore_profile_handle_actions')) {
 
             $creatorId = (int) ($postData['creator_id'] ?? 0);
             $questionText = trim((string) ($postData['question_text'] ?? ''));
+            $anonymousValue = $postData['is_anonymous'] ?? null;
+            $isAnonymous = is_scalar($anonymousValue) && (string) $anonymousValue === '1' ? 1 : 0;
 
             if ($creatorId !== $profileUserId) {
                 $state['ask_error'] = 'Ungültiger Ziel-Creator.';
@@ -103,9 +105,11 @@ if (!function_exists('humplore_profile_handle_actions')) {
                 return $state;
             }
 
-            $stmtInsert = $pdo->prepare('INSERT INTO Questions (creator_id, author_id, question_text) VALUES (?, ?, ?)');
-            $stmtInsert->execute([$creatorId, $viewerUserId, $questionText]);
-            $state['ask_success'] = 'Frage wurde gesendet.';
+            $stmtInsert = $pdo->prepare('INSERT INTO Questions (creator_id, author_id, question_text, is_anonymous) VALUES (?, ?, ?, ?)');
+            $stmtInsert->execute([$creatorId, $viewerUserId, $questionText, $isAnonymous]);
+            $state['ask_success'] = $isAnonymous === 1
+                ? 'Anonyme Frage wurde gesendet.'
+                : 'Frage wurde gesendet.';
 
             return $state;
         }
@@ -128,7 +132,8 @@ if (!function_exists('humplore_profile_handle_actions')) {
                 return $state;
             }
 
-            $stmtQuestion = $pdo->prepare('SELECT id, question_text FROM Questions WHERE id = ? AND creator_id = ?');
+            // Author data is intentionally not loaded into the public post payload.
+            $stmtQuestion = $pdo->prepare('SELECT id, question_text, is_anonymous FROM Questions WHERE id = ? AND creator_id = ?');
             $stmtQuestion->execute([$questionId, $profileUserId]);
             $question = $stmtQuestion->fetch(PDO::FETCH_ASSOC);
 

@@ -3,6 +3,16 @@ require_once __DIR__ . '/app/bootstrap.php';
 humplore_require_login();
 
 $pdo = humplore_db();
+$userId = humplore_current_user_id();
+$csrf_token = humplore_ensure_csrf_token();
+
+humplore_platform_handle_comment_submission(
+  $pdo,
+  $userId,
+  $_POST,
+  $_GET,
+  (string) ($_SERVER['REQUEST_URI'] ?? 'search.php')
+);
 
 /* ===========================
    Suche (Logik unverändert)
@@ -32,16 +42,25 @@ if (isset($_GET['q'])) {
   $totalFound = (int) $searchData['totalFound'];
 }
 
-// Neueste Beiträge (Startansicht)
-$stmtLatest = $pdo->prepare("
-  SELECT p.*, u.username, u.profile_image
-  FROM Posts p
-  JOIN Users u ON p.creator_id = u.id
-  ORDER BY p.created_at DESC
+// Neueste Beiträge (Startansicht) mit demselben Datenmodell wie Explore.
+$stmtLatest = $pdo->prepare(humplore_platform_posts_select_sql() . "
+  ORDER BY p.created_at DESC, p.id DESC
   LIMIT 6
 ");
 $stmtLatest->execute();
 $latestPosts = $stmtLatest->fetchAll(PDO::FETCH_ASSOC);
+
+$visiblePosts = $searchQuery !== '' ? $resultsPosts : $latestPosts;
+$visiblePostIds = array_values(array_filter(array_map(static function (array $post): int {
+  return (int) ($post['id'] ?? 0);
+}, $visiblePosts), static function (int $postId): bool {
+  return $postId > 0;
+}));
+
+[$likeCountsByPost, $likedByViewer] = getBulkLikeInfo($pdo, $visiblePostIds, $userId);
+$commentsByPost = getBulkComments($pdo, $visiblePostIds);
+$savedByViewer = getBulkSavedPostInfo($pdo, $visiblePostIds, $userId);
+$viewerInitial = strtoupper(substr((string) ($_SESSION['username'] ?? $userId), 0, 1));
 
 ?>
 <!DOCTYPE html>
@@ -51,9 +70,11 @@ $latestPosts = $stmtLatest->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Humannlibrary – Suche</title>
+  <meta name="csrf-token" content="<?= e($csrf_token) ?>">
 
   <!-- Fonts & Basis -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/post-actions.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -703,7 +724,8 @@ $latestPosts = $stmtLatest->fetchAll(PDO::FETCH_ASSOC);
   </style>
 </head>
 
-<body>
+<body data-post-share-title="Beitrag auf humplore" data-post-share-text="Schau dir diesen Beitrag an."
+  data-post-share-confirmation="Link kopiert!">
   <!-- Header -->
   <header>
     <a href="platform.php" class="brand" aria-label="Humplore – Startseite">
@@ -816,89 +838,25 @@ $latestPosts = $stmtLatest->fetchAll(PDO::FETCH_ASSOC);
           <!-- MASONRY-CONTAINER -->
           <div class="posts-masonry">
             <?php foreach ($resultsPosts as $post): ?>
-              <article class="post-card skeleton" data-skel="1">
-                <div class="post-inner">
-                  <header class="post-header">
-                    <div class="post-avatar">
-                      <?php if (!empty($post['profile_image'])): ?>
-                        <img src="data:image/jpeg;base64,<?= base64_encode($post['profile_image']) ?>"
-                          alt="Profilbild von @<?= e($post['username']) ?>">
-                      <?php else: ?>
-                        <?= strtoupper(substr($post['username'], 0, 1)) ?>
-                      <?php endif; ?>
-                    </div>
-                    <div class="post-meta">
-                      <span class="author">@<?= e($post['username']) ?></span>
-                      <span class="date"><?= e(date("d.m.Y H:i", strtotime($post['created_at']))) ?></span>
-                    </div>
-                  </header>
-
-                  <h3 class="post-title"><?= e($post['title']) ?></h3>
-
-                  <?php if (!empty($post['media_image'])): ?>
-                    <div class="post-image">
-                      <img src="<?= e(post_img_src((int) $post['id'])) ?>" loading="lazy" decoding="async" alt="Beitragsbild">
-                    </div>
-                  <?php endif; ?>
-
-                  <?php
-                  $raw = (string) ($post['content'] ?? '');
-                  $raw = str_replace(["\r\n", "\r"], "\n", $raw);
-                  $raw = preg_replace("/[ \t]+$/m", "", $raw);
-                  $raw = preg_replace("/\n{3,}/", "\n\n", trim($raw));
-
-                  $limit = 120;
-                  $pid = 'res-' . (int) $post['id'];
-                  $hasParagraphs = (preg_match("/\n\s*\n/", $raw) === 1);
-
-                  $pv = mb_substr($raw, 0, $limit);
-                  $rs = mb_substr($raw, $limit);
-
-                  // Absätze nur bei Leerzeilen; einfache \n innerhalb eines Absatzes -> Leerzeichen
-                  $renderParagraphs = function (string $txt): void {
-                    $txt = str_replace(["\r\n", "\r"], "\n", $txt);
-                    $blocks = preg_split("/\n\s*\n/", $txt);
-                    foreach ($blocks as $p) {
-                      $p = trim(preg_replace("/\n+/", " ", $p));
-                      if ($p === '')
-                        continue;
-                      echo '<p>' . e($p) . '</p>';
-                    }
-                  };
-                  ?>
-
-                  <div class="post-content">
-                    <?php if (!$hasParagraphs): ?>
-                      <p>
-                        <?= e(str_replace(["\r\n", "\r", "\n"], " ", $pv)) ?>
-                        <?php if (mb_strlen($raw) > $limit): ?>
-                          <span class="more-content" id="more-<?= e($pid) ?>" style="display:none">
-                            <?= e(str_replace(["\r\n", "\r", "\n"], " ", $rs)) ?>
-                          </span>
-                        <?php endif; ?>
-                      </p>
-                    <?php else: ?>
-                      <?php $renderParagraphs($pv); ?>
-                      <?php if (mb_strlen($raw) > $limit): ?>
-                        <div class="more-content" id="more-<?= e($pid) ?>" style="display:none">
-                          <?php $renderParagraphs($rs); ?>
-                        </div>
-                      <?php endif; ?>
-                    <?php endif; ?>
-
-                    <?php if (mb_strlen($raw) > $limit): ?>
-                      <div class="post-readmore" id="more-row-<?= e($pid) ?>">
-                        … <a href="#" class="more-link" onclick="toggleMore('<?= e($pid) ?>', event)">mehr lesen</a>
-                      </div>
-                      <div class="post-readless" id="less-row-<?= e($pid) ?>" style="display:none">
-                        <a href="#" class="more-link" onclick="toggleMore('<?= e($pid) ?>', event)">weniger lesen</a>
-                      </div>
-                    <?php endif; ?>
-                  </div>
-
-
-                </div>
-              </article>
+              <?php
+              $postId = (int) $post['id'];
+              $likeCount = (int) ($likeCountsByPost[$postId] ?? 0);
+              $hasLiked = !empty($likedByViewer[$postId]);
+              $hasSaved = !empty($savedByViewer[$postId]);
+              $comments = $commentsByPost[$postId] ?? [];
+              $commentCount = count($comments);
+              $unlocked = hasAccess($post, $userId);
+              $cardClass = $unlocked ? '' : 'locked';
+              $priceLabel = isset($post['price_cents']) ? formatEuroCents($post['price_cents']) : '';
+              $raw = (string) ($post['content'] ?? '');
+              $paras = parse_paragraphs($raw);
+              $headerTag = 'header';
+              $imageMode = 'lenient';
+              $wrapRawContent = false;
+              $commentEmptyText = 'Noch keine Kommentare – starte das Gespräch.';
+              $showCommentReports = false;
+              require __DIR__ . '/app/views/partials/platform-post-card.php';
+              ?>
             <?php endforeach; ?>
           </div>
         <?php endif; ?>
@@ -917,88 +875,25 @@ $latestPosts = $stmtLatest->fetchAll(PDO::FETCH_ASSOC);
           <!-- MASONRY-CONTAINER -->
           <div class="posts-masonry" id="latest-grid">
             <?php foreach ($latestPosts as $post): ?>
-              <article class="post-card skeleton" data-skel="1">
-                <div class="post-inner">
-                  <header class="post-header">
-                    <div class="post-avatar">
-                      <?php if (!empty($post['profile_image'])): ?>
-                        <img src="data:image/jpeg;base64,<?= base64_encode($post['profile_image']) ?>"
-                          alt="Profilbild von @<?= e($post['username']) ?>">
-                      <?php else: ?>
-                        <?= strtoupper(substr($post['username'], 0, 1)) ?>
-                      <?php endif; ?>
-                    </div>
-                    <div class="post-meta">
-                      <span class="author">@<?= e($post['username']) ?></span>
-                      <span class="date"><?= e(date("d.m.Y H:i", strtotime($post['created_at']))) ?></span>
-                    </div>
-                  </header>
-
-                  <h3 class="post-title"><?= e($post['title']) ?></h3>
-
-                  <?php if (!empty($post['media_image'])): ?>
-                    <div class="post-image">
-                      <img src="<?= e(post_img_src((int) $post['id'])) ?>" loading="lazy" decoding="async" alt="Beitragsbild">
-                    </div>
-                  <?php endif; ?>
-
-                  <?php
-                  $raw = (string) ($post['content'] ?? '');
-                  $raw = str_replace(["\r\n", "\r"], "\n", $raw);
-                  $raw = preg_replace("/[ \t]+$/m", "", $raw);
-                  $raw = preg_replace("/\n{3,}/", "\n\n", trim($raw));
-
-                  $limit = 120;
-                  $pid = 'latest-' . (int) $post['id'];
-                  $hasParagraphs = (preg_match("/\n\s*\n/", $raw) === 1);
-
-                  $pv = mb_substr($raw, 0, $limit);
-                  $rs = mb_substr($raw, $limit);
-
-                  $renderParagraphs = function (string $txt): void {
-                    $txt = str_replace(["\r\n", "\r"], "\n", $txt);
-                    $blocks = preg_split("/\n\s*\n/", $txt);
-                    foreach ($blocks as $p) {
-                      $p = trim(preg_replace("/\n+/", " ", $p));
-                      if ($p === '')
-                        continue;
-                      echo '<p>' . e($p) . '</p>';
-                    }
-                  };
-                  ?>
-
-                  <div class="post-content">
-                    <?php if (!$hasParagraphs): ?>
-                      <p>
-                        <?= e(str_replace(["\r\n", "\r", "\n"], " ", $pv)) ?>
-                        <?php if (mb_strlen($raw) > $limit): ?>
-                          <span class="more-content" id="more-<?= e($pid) ?>" style="display:none">
-                            <?= e(str_replace(["\r\n", "\r", "\n"], " ", $rs)) ?>
-                          </span>
-                        <?php endif; ?>
-                      </p>
-                    <?php else: ?>
-                      <?php $renderParagraphs($pv); ?>
-                      <?php if (mb_strlen($raw) > $limit): ?>
-                        <div class="more-content" id="more-<?= e($pid) ?>" style="display:none">
-                          <?php $renderParagraphs($rs); ?>
-                        </div>
-                      <?php endif; ?>
-                    <?php endif; ?>
-
-                    <?php if (mb_strlen($raw) > $limit): ?>
-                      <div class="post-readmore" id="more-row-<?= e($pid) ?>">
-                        … <a href="#" class="more-link" onclick="toggleMore('<?= e($pid) ?>', event)">mehr lesen</a>
-                      </div>
-                      <div class="post-readless" id="less-row-<?= e($pid) ?>" style="display:none">
-                        <a href="#" class="more-link" onclick="toggleMore('<?= e($pid) ?>', event)">weniger lesen</a>
-                      </div>
-                    <?php endif; ?>
-                  </div>
-
-
-                </div>
-              </article>
+              <?php
+              $postId = (int) $post['id'];
+              $likeCount = (int) ($likeCountsByPost[$postId] ?? 0);
+              $hasLiked = !empty($likedByViewer[$postId]);
+              $hasSaved = !empty($savedByViewer[$postId]);
+              $comments = $commentsByPost[$postId] ?? [];
+              $commentCount = count($comments);
+              $unlocked = hasAccess($post, $userId);
+              $cardClass = $unlocked ? '' : 'locked';
+              $priceLabel = isset($post['price_cents']) ? formatEuroCents($post['price_cents']) : '';
+              $raw = (string) ($post['content'] ?? '');
+              $paras = parse_paragraphs($raw);
+              $headerTag = 'header';
+              $imageMode = 'lenient';
+              $wrapRawContent = false;
+              $commentEmptyText = 'Noch keine Kommentare – starte das Gespräch.';
+              $showCommentReports = false;
+              require __DIR__ . '/app/views/partials/platform-post-card.php';
+              ?>
             <?php endforeach; ?>
           </div>
         <?php endif; ?>
@@ -1060,6 +955,7 @@ $latestPosts = $stmtLatest->fetchAll(PDO::FETCH_ASSOC);
       }
     });
   </script>
+  <script src="js/post-actions.js?v=20260811"></script>
 </body>
 
 </html>

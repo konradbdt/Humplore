@@ -8,6 +8,10 @@ Stand: 18. August 2026
 - OpenSpec-Aufgaben und vorhandene Testartefakte
 - lokale HTTP- und Funktionstests der aktiven Medienlogik am 18. August 2026
 - PHP-Syntaxprüfung der betroffenen PHP-Dateien am 18. August 2026
+- manuelle Medienprüfung am 28. Juli 2026
+- isolierte Browser- und Handlerprüfung der Post-Aktionen am 11. August 2026
+- PHP-Syntaxprüfung der geänderten Post-Aktionsdateien am 11. August 2026
+- isolierte Schema-, Handler- und Browserprüfung anonymer Fragen am 12. August 2026
 
 Statuswerte:
 
@@ -25,15 +29,16 @@ Statuswerte:
 | Discovery-Basisfilter | Themen-, Themenkategorie- und Beitragskategorien sind im Codex-Code kombinierbar und zurücksetzbar. | `openspec/specs/discovery/spec.md` |
 | Reporting für Fragen und Kommentare | Persistenz, Validierung, CSRF und Duplikatschutz sind vorhanden. | `openspec/specs/moderation/spec.md` |
 | Profilfilter Stufe 1 | Wohnort und Sprache sind als Filterbereich implementiert. | `openspec/changes/profile-discovery-filters/tasks.md` |
+| Post-Aktionen | `Neues gelernt!`, `Kommentieren`, privates `Merken` und `Teilen` sind in Explore, eigenständiger Suche, Profil und Modal geprüft; Handler-, CSRF-, Gast-, Sperr- und Mobilfälle sind belegt. | `openspec/specs/engagement/spec.md` |
+| Anonyme Fragen | Angemeldete Nutzer können pro Frage Anonymität wählen; interne Attribution bleibt erhalten, Creator- und Besucheransichten sowie Frage-als-Beitrag schützen die Identität. Schema-, Handler-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/specs/questions/spec.md` |
 
 ## Implementiert, Abnahme offen
 
 | Bereich | Vorhanden | Noch offen |
 |---|---|---|
 | Themen-/Kategorieübersicht | Browse-Bereich oberhalb des Explore-Feeds mit Themen, Kategorien, Beiträgen und Creatorn. | Manuelle Desktop-/Mobile-Abnahme. |
-| Post-Aktionen | `Neues gelernt!`, `Kommentieren`, privates `Merken`, `Teilen`, `SavedPosts`, CSRF-Handler und synchronisierte Save-Buttons. | `search.php` verwendet eigene Karten ohne Action-Leiste; vollständiges interaktives Prüfprotokoll fehlt. |
-| Authentifizierung | Registrierung, Login, Logout und Sessions sind vorhanden. | Account-Löschung, E-Mail-Verifizierung, Rate-Limits und Security-Review. |
-| Creator-Profile | Profilinformationen, Beiträge, Fragen, Folgen und Teilen sind vorhanden. | Verifizierung, Vertrauenselemente, Direktnachrichten und Kommentarsteuerung. |
+| Authentifizierung | Registrierung, Login, Logout und Sessions sind vorhanden; die zentralen Anwendungsrouten verlangen bereits eine Anmeldung. | Vollständige Prüfung und Absicherung aller Alt-, Medien- und Hilfsrouten sowie Account-Löschung, E-Mail-Verifizierung, Rate-Limits und Security-Review. |
+| Creator-Profile | Profilinformationen, Beiträge, Fragen, Folgen und Teilen sind vorhanden. Creator können unabhängig von einer Verifizierung veröffentlichen. | Optionaler Verifizierungsprozess, Badge und Ranking-Vorteil sowie Direktnachrichten und Kommentarsteuerung. |
 
 ## Teilweise umgesetzt oder fehlerhaft
 
@@ -58,8 +63,9 @@ historischen Produktanalysen:
 
 Die Aussagen dort zum damaligen Stand und zu Luecken sind veraltet. Die
 folgende Neubewertung prueft deshalb die genannten Funktionen gegen den
-aktiven Codebaum `Webseite - Codex/`. Sie ist eine Code- und
-Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
+aktiven Codebaum `Webseite - Codex/`. Sie basiert grundsätzlich auf der Code-
+und Dokumentenprüfung vom 28. Juli 2026; die Beitragsaktionen wurden zusätzlich
+am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 | Funktion aus den Analysen | Neubewerteter Stand im aktiven Projekt | Noch zu pruefen oder umzusetzen |
 |---|---|---|
@@ -68,10 +74,10 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 | Themen- und Kategorieuebersicht | implementiert, Abnahme offen | Funktionaler Browse-Bereich mit getrennten Themen- und Beitrags-/Lebenskategorien sowie Feed-Links ist vorhanden. Desktop- und Mobilansicht sind noch manuell abzunehmen. |
 | Creator-Registrierung | teilweise | Registrierung erfasst Creator-Status und Hauptthema. Eine strukturierte Kategorienzuordnung waehrend der Registrierung fehlt. |
 | Creator-Profil und Profilbearbeitung | teilweise | Profilbild und Bio sind bearbeitbar; Profile zeigen unter anderem Hauptthema, Ort/Sprache, Beitraege und Follow. Bearbeitbare Felder fuer Ort, Alter und Fokus sowie strukturierte Unterthemen/Tags fehlen. |
-| Creator-Verifizierung und Vertrauenselemente | offen | Kein Verifizierungsprozess, kein Badge und keine erkennbare Posting-Sperre fuer nicht verifizierte Creator. |
-| Anonyme Nutzung und Privatsphaere | teilweise | Pseudonyme Nutzung ist durch frei waehbaren Nutzernamen moeglich. Anonyme Fragen, anonyme Beitraege und steuerbare Profilsichtbarkeit sind nicht implementiert. |
-| Fragen und Antworten an Creator | implementiert, Abnahme offen | Fragen koennen gestellt und vom Creator kurz beantwortet oder in einen Beitrag uebernommen werden. Anonyme Fragen sowie weitergehende Schutzfunktionen fehlen. |
-| Beitragsaktionen und Merken | teilweise | `Neues gelernt!`, Kommentieren, Merken und Teilen sind in den gemeinsamen Beitragskarten vorhanden; Merken wird pro Nutzer gespeichert. Die eigenstaendige Suche nutzt Karten ohne diese Aktionsleiste; die interaktive Abnahme der Aktionen steht aus. Donation ist nicht implementiert. |
+| Creator-Verifizierung und Vertrauenselemente | offen | Kein Verifizierungsprozess, kein Badge und keine bevorzugte Ausspielung verifizierter Creator. Eine Posting-Sperre ist ausdruecklich nicht vorgesehen. |
+| Anonyme Fragen und pseudonyme Creator | geprüft / implementiert | Anonyme Fragen sind geprüft implementiert. Creator koennen bereits einen frei waehlbaren Nutzernamen verwenden; Beitraege bleiben dem jeweiligen oeffentlichen Profil zugeordnet. Anonyme Beitraege sind bewusst nicht vorgesehen. |
+| Fragen und Antworten an Creator | geprüft | Normale und anonyme Fragen koennen gestellt und vom Creator kurz beantwortet oder ohne Veröffentlichung der Fragesteller-Identität in einen Beitrag uebernommen werden. Schema-, Handler-, Desktop- und Mobile-Fälle sind belegt. |
+| Beitragsaktionen und Merken | geprüft | `Neues gelernt!`, Kommentieren, privates Merken und Teilen sind in Explore, eigenständiger Suche, Profil und Modal interaktiv geprüft. Suche verwendet die gemeinsame Plattform-Postkarte und Bulk-Lookups. Eine Seite für gemerkte Beiträge und Donation bleiben bewusst außerhalb dieses Changes. |
 | Folgen | teilweise | Creator koennen gefolgt werden; ein Following-Modus ist vorhanden. Themen folgen, Benachrichtigungen und eine eigene Uebersicht gefolgter Creator fehlen. |
 | Kommentare und Austausch | teilweise | Kommentare koennen erstellt und angezeigt werden; Kommentare sind meldbar. Antworten auf Kommentare, Kommentar-Likes, Creator-Steuerung zum Deaktivieren und Moderationswerkzeuge fehlen. |
 | Melden und Safe-Space-Funktionen | teilweise | Fragen und Kommentare koennen mit Validierung, CSRF- und Duplikatschutz gemeldet werden. Beitraege und Profile sind nicht meldbar; Moderationsqueue, Entscheidungen, Verwarnungen, Sperren und Blockieren fehlen. |
@@ -89,13 +95,11 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 2. Explore: alle vorhandenen Filter einzeln und kombiniert, Sortierung sowie
    vollstaendiges Zuruecksetzen.
 3. Browse-Uebersicht: Anzeige ohne Filter sowie Desktop- und Mobilansicht.
-4. Registrierung, Login, Creator-Profil, Fragen/Antworten, Folgen und
-   Profilbearbeitung mit zwei Testkonten.
-5. Beitragsaktionen: Reaktion, Kommentieren, Merken/Entmerken nach Neuladen,
-   Teilen sowie Gast- und CSRF-Fehlerfall.
-6. Melden: Frage und Kommentar melden, Doppelmeldung, ungueltige Daten und
+4. Registrierung, Login, Creator-Profil, Folgen und Profilbearbeitung mit zwei
+   Testkonten.
+5. Melden: Frage und Kommentar melden, Doppelmeldung, ungueltige Daten und
    nicht angemeldeter Aufruf.
-7. Medien: authentifiziert je einen JPEG-, PNG- und WebP-Beitrag posten und in
+6. Medien: authentifiziert je einen JPEG-, PNG- und WebP-Beitrag posten und in
    Explore, Suche und Creator-Profil anzeigen; Video und Audio weiterhin als
    nicht implementiert festhalten.
 
@@ -103,10 +107,8 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 
 ### Launch-Blocker
 
-- Creator-Verifizierung und Posting-Sperre für nicht verifizierte Creator.
 - Admin-Moderationsdashboard und Reporting für Beiträge.
 - Datenschutzseite, Löschkonzept und Account-Löschung.
-- Anonyme Fragen sowie anonyme Creator-Beiträge.
 - Direktnachrichten.
 - Eigene Seite für gemerkte Beiträge.
 - Kommentar-Deaktivierung durch Creator.
@@ -114,6 +116,8 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 
 ### Technische Launch-Arbeit
 
+- Loginpflicht für alle geschützten Inhalte, Seiten und Endpunkte
+  systematisch prüfen und vorhandene Zugriffslücken schließen.
 - Authentifizierte Browser-End-to-End-Abnahme für JPEG, PNG und WebP in
   Creator-Profil, Explore und Suche durchführen.
 - PHP-Uploadlimit der Zielumgebung auf mindestens 5 MB abstimmen.
@@ -124,6 +128,8 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 
 ### Später
 
+- Optionale Creator-Verifizierung mit Badge und nachvollziehbarem
+  Ranking-Vorteil in Suche und Discovery.
 - Monetarisierung und Donation.
 - Datenexport, Profilmeldungen, Feed-Personalisierung, Echtzeitfunktionen,
   PWA, Analytics und native App.
@@ -145,6 +151,11 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
    als Produktdaten committed werden.
 6. **OpenSpec-CLI:** Die CLI ist in dieser Umgebung nicht installiert. Die
    OpenSpec-Struktur wurde deshalb manuell geprüft.
+7. **Loginpflicht noch nicht vollständig durchgesetzt:** Die zentralen Routen
+   `platform.php`, `search.php`, `profile.php`, `posten.php` und `news.php`
+   verlangen bereits eine Anmeldung. Die direkt erreichbare Altseite
+   `fragen.php`, Medienrouten und diagnostische Hilfsseiten besitzen jedoch
+   noch keine einheitliche serverseitige Zugangskontrolle.
 
 ## Letzte technische Prüfung
 
@@ -157,3 +168,13 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 - `search.php`
 - `media.php`
 - `process_post.php`
+
+Am 12. August 2026 waren die Schemaerweiterung und ihre Wiederholung, normale
+und anonyme Speicherung, interne `author_id`, Erfolgstexte, manipulierte
+Formularwerte, unveränderliche Anonymität, Gast-Sperre, Creator- und
+Besucheransichten sowie normale und anonyme Frage-als-Beitrag-Flows auf einer
+isolierten SQLite-Kopie erfolgreich. `php -l` war für alle acht geänderten
+PHP-Dateien fehlerfrei. Die Browserprüfung bei 1440x900 und 390x844 bestätigte
+Formular, Checkbox-Default, 44px-Mobile-Control, Identitätsschutz und fehlenden
+horizontalen Overflow; Browser-Logs enthielten keine Fehler oder Warnungen.
+Die Repository-Datei `Webseite - Codex/data/database.db` blieb unverändert.

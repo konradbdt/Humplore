@@ -17,6 +17,7 @@ if (!$creator) {
 
 // Aktueller Benutzer
 $currentUser = null;
+$askSuccess = '';
 if (isset($_SESSION['user_id'])) {
     $stmtUser = $pdo->prepare("SELECT * FROM Users WHERE id = ?");
     $stmtUser->execute([$_SESSION['user_id']]);
@@ -28,9 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_question'])) {
     if (!$currentUser || $currentUser['is_creator'] == 1) {
         die("Nicht berechtigt");
     }
-    $question_text = htmlspecialchars($_POST['question_text']);
-    $stmt = $pdo->prepare("INSERT INTO Questions (creator_id, author_id, question_text) VALUES (?, ?, ?)");
-    $stmt->execute([$creator_id, $_SESSION['user_id'], $question_text]);
+    $question_text = htmlspecialchars((string) ($_POST['question_text'] ?? ''));
+    $anonymousValue = $_POST['is_anonymous'] ?? null;
+    $isAnonymous = is_scalar($anonymousValue) && (string) $anonymousValue === '1' ? 1 : 0;
+    $stmt = $pdo->prepare("INSERT INTO Questions (creator_id, author_id, question_text, is_anonymous) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$creator_id, $_SESSION['user_id'], $question_text, $isAnonymous]);
+    $askSuccess = $isAnonymous === 1 ? 'Anonyme Frage wurde gesendet.' : 'Frage wurde gesendet.';
 }
 
 // Frage beantworten
@@ -141,6 +145,26 @@ if ($currentUser && $currentUser['id'] == $creator['id']) {
             cursor: pointer;
         }
 
+        .anonymous-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            font-weight: 600;
+        }
+
+        .anonymous-control input {
+            width: 18px;
+            height: 18px;
+        }
+
+        .anonymous-hint {
+            margin-bottom: 10px;
+            color: #667160;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
         .bottom-nav {
             position: fixed;
             bottom: 10px;
@@ -173,8 +197,16 @@ if ($currentUser && $currentUser['id'] == $creator['id']) {
         <?php if (!$currentUser || $currentUser['is_creator'] != 1): ?>
             <div class="ask-form">
                 <h2>Stelle eine Frage</h2>
+                <?php if ($askSuccess !== ''): ?>
+                    <p><?= htmlspecialchars($askSuccess, ENT_QUOTES, 'UTF-8') ?></p>
+                <?php endif; ?>
                 <form method="post">
                     <textarea name="question_text" placeholder="Deine Frage..." required></textarea>
+                    <label class="anonymous-control">
+                        <input type="checkbox" name="is_anonymous" value="1">
+                        <span>Anonym fragen</span>
+                    </label>
+                    <p class="anonymous-hint">Dein Name wird weder dem Creator noch anderen Nutzern angezeigt.</p>
                     <button type="submit" name="new_question" class="button-34">Absenden</button>
                 </form>
             </div>
@@ -185,7 +217,9 @@ if ($currentUser && $currentUser['id'] == $creator['id']) {
                 <h2>Offene Fragen</h2>
                 <?php foreach ($unanswered as $question): ?>
                     <div class="question-card">
-                        <p><strong>@<?= htmlspecialchars($question['username']) ?> fragt:</strong></p>
+                        <p><strong><?= !empty($question['is_anonymous'])
+                            ? 'Anonym'
+                            : '@' . htmlspecialchars((string) $question['username'], ENT_QUOTES, 'UTF-8') ?> fragt:</strong></p>
                         <p><?= htmlspecialchars($question['question_text']) ?></p>
                         <form method="post">
                             <input type="hidden" name="question_id" value="<?= $question['id'] ?>">

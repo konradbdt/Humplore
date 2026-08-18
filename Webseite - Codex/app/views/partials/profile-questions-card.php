@@ -19,10 +19,13 @@
           <?php
           $questionId = (int) ($q['id'] ?? 0);
           $questionText = (string) ($q['question_text'] ?? '');
+          $isAnonymous = ((int) ($q['is_anonymous'] ?? 0)) === 1;
           ?>
           <div class="qa-item">
             <div class="meta">
-              Von <strong>@<?= htmlspecialchars((string) ($q['author_name'] ?? ''), ENT_QUOTES, 'UTF-8') ?></strong>
+              Von <strong><?= $isAnonymous
+                  ? 'Anonym'
+                  : '@' . htmlspecialchars((string) ($q['author_name'] ?? ''), ENT_QUOTES, 'UTF-8') ?></strong>
               &middot; <?= htmlspecialchars(date('d.m.Y H:i', strtotime((string) ($q['created_at'] ?? 'now'))), ENT_QUOTES, 'UTF-8') ?>
               &middot; <?= (int) ($q['like_count'] ?? 0) ?>
             </div>
@@ -128,6 +131,11 @@
       <input type="hidden" name="creator_id" value="<?= (int) $profile_user_id ?>">
       <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf_token, ENT_QUOTES, 'UTF-8') ?>">
       <textarea name="question_text" rows="4" placeholder="Stell deine Frage ..." required></textarea>
+      <label class="qa-anonymous-control">
+        <input type="checkbox" name="is_anonymous" value="1">
+        <span>Anonym fragen</span>
+      </label>
+      <div class="qa-anonymous-hint">Dein Name wird weder dem Creator noch anderen Nutzern angezeigt.</div>
       <button type="submit">Absenden</button>
     </form>
     <?php
