@@ -32,7 +32,7 @@ Statuswerte:
 | Profilfilter Stufe 1 | Wohnort und Sprache sind als Filterbereich implementiert. | `openspec/changes/profile-discovery-filters/tasks.md` |
 | Post-Aktionen | `Neues gelernt!`, `Kommentieren`, privates `Merken` und `Teilen` sind in Explore, eigenständiger Suche, Profil und Modal geprüft; Handler-, CSRF-, Gast-, Sperr- und Mobilfälle sind belegt. | `openspec/specs/engagement/spec.md` |
 | Anonyme Fragen | Angemeldete Nutzer können pro Frage Anonymität wählen; interne Attribution bleibt erhalten, Creator- und Besucheransichten sowie Frage-als-Beitrag schützen die Identität. Schema-, Handler-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/specs/questions/spec.md` |
-| Intelligente Suchmarkierung und passende Fragen | Wörtliche und verwandte Treffer werden sicher und nachvollziehbar markiert; die Fragenleiste und ihr Modal verwenden bei aktiver Suche dieselbe gefilterte Datenbasis. PHP-, Funktions-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/changes/contextual-search-highlighting/tasks.md` |
+| Intelligente Suchmarkierung und passende Fragen | Wörtliche und verwandte Treffer werden sicher und nachvollziehbar markiert; die Fragenleiste und ihr Modal verwenden bei aktiver Suche dieselbe gefilterte Datenbasis. PHP-, Funktions-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/specs/search/spec.md` |
 
 ## Implementiert, Abnahme offen
 
