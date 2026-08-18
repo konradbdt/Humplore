@@ -19,13 +19,13 @@ $hasMorePreview = $remainingParagraphs !== [];
 ?>
 <div class="post-content">
   <?php foreach ($previewParagraphs as $paragraph): ?>
-    <p><?= e($paragraph) ?></p>
+    <p><?= humplore_search_highlight((string) $paragraph, $searchHighlightTerms ?? []) ?></p>
   <?php endforeach; ?>
 
   <?php if ($hasMorePreview): ?>
     <div class="more-content" id="more-<?= (int) $postId ?>" style="display:none">
       <?php foreach ($remainingParagraphs as $paragraph): ?>
-        <p><?= e($paragraph) ?></p>
+        <p><?= humplore_search_highlight((string) $paragraph, $searchHighlightTerms ?? []) ?></p>
       <?php endforeach; ?>
     </div>
 
