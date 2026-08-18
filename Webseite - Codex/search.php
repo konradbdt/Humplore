@@ -837,7 +837,7 @@ $latestPosts = $stmtLatest->fetchAll(PDO::FETCH_ASSOC);
 
                   <?php if (!empty($post['media_image'])): ?>
                     <div class="post-image">
-                      <img src="data:image/jpeg;base64,<?= base64_encode($post['media_image']) ?>" alt="Beitragsbild">
+                      <img src="<?= e(post_img_src((int) $post['id'])) ?>" loading="lazy" decoding="async" alt="Beitragsbild">
                     </div>
                   <?php endif; ?>
 
@@ -938,7 +938,7 @@ $latestPosts = $stmtLatest->fetchAll(PDO::FETCH_ASSOC);
 
                   <?php if (!empty($post['media_image'])): ?>
                     <div class="post-image">
-                      <img src="data:image/jpeg;base64,<?= base64_encode($post['media_image']) ?>" alt="Beitragsbild">
+                      <img src="<?= e(post_img_src((int) $post['id'])) ?>" loading="lazy" decoding="async" alt="Beitragsbild">
                     </div>
                   <?php endif; ?>
 

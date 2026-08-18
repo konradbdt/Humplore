@@ -5,46 +5,56 @@ $pdo = humplore_db();
 
 $type = isset($_GET['type']) ? (string) $_GET['type'] : '';
 
-function send_file_response(string $path): void
+function send_file_response(string $path, array $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']): void
 {
   if (!is_file($path)) {
     http_response_code(404);
     exit;
   }
-  $mime = 'application/octet-stream';
+  $imageInfo = @getimagesize($path);
+  $mime = is_array($imageInfo) ? ($imageInfo['mime'] ?? null) : null;
   if (function_exists('finfo_open')) {
     $fi = finfo_open(FILEINFO_MIME_TYPE);
     $detected = $fi ? finfo_file($fi, $path) : false;
     if ($fi) {
       finfo_close($fi);
     }
-    if (is_string($detected) && $detected !== '') {
-      $mime = $detected;
+    if (is_string($detected) && $detected !== '' && $mime !== $detected) {
+      http_response_code(404);
+      exit;
     }
   }
+  if (!in_array($mime, $allowedMimeTypes, true)) {
+    http_response_code(404);
+    exit;
+  }
+  header('X-Content-Type-Options: nosniff');
   header('Content-Type: ' . $mime);
   header('Cache-Control: public, max-age=86400');
   readfile($path);
   exit;
 }
 
-function send_binary_response(string $bin): void
+function send_binary_response(string $bin, array $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']): void
 {
-  $mime = 'image/jpeg';
+  $imageInfo = @getimagesizefromstring($bin);
+  $mime = is_array($imageInfo) ? ($imageInfo['mime'] ?? null) : null;
   if (function_exists('finfo_open')) {
     $fi = finfo_open(FILEINFO_MIME_TYPE);
     $detected = $fi ? finfo_buffer($fi, $bin) : false;
     if ($fi) {
       finfo_close($fi);
     }
-    if (is_string($detected) && $detected !== '') {
-      $mime = $detected;
+    if (is_string($detected) && $detected !== '' && $mime !== $detected) {
+      http_response_code(404);
+      exit;
     }
   }
-  if (stripos($mime, 'image/') !== 0) {
+  if (!in_array($mime, $allowedMimeTypes, true)) {
     http_response_code(404);
     exit;
   }
+  header('X-Content-Type-Options: nosniff');
   header('Content-Type: ' . $mime);
   header('Cache-Control: public, max-age=86400');
   echo $bin;
@@ -133,6 +143,7 @@ try {
   }
 
   if ($type === 'post') {
+    $postImageMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
     $postId = isset($_GET['post_id']) ? (int) $_GET['post_id'] : 0;
     if ($postId <= 0) {
       http_response_code(404);
@@ -152,9 +163,9 @@ try {
       if (is_string($binNorm)) {
         $localPath = resolve_local_path($binNorm);
         if ($localPath !== null) {
-          send_file_response($localPath);
+          send_file_response($localPath, $postImageMimeTypes);
         }
-        send_binary_response($binNorm);
+        send_binary_response($binNorm, $postImageMimeTypes);
       }
       http_response_code(404);
       exit;
@@ -162,7 +173,7 @@ try {
     if (is_string($url) && trim($url) !== '') {
       $localPath = resolve_local_path($url);
       if ($localPath !== null) {
-        send_file_response($localPath);
+        send_file_response($localPath, $postImageMimeTypes);
       }
     }
     http_response_code(404);

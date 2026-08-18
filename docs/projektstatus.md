@@ -1,15 +1,13 @@
 # Humplore Projektstatus
 
-Stand: 28. Juli 2026
+Stand: 18. August 2026
 
 ## Bewertungsbasis
 
 - maßgeblicher Codebaum: `Webseite - Codex/`
 - OpenSpec-Aufgaben und vorhandene Testartefakte
-- manuelle Medienprüfung am 28. Juli 2026
-- PHP-Syntaxprüfung zentraler Codex-Dateien am 28. Juli 2026
-
-`Webseite - Redesign/` ist verworfen und wird für diesen Status nicht bewertet.
+- lokale HTTP- und Funktionstests der aktiven Medienlogik am 18. August 2026
+- PHP-Syntaxprüfung der betroffenen PHP-Dateien am 18. August 2026
 
 Statuswerte:
 
@@ -41,13 +39,14 @@ Statuswerte:
 
 | Bereich | Tatsächlicher Stand im Codex-Code | Fehlender oder fehlerhafter Teil |
 |---|---|---|
-| Bild-Upload für Beiträge | `posten.php` akzeptiert Bilder; der Server speichert sie in `Posts.media_image`. | In Feed und Suche wird das Bild pauschal als JPEG ausgeliefert. PNG-, WebP- und GIF-Dateien können dadurch trotz Upload nicht korrekt erscheinen. Eine End-to-End-Abnahme fehlt. |
-| Video-Upload | Keine funktionierende aktive Implementierung. | Die verlinkte Posting-Seite akzeptiert nur `image/*`; `post-editor.php` lehnt Videos ab. Die alte Route `create_post.php`/`process_post.php` ist nicht verlinkt und erwartet einen nicht vorhandenen `uploads/`-Ordner. |
+| Bild-Upload für Beiträge | Die aktive Route `posten.php` akzeptiert ausschließlich JPEG, PNG und WebP bis 5 MB. Uploadfehler, tatsächliche Dateigröße und Bildformat werden serverseitig geprüft; Feed/Explore, Suche und Creator-Profile laden Beitragsbilder über `media.php` mit erkanntem MIME-Type. JPEG und PNG wurden als echte HTTP-Uploads geprüft, WebP wurde mit einem gültigen In-Memory-Testbild gegen die verwendete MIME-Erkennung geprüft. Ungültige, leere, unvollständige und zu große Dateien sowie eine manipulierte Client-MIME-Angabe wurden als Fehlerfälle geprüft. | Ein authentifizierter Browser-End-to-End-Test mit neuem JPEG-, PNG- und WebP-Beitrag und anschließender Anzeige in Explore, Suche und Creator-Profil steht noch aus. Das lokale PHP-Limit `upload_max_filesize=2M` muss für die zugesagten 5 MB in der Zielumgebung auf mindestens 5 MB angehoben werden. GIF ist für neue Beitrags-Uploads nicht freigegeben. |
+| Video-/Audio-Upload | Keine funktionierende aktive Implementierung; die aktive Posting-Seite bleibt auf JPEG, PNG und WebP beschränkt. | Video- und Audio-Upload sind weiterhin offen. Die alte, nicht verlinkte Upload-Route ist keine Grundlage der aktiven Implementierung. |
 | Profilfilter | Stufe 1 mit Wohnort und Übergangsfilter für Sprache ist fertig. | Stufe 2 mit normalisierten Sprachen, Altersgruppe, Herkunft, Identität und Einwilligungen: 21 OpenSpec-Tasks offen. |
 | Reporting | Fragen und Kommentare sind meldbar. | Beiträge, Moderationsqueue, Entscheidungen, Audit-Trail, Verwarnung und Sperre. |
 | Gemerkte Beiträge | Beiträge können privat gespeichert und entfernt werden. | Eigene Seite für gemerkte Beiträge. |
 | Kommentare | Erstellen und Anzeigen funktioniert. | Antworten, Meldung auf allen Oberflächen, Likes, Deaktivierung durch Creator und Moderationswerkzeuge. |
 | Folgen | Creator-Follow und ein Following-Modus sind vorhanden. | Themen-Follow, Benachrichtigungen und Übersicht gefolgter Creator. |
+| Intelligente Suchmarkierung und passende Fragen | Am 17. August 2026 als Produktverhalten beschlossen und unter `openspec/changes/contextual-search-highlighting/` spezifiziert. | Noch nicht implementiert: gelbe Markierung wörtlicher Treffer, Kennzeichnung verwandter Treffer sowie suchabhängige Filterung und Markierung der rechten Fragenleiste. |
 
 ## Funktionsabgleich mit den Produktanalysen
 
@@ -78,13 +77,15 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 | Melden und Safe-Space-Funktionen | teilweise | Fragen und Kommentare koennen mit Validierung, CSRF- und Duplikatschutz gemeldet werden. Beitraege und Profile sind nicht meldbar; Moderationsqueue, Entscheidungen, Verwarnungen, Sperren und Blockieren fehlen. |
 | News und Benachrichtigungen | offen | `news.php` ist eine statische News-Seite; Interaktionsbenachrichtigungen, ungelesene Zustaende und ein Ereignisfeed sind nicht implementiert. |
 | Direktnachrichten | offen | Keine Nachrichtenfunktion zwischen Usern und Creatorn gefunden. |
-| Bild-, Video- und Audio-Beitraege | fehlerhaft / offen | Die aktive Posting-Seite akzeptiert nur Bilder. PNG, WebP und GIF koennen trotz Upload im Feed bzw. in der Suche wegen einer pauschalen JPEG-Auslieferung fehlerhaft erscheinen. Video und Audio sind nicht implementiert. |
+| Bild-, Video- und Audio-Beitraege | Bildfunktion implementiert, Browser-Abnahme offen; Video/Audio offen | Die aktive Posting-Seite akzeptiert ausschließlich JPEG, PNG und WebP. Beitragsbilder werden in Explore, Suche und Creator-Profilen über `media.php` mit serverseitig erkanntem MIME-Type ausgeliefert. Der authentifizierte Browser-End-to-End-Test aller drei Formate steht noch aus. Video und Audio sind nicht implementiert. |
 | Themenuebergreifende Unterkategorien ("Rabbit-hole") | teilweise | Beitrags-/Lebenskategorien lassen sich bereits themenuebergreifend filtern. Ein eigenes, strukturiertes Unterkategorie- bzw. Tag-Modell mit der beschriebenen Navigation fehlt. |
 | Personalisierter Feed | offen / zurueckgestellt | Kein personalisierter Feed auf Basis von Folgen, Interessen oder gespeicherten Beitraegen. |
 
 ### Noch auszufuehrende manuelle Funktionsabnahme
 
 1. Suche: exakter Begriff, Tippfehler, Vorschlag und Leerzustand.
+   Nach Umsetzung der aktiven Änderung zusätzlich wörtliche und verwandte
+   Markierungen sowie die suchabhängige Fragenleiste prüfen.
 2. Explore: alle vorhandenen Filter einzeln und kombiniert, Sortierung sowie
    vollstaendiges Zuruecksetzen.
 3. Browse-Uebersicht: Anzeige ohne Filter sowie Desktop- und Mobilansicht.
@@ -94,8 +95,9 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
    Teilen sowie Gast- und CSRF-Fehlerfall.
 6. Melden: Frage und Kommentar melden, Doppelmeldung, ungueltige Daten und
    nicht angemeldeter Aufruf.
-7. Medien: JPEG, PNG und WebP posten und in Explore, Suche und Profil anzeigen;
-   Video und Audio weiterhin als nicht implementiert festhalten.
+7. Medien: authentifiziert je einen JPEG-, PNG- und WebP-Beitrag posten und in
+   Explore, Suche und Creator-Profil anzeigen; Video und Audio weiterhin als
+   nicht implementiert festhalten.
 
 ## Offen
 
@@ -112,7 +114,9 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 
 ### Technische Launch-Arbeit
 
-- Bild-Upload und Bildanzeige in Profil, Explore und Suche end-to-end reparieren und abnehmen.
+- Authentifizierte Browser-End-to-End-Abnahme für JPEG, PNG und WebP in
+  Creator-Profil, Explore und Suche durchführen.
+- PHP-Uploadlimit der Zielumgebung auf mindestens 5 MB abstimmen.
 - Video-Upload erst nach einer eigenen Spezifikation implementieren.
 - Performance-Baseline und Lasttests für Explore, Suche und Profile.
 - Entscheidung und Migrationsplan für SQLite oder MySQL.
@@ -126,11 +130,11 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 
 ## Bekannte Risiken und Inkonsistenzen
 
-1. **Verworfener zweiter Codebaum:** `Webseite - Redesign/` liegt noch im
-   Repository, ist aber keine Arbeitsgrundlage. Er darf nicht wieder als
-   Referenz für Status oder Tests verwendet werden.
-2. **Medienlogik ist uneinheitlich:** Aktive und alte Posting-Routen verwenden
+1. **Medienlogik ist uneinheitlich:** Aktive und alte Posting-Routen verwenden
    unterschiedliche Speicherwege; die alte Video-Route ist nicht integriert.
+2. **PHP-Uploadlimit:** Die lokale PHP-Konfiguration begrenzt Uploads auf 2 MB,
+   obwohl die Anwendung Bilder bis 5 MB vorsieht. Die Zielumgebung muss dafür
+   passend konfiguriert werden.
 3. **Unvollständige Regression:** Ein historischer Test vom 14. Juni 2026
    protokolliert zwei 30-Sekunden-Timeouts beim Plattformaufruf. Eine vollständige
    Wiederholung fehlt.
@@ -144,7 +148,7 @@ Dokumentenpruefung vom 28. Juli 2026, keine vollstaendige Browser-Abnahme.
 
 ## Letzte technische Prüfung
 
-`php -l` war am 28. Juli 2026 fehlerfrei für:
+`php -l` war am 18. August 2026 fehlerfrei für:
 
 - `posten.php`
 - `app/support/post-editor.php`
