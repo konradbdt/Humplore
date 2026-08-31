@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/app/bootstrap.php';
+humplore_deny_nonproduction_route();
+
 $db = new SQLite3('database.db');
 
 $user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;

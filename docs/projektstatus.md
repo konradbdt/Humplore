@@ -1,6 +1,6 @@
 # Humplore Projektstatus
 
-Stand: 18. August 2026
+Stand: 31. August 2026
 
 ## Bewertungsbasis
 
@@ -13,6 +13,8 @@ Stand: 18. August 2026
 - PHP-Syntaxprüfung der geänderten Post-Aktionsdateien am 11. August 2026
 - isolierte Schema-, Handler- und Browserprüfung anonymer Fragen am 12. August 2026
 - isolierte Funktions- und Browserprüfung der kontextbezogenen Suchmarkierung am 18. August 2026
+- isolierte HTTP-, Login-, Handler- und Redirectprüfung des PHP-Routenschutzes am 31. August 2026
+- PHP-Syntaxprüfung aller 20 geänderten PHP-Dateien und statische Prüfung der Apache-Dateisperren am 31. August 2026
 
 Statuswerte:
 
@@ -33,13 +35,15 @@ Statuswerte:
 | Post-Aktionen | `Neues gelernt!`, `Kommentieren`, privates `Merken` und `Teilen` sind in Explore, eigenständiger Suche, Profil und Modal geprüft; Handler-, CSRF-, Gast-, Sperr- und Mobilfälle sind belegt. | `openspec/specs/engagement/spec.md` |
 | Anonyme Fragen | Angemeldete Nutzer können pro Frage Anonymität wählen; interne Attribution bleibt erhalten, Creator- und Besucheransichten sowie Frage-als-Beitrag schützen die Identität. Schema-, Handler-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/specs/questions/spec.md` |
 | Intelligente Suchmarkierung und passende Fragen | Wörtliche und verwandte Treffer werden sicher und nachvollziehbar markiert; die Fragenleiste und ihr Modal verwenden bei aktiver Suche dieselbe gefilterte Datenbasis. PHP-, Funktions-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/specs/search/spec.md` |
+| Intelligente Suchmarkierung und passende Fragen | Wörtliche und verwandte Treffer werden sicher und nachvollziehbar markiert; die Fragenleiste und ihr Modal verwenden bei aktiver Suche dieselbe gefilterte Datenbasis. PHP-, Funktions-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/changes/contextual-search-highlighting/tasks.md` |
+| PHP-Routenzugriffsschutz | Öffentliche Einstiege, Login-Redirects, JSON-401, Medien-401, Creator-403, deaktivierte Alt-/Diagnoserouten-404, Handler-405 sowie Login/Logout und Handler-Erfolgsläufe sind isoliert über HTTP geprüft. Die ergänzenden Apache-Dateisperren sind implementiert, ihre Serverabnahme ist noch offen. | `docs/architektur.md`, Abschnitt Routenzugriffsschutz |
 
 ## Implementiert, Abnahme offen
 
 | Bereich | Vorhanden | Noch offen |
 |---|---|---|
 | Themen-/Kategorieübersicht | Browse-Bereich oberhalb des Explore-Feeds mit Themen, Kategorien, Beiträgen und Creatorn. | Manuelle Desktop-/Mobile-Abnahme. |
-| Authentifizierung | Registrierung, Login, Logout und Sessions sind vorhanden; die zentralen Anwendungsrouten verlangen bereits eine Anmeldung. | Vollständige Prüfung und Absicherung aller Alt-, Medien- und Hilfsrouten sowie Account-Löschung, E-Mail-Verifizierung, Rate-Limits und Security-Review. |
+| Authentifizierung | Registrierung, Login, Logout und Sessions sind vorhanden. Aktive PHP-Anwendungs- und Medienrouten verlangen eine Anmeldung; nicht produktive Root-Einstiege sind gesperrt. | Apache-Abnahme der internen Dateisperren sowie Account-Löschung, E-Mail-Verifizierung, Rate-Limits und übergreifender Security-Review. |
 | Creator-Profile | Profilinformationen, Beiträge, Fragen, Folgen und Teilen sind vorhanden. Creator können unabhängig von einer Verifizierung veröffentlichen. | Optionaler Verifizierungsprozess, Badge und Ranking-Vorteil sowie Direktnachrichten und Kommentarsteuerung. |
 
 ## Teilweise umgesetzt oder fehlerhaft
@@ -114,8 +118,8 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 ### Technische Launch-Arbeit
 
-- Loginpflicht für alle geschützten Inhalte, Seiten und Endpunkte
-  systematisch prüfen und vorhandene Zugriffslücken schließen.
+- Apache-HTTP-Abnahme der `.htaccess`-Sperren für interne Verzeichnisse,
+  Backups, Testartefakte und sensible Dateien vor einer Veröffentlichung.
 - Authentifizierte Browser-End-to-End-Abnahme für JPEG, PNG und WebP in
   Creator-Profil, Explore und Suche durchführen.
 - PHP-Uploadlimit der Zielumgebung auf mindestens 5 MB abstimmen.
@@ -134,8 +138,9 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 
 ## Bekannte Risiken und Inkonsistenzen
 
-1. **Medienlogik ist uneinheitlich:** Aktive und alte Posting-Routen verwenden
-   unterschiedliche Speicherwege; die alte Video-Route ist nicht integriert.
+1. **Alte Medienlogik:** Nicht integrierter Uploadcode liegt noch in den
+   deaktivierten Alt-Routen; die aktive Anwendung verwendet ausschließlich
+   `posten.php` und `media.php`. Video-Uploads bleiben offen.
 2. **PHP-Uploadlimit:** Die lokale PHP-Konfiguration begrenzt Uploads auf 2 MB,
    obwohl die Anwendung Bilder bis 5 MB vorsieht. Die Zielumgebung muss dafür
    passend konfiguriert werden.
@@ -149,13 +154,59 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
    als Produktdaten committed werden.
 6. **OpenSpec-CLI:** Die CLI ist in dieser Umgebung nicht installiert. Die
    OpenSpec-Struktur wurde deshalb manuell geprüft.
-7. **Loginpflicht noch nicht vollständig durchgesetzt:** Die zentralen Routen
-   `platform.php`, `search.php`, `profile.php`, `posten.php` und `news.php`
-   verlangen bereits eine Anmeldung. Die direkt erreichbare Altseite
-   `fragen.php`, Medienrouten und diagnostische Hilfsseiten besitzen jedoch
-   noch keine einheitliche serverseitige Zugangskontrolle.
+7. **Apache-Dateisperren noch nicht im Serverbetrieb abgenommen:** Die Regeln
+   für interne Verzeichnisse und sensible Dateien sind vorhanden und statisch
+   geprüft. Lokal steht kein Apache bereit; der PHP-Entwicklungsserver wertet
+   `.htaccess` nicht aus. Die erfolgreiche PHP-Routenprüfung ist deshalb keine
+   Apache- oder IONOS-Abnahme.
 
 ## Letzte technische Prüfung
+
+Am 31. August 2026 wurde der Zugriffsschutz auf einer temporären Kopie des
+Webroots mit isolierter SQLite-Kopie und zwei eigenen Testkonten geprüft
+(PHP 8.3.29, lokaler HTTP-Server auf `127.0.0.1:8873`). Es wurden keine
+Live-/IONOS-Aufrufe durchgeführt.
+
+- `php -l` war für alle 20 geänderten PHP-Dateien fehlerfrei.
+- Die sieben vorhandenen öffentlichen Einstiegs-, Auth- und Informationsseiten
+  lieferten ohne Humplore-Anmeldung HTTP 200.
+- `platform.php`, `search.php`, `profile.php?debug=ping`, `posten.php`,
+  `news.php` und `fragen.php?creator_id=910002` lieferten als Gast 302 zum Login
+  mit lokalem Rückkehrziel; geschützte Inhalte wurden nicht ausgegeben.
+- `media.php` lieferte als Gast 401 ohne Redirect und ohne Bilddaten. Die drei
+  JSON-Handler lieferten für Gast-POSTs 401 als JSON, ohne Location-Header.
+- Die acht deaktivierten Root-Einstiege aus der Architekturmatrix lieferten
+  404 mit ausschließlich `Not found.`; auch der angemeldete Aufruf von
+  `create_post.php` blieb gesperrt.
+- Login als Mitglied und Creator war erfolgreich. Explore, Suche, Profil,
+  News und Fragen lieferten angemeldet 200. `posten.php` lieferte für das
+  Mitglied 403 und für den Creator 200. Die doppelte lokale Definition des
+  Escaping-Helfers in `news.php` wurde durch den gemeinsamen Helfer ersetzt.
+- Das isolierte PNG-Profilbild wurde angemeldet mit 200, `image/png` und
+  `private, no-store` ausgeliefert. POST auf die Medienroute lieferte 405.
+  `profile.php?debug=trace` zeigte nur die normale Profilseite und keine
+  Diagnosemarker; ein ungültiger Medienaufruf mit `debug=1` blieb ohne
+  technische Fehlerdetails.
+- Authentifizierte Handler mit gültigem CSRF-Token erreichten ihre
+  Parameterprüfung (400). Gültige Like-, Merken- und Melden-Aufrufe lieferten
+  200; die isolierte Datenbank enthielt jeweils genau einen zugehörigen
+  Datensatz. Eine wiederholte Meldung blieb idempotent.
+- GET auf die beiden öffentlichen Auth-Handler sowie auf den angemeldeten
+  Reporting-Handler lieferte 405. Ein lokales Login-Rückkehrziel blieb erhalten,
+  ein externes Ziel wurde verworfen. Nach Logout war Explore wieder gesperrt.
+- Die PHP-Serverlogs enthielten keine PHP-Warnungen oder Laufzeitfehler.
+  Dies war eine HTTP-/Sessionprüfung, keine neue Desktop-/Mobile-Browserabnahme.
+- Die Repository-Datenbank blieb unverändert; ihr SHA-256 war vor und nach
+  den Tests `67909AB8B677155BD70D3E25D83C034CA468425708CAA032D1A0BCB8C012782D`.
+
+Die Root-`.htaccess` und die sechs internen Verzeichnissperren wurden nur
+statisch geprüft. Eine ausführbare Apache-Konfigurations-/HTTP-Prüfung und
+eine IONOS-Abnahme wurden ausdrücklich nicht durchgeführt.
+
+Am 31. August 2026 wurde außerdem die veraltete globale HTTP-Basic-Auth aus
+der Root-`.htaccess` entfernt. Sie hätte auch Einstieg, Registrierung und Login
+vor der Humplore-Anmeldung gesperrt. Die Dateisperren bleiben bestehen; ihre
+Apache-Abnahme ist weiterhin offen.
 
 `php -l` war am 18. August 2026 fehlerfrei für:
 

@@ -5,11 +5,6 @@ humplore_require_login();
 $pdo = humplore_db();
 date_default_timezone_set('Europe/Berlin');
 
-function e(string $s): string
-{
-  return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
-}
-
 $userId = (int) ($_SESSION['user_id'] ?? 0);
 $isCreator = 0;
 $allCategories = [];

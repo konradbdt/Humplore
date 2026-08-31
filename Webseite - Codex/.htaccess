@@ -1,4 +1,3 @@
-AuthType Basic
-AuthName "Geschützter Bereich"
-AuthUserFile /homepages/11/d4298916487/htdocs/.htpasswd
-Require valid-user
+<FilesMatch "(?i)(^\.|\.(?:db|sql|ini|log|md|passwd)$)">
+  Require all denied
+</FilesMatch>
