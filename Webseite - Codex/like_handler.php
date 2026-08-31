@@ -3,14 +3,8 @@ declare(strict_types=1);
 require_once __DIR__ . '/app/bootstrap.php';
 header('Content-Type: application/json; charset=UTF-8');
 
-$pdo = humplore_db();
-
 // 1) Auth
-if (empty($_SESSION['user_id'])) {
-    http_response_code(401);
-    echo json_encode(['success' => false, 'error' => 'Unauthorized']);
-    exit;
-}
+$userId = humplore_require_json_login(['success' => false, 'error' => 'Unauthorized']);
 
 // 2) Nur POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -21,12 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // 3) Parameter prüfen
 $postId = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-$userId = (int) $_SESSION['user_id'];
 if ($postId <= 0) {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => 'Invalid post_id']);
     exit;
 }
+
+$pdo = humplore_db();
 
 // (Optional) 4) CSRF prüfen, wenn du in explore.php ein Meta-Tag setzt
 $csrfSess = $_SESSION['csrf_token'] ?? '';

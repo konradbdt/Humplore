@@ -119,5 +119,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: register.php");
         exit;
     }
+} else {
+    http_response_code(405);
+    header('Allow: POST');
+    echo "Ungültige Anfrage.";
 }
 ?>

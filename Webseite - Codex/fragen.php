@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/app/bootstrap.php';
 
+humplore_require_login($_SERVER['REQUEST_URI'] ?? 'fragen.php');
+
 $pdo = humplore_db();
 
 // --- PHP Logik Anfang ---

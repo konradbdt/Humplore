@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once __DIR__ . '/app/bootstrap.php';
+humplore_deny_nonproduction_route();
 
 // Zugriff nur für eingeloggte Creator erlauben
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_creator']) || (int)$_SESSION['is_creator'] !== 1) {

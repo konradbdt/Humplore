@@ -1,6 +1,16 @@
 <?php
 require_once __DIR__ . '/app/bootstrap.php';
 
+humplore_require_resource_login();
+
+$requestMethod = (string) ($_SERVER['REQUEST_METHOD'] ?? 'GET');
+if (!in_array($requestMethod, ['GET', 'HEAD'], true)) {
+  http_response_code(405);
+  header('Allow: GET, HEAD');
+  header('Cache-Control: no-store');
+  exit;
+}
+
 $pdo = humplore_db();
 
 $type = isset($_GET['type']) ? (string) $_GET['type'] : '';
@@ -30,7 +40,7 @@ function send_file_response(string $path, array $allowedMimeTypes = ['image/jpeg
   }
   header('X-Content-Type-Options: nosniff');
   header('Content-Type: ' . $mime);
-  header('Cache-Control: public, max-age=86400');
+  header('Cache-Control: private, no-store');
   readfile($path);
   exit;
 }
@@ -56,7 +66,7 @@ function send_binary_response(string $bin, array $allowedMimeTypes = ['image/jpe
   }
   header('X-Content-Type-Options: nosniff');
   header('Content-Type: ' . $mime);
-  header('Cache-Control: public, max-age=86400');
+  header('Cache-Control: private, no-store');
   echo $bin;
   exit;
 }
@@ -182,11 +192,5 @@ try {
 
   http_response_code(400);
 } catch (Throwable $e) {
-  if (isset($_GET['debug']) && $_GET['debug'] === '1') {
-    header('Content-Type: text/plain; charset=utf-8');
-    echo "MEDIA_ERROR\n";
-    echo get_class($e) . "\n";
-    echo $e->getMessage() . "\n";
-  }
   http_response_code(500);
 }
