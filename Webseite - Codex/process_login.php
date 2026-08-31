@@ -1,10 +1,9 @@
 <?php
 require_once __DIR__ . '/app/bootstrap.php';
 
-$pdo = humplore_db();
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $pdo = humplore_db();
+
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     $redirect = isset($_POST['redirect']) ? trim((string) $_POST['redirect']) : '';
@@ -49,6 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 } else {
+    http_response_code(405);
+    header('Allow: POST');
     echo "Ungültige Anfrage.";
     exit;
 }

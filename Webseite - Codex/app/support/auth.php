@@ -60,6 +60,47 @@ if (!function_exists('humplore_require_login')) {
     }
 }
 
+if (!function_exists('humplore_require_json_login')) {
+    function humplore_require_json_login(array $payload = ['error' => 'Unauthorized']): int
+    {
+        $userId = humplore_current_user_id();
+        if ($userId > 0) {
+            return $userId;
+        }
+
+        http_response_code(401);
+        header('Content-Type: application/json; charset=UTF-8');
+        header('Cache-Control: no-store');
+        echo json_encode($payload, JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+}
+
+if (!function_exists('humplore_require_resource_login')) {
+    function humplore_require_resource_login(): int
+    {
+        $userId = humplore_current_user_id();
+        if ($userId > 0) {
+            return $userId;
+        }
+
+        http_response_code(401);
+        header('Cache-Control: no-store');
+        exit;
+    }
+}
+
+if (!function_exists('humplore_deny_nonproduction_route')) {
+    function humplore_deny_nonproduction_route(): void
+    {
+        http_response_code(404);
+        header('Content-Type: text/plain; charset=UTF-8');
+        header('Cache-Control: no-store');
+        echo 'Not found.';
+        exit;
+    }
+}
+
 if (!function_exists('humplore_require_creator')) {
     function humplore_require_creator(?PDO $pdo = null): void
     {

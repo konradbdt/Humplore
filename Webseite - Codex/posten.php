@@ -1,11 +1,12 @@
 <?php
 require_once __DIR__ . '/app/bootstrap.php';
-$pdo = humplore_db();
 
 /* ================
    Auth-Guard
    ================ */
 humplore_require_login();
+
+$pdo = humplore_db();
 
 /* ================
    Creator-Guard (NEU)

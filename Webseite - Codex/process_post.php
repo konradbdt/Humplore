@@ -1,8 +1,10 @@
 <?php
+require_once __DIR__ . '/app/bootstrap.php';
+humplore_deny_nonproduction_route();
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once __DIR__ . '/app/bootstrap.php';
 // Zugriff nur für Creator
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_creator']) || $_SESSION['is_creator'] != 1) {
     header("Location: login.php");

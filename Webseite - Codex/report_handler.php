@@ -11,12 +11,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
     exit;
 }
 
-$reporterId = humplore_current_user_id();
-if ($reporterId <= 0) {
-    http_response_code(401);
-    echo json_encode(['error' => 'Unauthorized'], JSON_UNESCAPED_UNICODE);
-    exit;
-}
+$reporterId = humplore_require_json_login();
 
 if (!humplore_csrf_token_is_valid()) {
     http_response_code(400);
