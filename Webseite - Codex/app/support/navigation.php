@@ -38,6 +38,7 @@ if (!function_exists('humplore_nav_routes')) {
 
         return [
             'explore' => humplore_explore_route(),
+            'saved' => 'gemerkt.php',
             'post' => 'posten.php',
             'news' => humplore_news_route(),
             'profile' => $userId > 0 ? 'profile.php?user_id=' . $userId : 'login.php',
