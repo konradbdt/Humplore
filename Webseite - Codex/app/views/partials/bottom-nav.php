@@ -7,6 +7,8 @@ $showCreatorItems = humplore_show_creator_nav($navPdo);
 <nav class="bottom-nav" aria-label="Hauptnavigation">
   <a href="<?= e($routes['explore']) ?>" class="<?= humplore_nav_active_class($active, 'explore') ?>">Explore</a>
 
+  <a href="<?= e($routes['saved']) ?>" class="<?= humplore_nav_active_class($active, 'saved') ?>">Gemerkt</a>
+
   <?php if ($showCreatorItems): ?>
     <a href="<?= e($routes['post']) ?>" class="<?= humplore_nav_active_class($active, 'post') ?>">+</a>
   <?php endif; ?>

@@ -15,6 +15,7 @@ Stand: 31. August 2026
 - isolierte Funktions- und Browserprüfung der kontextbezogenen Suchmarkierung am 18. August 2026
 - isolierte HTTP-, Login-, Handler- und Redirectprüfung des PHP-Routenschutzes am 31. August 2026
 - PHP-Syntaxprüfung aller 20 geänderten PHP-Dateien und statische Prüfung der Apache-Dateisperren am 31. August 2026
+- isolierte Browser- und Handlerprüfung der Übersicht gemerkter Beiträge am 31. August 2026
 
 Statuswerte:
 
@@ -33,6 +34,7 @@ Statuswerte:
 | Reporting für Fragen und Kommentare | Persistenz, Validierung, CSRF und Duplikatschutz sind vorhanden. | `openspec/specs/moderation/spec.md` |
 | Profilfilter Stufe 1 | Wohnort und Sprache sind als Filterbereich implementiert. | `openspec/changes/profile-discovery-filters/tasks.md` |
 | Post-Aktionen | `Neues gelernt!`, `Kommentieren`, privates `Merken` und `Teilen` sind in Explore, eigenständiger Suche, Profil und Modal geprüft; Handler-, CSRF-, Gast-, Sperr- und Mobilfälle sind belegt. | `openspec/specs/engagement/spec.md` |
+| Gemerkte Beiträge | Angemeldete Nutzer sehen ausschließlich ihre eigenen gemerkten Beiträge auf `gemerkt.php`, können sie über den vorhandenen CSRF-geschützten Handler entfernen und erhalten einen Leerzustand. Gast-, Isolations-, Navigations- und Mobilfälle sind belegt. | Isolierte Browser- und Handlerprüfung vom 31. August 2026 |
 | Anonyme Fragen | Angemeldete Nutzer können pro Frage Anonymität wählen; interne Attribution bleibt erhalten, Creator- und Besucheransichten sowie Frage-als-Beitrag schützen die Identität. Schema-, Handler-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/specs/questions/spec.md` |
 | Intelligente Suchmarkierung und passende Fragen | Wörtliche und verwandte Treffer werden sicher und nachvollziehbar markiert; die Fragenleiste und ihr Modal verwenden bei aktiver Suche dieselbe gefilterte Datenbasis. PHP-, Funktions-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/specs/search/spec.md` |
 | Intelligente Suchmarkierung und passende Fragen | Wörtliche und verwandte Treffer werden sicher und nachvollziehbar markiert; die Fragenleiste und ihr Modal verwenden bei aktiver Suche dieselbe gefilterte Datenbasis. PHP-, Funktions-, Desktop- und Mobile-Prüfungen sind belegt. | `openspec/changes/contextual-search-highlighting/tasks.md` |
@@ -54,7 +56,6 @@ Statuswerte:
 | Video-/Audio-Upload | Keine funktionierende aktive Implementierung; die aktive Posting-Seite bleibt auf JPEG, PNG und WebP beschränkt. | Video- und Audio-Upload sind weiterhin offen. Die alte, nicht verlinkte Upload-Route ist keine Grundlage der aktiven Implementierung. |
 | Profilfilter | Stufe 1 mit Wohnort und Übergangsfilter für Sprache ist fertig. | Stufe 2 mit normalisierten Sprachen, Altersgruppe, Herkunft, Identität und Einwilligungen: 21 OpenSpec-Tasks offen. |
 | Reporting | Fragen und Kommentare sind meldbar. | Beiträge, Moderationsqueue, Entscheidungen, Audit-Trail, Verwarnung und Sperre. |
-| Gemerkte Beiträge | Beiträge können privat gespeichert und entfernt werden. | Eigene Seite für gemerkte Beiträge. |
 | Kommentare | Erstellen und Anzeigen funktioniert. | Antworten, Meldung auf allen Oberflächen, Likes, Deaktivierung durch Creator und Moderationswerkzeuge. |
 | Folgen | Creator-Follow und ein Following-Modus sind vorhanden. | Themen-Follow, Benachrichtigungen und Übersicht gefolgter Creator. |
 
@@ -82,7 +83,7 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 | Creator-Verifizierung und Vertrauenselemente | offen | Kein Verifizierungsprozess, kein Badge und keine bevorzugte Ausspielung verifizierter Creator. Eine Posting-Sperre ist ausdruecklich nicht vorgesehen. |
 | Anonyme Fragen und pseudonyme Creator | geprüft / implementiert | Anonyme Fragen sind geprüft implementiert. Creator koennen bereits einen frei waehlbaren Nutzernamen verwenden; Beitraege bleiben dem jeweiligen oeffentlichen Profil zugeordnet. Anonyme Beitraege sind bewusst nicht vorgesehen. |
 | Fragen und Antworten an Creator | geprüft | Normale und anonyme Fragen koennen gestellt und vom Creator kurz beantwortet oder ohne Veröffentlichung der Fragesteller-Identität in einen Beitrag uebernommen werden. Schema-, Handler-, Desktop- und Mobile-Fälle sind belegt. |
-| Beitragsaktionen und Merken | geprüft | `Neues gelernt!`, Kommentieren, privates Merken und Teilen sind in Explore, eigenständiger Suche, Profil und Modal interaktiv geprüft. Suche verwendet die gemeinsame Plattform-Postkarte und Bulk-Lookups. Eine Seite für gemerkte Beiträge und Donation bleiben bewusst außerhalb dieses Changes. |
+| Beitragsaktionen und Merken | geprüft | `Neues gelernt!`, Kommentieren, privates Merken und Teilen sind in Explore, eigenständiger Suche, Profil und Modal interaktiv geprüft. Suche verwendet die gemeinsame Plattform-Postkarte und Bulk-Lookups. Gemerkte Beiträge haben zusätzlich eine private, Login-geschützte Übersicht mit Entfernen und Leerzustand. Donation bleibt bewusst außerhalb dieses Changes. |
 | Folgen | teilweise | Creator koennen gefolgt werden; ein Following-Modus ist vorhanden. Themen folgen, Benachrichtigungen und eine eigene Uebersicht gefolgter Creator fehlen. |
 | Kommentare und Austausch | teilweise | Kommentare koennen erstellt und angezeigt werden; Kommentare sind meldbar. Antworten auf Kommentare, Kommentar-Likes, Creator-Steuerung zum Deaktivieren und Moderationswerkzeuge fehlen. |
 | Melden und Safe-Space-Funktionen | teilweise | Fragen und Kommentare koennen mit Validierung, CSRF- und Duplikatschutz gemeldet werden. Beitraege und Profile sind nicht meldbar; Moderationsqueue, Entscheidungen, Verwarnungen, Sperren und Blockieren fehlen. |
@@ -112,7 +113,6 @@ am 11. August 2026 vollständig im Browser und auf Handler-Ebene geprüft.
 - Admin-Moderationsdashboard und Reporting für Beiträge.
 - Datenschutzseite, Löschkonzept und Account-Löschung.
 - Direktnachrichten.
-- Eigene Seite für gemerkte Beiträge.
 - Kommentar-Deaktivierung durch Creator.
 - Vollständige mobile, funktionale und Accessibility-Abnahme.
 
@@ -245,3 +245,13 @@ vorhanden; eine Like-Aktion wechselte auf der isolierten Kopie erfolgreich den
 Status. `php -l` war für alle sechs geänderten PHP-Dateien fehlerfrei. Die
 Repository-Datei `Webseite - Codex/data/database.db` wurde nach der Prüfung
 gegen den ursprünglichen SHA-256-Stand verifiziert.
+
+Am 31. August 2026 wurde die Übersicht `gemerkt.php` mit einer temporären Kopie
+der SQLite-Datenbank geprüft. Ein Gastzugriff leitete zu `login.php?redirect=gemerkt.php`
+weiter. Nach Anmeldung zeigte der Testnutzer ausschließlich seinen einen gespeicherten
+Beitrag; ein für einen zweiten Nutzer gespeicherter Beitrag blieb unsichtbar. Das
+Entfernen über den vorhandenen CSRF-geschützten `save_post_handler.php` aktualisierte
+die Seite zum Leerzustand. Die Navigation enthielt den Link `Gemerkt`. Bei 390×844
+war kein horizontaler Overflow vorhanden; Kartenbreite 366px, Navigation 370px und
+der Entfernen-Button 81×44px. `php -l` war für die neue Seite sowie die geänderten
+direkten PHP-Abhängigkeiten fehlerfrei. Die Repository-Datenbank blieb unverändert.

@@ -4754,6 +4754,10 @@ body {
             <span class="cat-left"><span class="cat-icon" aria-hidden="true">&bull;</span><span class="cat-name">Explore</span></span>
             <span class="cat-go" aria-hidden="true">&rarr;</span>
           </a>
+          <a class="cat-item" href="gemerkt.php">
+            <span class="cat-left"><span class="cat-icon" aria-hidden="true">&bull;</span><span class="cat-name">Gemerkt</span></span>
+            <span class="cat-go" aria-hidden="true">&rarr;</span>
+          </a>
           <?php if ($viewerIsCreator): ?>
             <a class="cat-item" href="posten.php">
               <span class="cat-left"><span class="cat-icon" aria-hidden="true">+</span><span class="cat-name">Posten</span></span>

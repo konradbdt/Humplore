@@ -123,6 +123,9 @@
       }
 
       setSavedPostButtons(String(data.post_id), data.saved);
+      if (!data.saved && document.body.dataset.savedPostsPage === 'true') {
+        window.location.reload();
+      }
     } catch (error) {
       console.error(error);
       showError('Merken konnte nicht aktualisiert werden.');
